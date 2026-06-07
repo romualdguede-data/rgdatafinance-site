@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mentions légales – RG DATA & FINANCE INC.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <meta name="description" content="Mentions légales de RG DATA & FINANCE INC. Informations légales, responsabilité, propriété intellectuelle, confidentialité et conformité.">
+  <meta name="author" content="RG DATA & FINANCE INC.">
+  <link rel="canonical" href="https://www.rgdatafinance.com/mentions-legales.html">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0A1A2F">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header-hero">
+
+  <!-- Lang switch -->
+  <div class="lang-switch">
+    <a href="legal-notice-en.html">EN</a>
+  </div>
+
+  <!-- Hamburger -->
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu">☰</button>
+
+  <!-- Navigation -->
+  <nav class="main-nav" id="mobileMenu">
+    <a href="index.html">Accueil</a>
+    <a href="offers.html">Offres</a>
+    <a href="insights.html">Publications</a>
+    <a href="about.html">À propos</a>
+    <a href="contact.html">Contact</a>
+    <a href="mentions-legales.html" class="active">Mentions légales</a>
+
+    <!-- Dark Mode mobile -->
+    <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Changer le thème">
+      <span id="theme-icon-mobile">🌙</span>
+    </button>
+  </nav>
+
+  <!-- Dark Mode desktop -->
+  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Changer le thème">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <h1>Mentions légales</h1>
+</header>
+
+<section class="section-light">
+  <h2>Informations légales</h2>
+  <p>
+    <strong>Raison sociale :</strong> RG DATA & FINANCE INC.<br>
+    <strong>Statut :</strong> Société par actions (Québec, Canada)<br>
+    <strong>Numéro d’entreprise (NEQ) :</strong> à compléter<br>
+    <strong>Siège social :</strong> Québec, Canada<br>
+    <strong>Courriel :</strong> contact@rgdatafinance.com
+  </p>
+</section>
+
+<section class="section-grey">
+  <h2>Propriété intellectuelle</h2>
+  <p>
+    L’ensemble du contenu du site (textes, images, logos, structure, code HTML/CSS)
+    est la propriété exclusive de RG DATA & FINANCE INC., sauf mention contraire.
+    Toute reproduction, diffusion ou modification sans autorisation est interdite.
+  </p>
+</section>
+
+<section class="section-light">
+  <h2>Responsabilité</h2>
+  <p>
+    Les informations fournies sur ce site sont données à titre informatif.
+    RG DATA & FINANCE INC. ne saurait être tenue responsable d’une mauvaise interprétation
+    ou d’un usage inapproprié des données présentées.
+  </p>
+</section>
+
+<section class="section-grey">
+  <h2>Protection des données</h2>
+  <p>
+    RG DATA & FINANCE INC. respecte la Loi 25 (Québec), la LPRPDE (Canada) et le RGPD (Europe).
+    Aucune donnée personnelle n’est collectée sans consentement explicite.
+    Les formulaires Netlify sont sécurisés et les données ne sont jamais revendues.
+  </p>
+</section>
+
+<section class="section-light">
+  <h2>Hébergement</h2>
+  <p>
+    Le site est hébergé par Netlify, Inc.<br>
+    2325 3rd Street, Suite 296, San Francisco, CA 94107, USA.
+  </p>
+</section>
+
+<footer>
+  © RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
+  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a>
+</footer>
+
+<!-- SCRIPT MENU MOBILE -->
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
+
+<!-- SCRIPT DARK MODE PREMIUM -->
+<script>
+function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        icon.textContent = '☀️';
+        if (iconMobile) iconMobile.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        icon.textContent = '🌙';
+        if (iconMobile) iconMobile.textContent = '🌙';
+    }
+}
+
+const toggleBtn = document.getElementById('theme-toggle');
+const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
+const icon = document.getElementById('theme-icon');
+const iconMobile = document.getElementById('theme-icon-mobile');
+
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+
+applyTheme(savedTheme, prefersDark, icon, iconMobile);
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+
+    icon.textContent = isDark ? '☀️' : '🌙';
+    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+toggleBtn.addEventListener('click', toggleTheme);
+if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+/* ============================================================
+   GLOBAL STYLES
+   ============================================================ */
+
+:root {
+  --primary: #0077cc;
+  --primary-dark: #005fa3;
+  --dark-bg: #0A1A2F;
+  --gold: #C9A86A;
+  --text: #333;
+  --light-bg: #ffffff;
+  --grey-bg: #f0f0f0;
+  --radius: 6px;
+  --transition: 0.2s ease;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--light-bg);
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  font-weight: 700;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; margin-bottom: 20px; }
+h3 { font-size: 1.3rem; }
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ============================================================
+   HEADER + HERO
+   ============================================================ */
+
+header {
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+}
+
+.header-hero {
+  background-image: url("assets/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--dark-bg);
+  padding-top: 180px;
+  padding-bottom: 180px;
+}
+
+/* Dark mode hero */
+.dark-mode .header-hero {
+  background-color: #000;
+  filter: brightness(0.85);
+}
+
+/* ============================================================
+   LANGUAGE SWITCH
+   ============================================================ */
+
+.lang-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.lang-switch a {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ============================================================
+   NAVIGATION MENU
+   ============================================================ */
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px 0;
+  background: var(--light-bg);
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.main-nav a {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.main-nav a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 600px) {
+  .main-nav {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: var(--radius);
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+
+.section-light {
+  padding: 60px 20px;
+  background: var(--light-bg);
+}
+
+.section-grey {
+  padding: 60px 20px;
+  background: var(--grey-bg);
+}
+
+/* ============================================================
+   OFFERS GRID
+   ============================================================ */
+
+.offers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.offer {
+  width: 300px;
+  background: white;
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.offer img {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 15px;
+}
+
+/* Offer details */
+.offer ul {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+.offer ul li {
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   TWO-COLUMN LAYOUT
+   ============================================================ */
+
+.two-cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.two-cols .col {
+  flex: 1 1 300px;
+}
+
+/* ============================================================
+   INSIGHTS PAGE
+   ============================================================ */
+
+.insights-list {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 20px;
+}
+
+.insights-list li {
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+footer {
+  text-align: center;
+  padding: 25px 10px;
+  background: var(--dark-bg);
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+footer a {
+  color: var(--gold);
+  font-weight: 600;
+}
+footer a:hover { text-decoration: underline; }
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  header { padding: 40px 15px; }
+  h1 { font-size: 1.8rem; }
+
+  .offers { gap: 20px; }
+  .offer { width: 90%; }
+
+  .two-cols { flex-direction: column; text-align: center; }
+
+  .lang-switch { top: 15px; right: 15px; }
+
+  .header-hero {
+    padding-top: 140px;
+    padding-bottom: 140px;
+    background-size: contain;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.6rem; }
+  .btn { width: 100%; text-align: center; }
+  .offer img { max-width: 100%; }
+}
+
+/* ============================================================
+   HAMBURGER MENU
+   ============================================================ */
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+#mobileMenu {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: block; }
+
+  #mobileMenu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  #mobileMenu a {
+    padding: 10px 0;
+    font-size: 18px;
+  }
+
+  #mobileMenu.open {
+    display: flex;
+  }
+}

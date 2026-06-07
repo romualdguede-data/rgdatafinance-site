@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>À propos – RG DATA & FINANCE INC.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <meta name="description" content="À propos de RG DATA & FINANCE INC. : analyse économique, data intelligence, économétrie appliquée et conseil stratégique.">
+  <meta name="keywords" content="analyse économique, data intelligence, économétrie, conseil stratégique, politiques publiques">
+  <meta name="author" content="RG DATA & FINANCE INC.">
+  <link rel="canonical" href="https://www.rgdatafinance.com/about.html">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0A1A2F">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header-hero">
+
+  <!-- Lang switch -->
+  <div class="lang-switch">
+    <a href="about-en.html">EN</a>
+  </div>
+
+  <!-- Hamburger -->
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu">☰</button>
+
+  <!-- Navigation -->
+  <nav class="main-nav" id="mobileMenu">
+    <a href="index.html">Accueil</a>
+    <a href="offers.html">Offres</a>
+    <a href="insights.html">Publications</a>
+    <a href="about.html" class="active">À propos</a>
+    <a href="contact.html">Contact</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+
+    <!-- Dark Mode (mobile) -->
+    <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Changer le thème">
+      <span id="theme-icon-mobile">🌙</span>
+    </button>
+  </nav>
+
+  <!-- Dark Mode (desktop) -->
+  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Changer le thème">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <h1>À propos de RG DATA & FINANCE INC.</h1>
+</header>
+
+<section class="section-light">
+  <h2>Notre mission</h2>
+  <p>
+    Nous aidons les organisations publiques et privées à transformer leurs données en décisions
+    grâce à une combinaison unique de rigueur scientifique, d’économétrie appliquée et d’intelligence d’affaires.
+  </p>
+</section>
+
+<section class="section-grey">
+  <h2>Le fondateur</h2>
+  <p>
+    <strong>Romuald Guédé</strong> est économiste, chercheur et consultant spécialisé en analyse économique,
+    économétrie appliquée et data intelligence.
+  </p>
+  <ul>
+    <li>Expertises : économétrie, évaluation de politiques publiques, data intelligence</li>
+    <li>Présence : Québec – Côte d’Ivoire</li>
+    <li>Fondateur de RG DATA & FINANCE INC.</li>
+  </ul>
+</section>
+
+<section class="section-light">
+  <h2>Nos valeurs</h2>
+  <ul>
+    <li>Rigueur scientifique</li>
+    <li>Impact concret</li>
+    <li>Transparence</li>
+    <li>Innovation</li>
+  </ul>
+</section>
+
+<footer>
+  © RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
+  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
+  <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">Réserver une consultation</a>
+</footer>
+
+<!-- SCRIPT MENU MOBILE -->
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
+
+<!-- SCRIPT DARK MODE PREMIUM -->
+<script>
+function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        icon.textContent = '☀️';
+        if (iconMobile) iconMobile.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        icon.textContent = '🌙';
+        if (iconMobile) iconMobile.textContent = '🌙';
+    }
+}
+
+const toggleBtn = document.getElementById('theme-toggle');
+const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
+const icon = document.getElementById('theme-icon');
+const iconMobile = document.getElementById('theme-icon-mobile');
+
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+
+applyTheme(savedTheme, prefersDark, icon, iconMobile);
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+
+    icon.textContent = isDark ? '☀️' : '🌙';
+    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+toggleBtn.addEventListener('click', toggleTheme);
+if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
+</script>
+
+</body>
+</html>

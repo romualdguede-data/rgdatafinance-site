@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Offres détaillées – RG DATA & FINANCE INC.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <meta name="description" content="Offres détaillées de RG DATA & FINANCE INC. : Municipalités, Ministères, PME et OBNL. Analyse économique, data intelligence, tableaux de bord, évaluation de politiques publiques et littératie financière.">
+  <meta name="keywords" content="offres, services, analyse économique, data intelligence, municipalités, ministères, PME, OBNL, littératie financière">
+  <meta name="author" content="RG DATA & FINANCE INC.">
+  <link rel="canonical" href="https://www.rgdatafinance.com/offers.html">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0A1A2F">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header-hero">
+
+  <!-- Lang switch -->
+  <div class="lang-switch">
+    <a href="offers-en.html">EN</a>
+  </div>
+
+  <!-- Hamburger -->
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu">☰</button>
+
+  <!-- Navigation -->
+  <nav class="main-nav" id="mobileMenu">
+    <a href="index.html">Accueil</a>
+    <a href="offers.html" class="active">Offres</a>
+    <a href="insights.html">Publications</a>
+    <a href="about.html">À propos</a>
+    <a href="contact.html">Contact</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+
+    <!-- Dark Mode (mobile) -->
+    <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Changer le thème">
+      <span id="theme-icon-mobile">🌙</span>
+    </button>
+  </nav>
+
+  <!-- Dark Mode (desktop) -->
+  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Changer le thème">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <h1>Nos offres détaillées</h1>
+</header>
+
+<!-- MUNICIPALITÉS -->
+<section class="section-light">
+  <h2>Municipal Data & Impact Pack™</h2>
+
+  <div class="offer">
+    <img src="assets/municipal-services.jpg" alt="Offre municipale">
+    <p>Diagnostic complet, tableaux de bord, rapport exécutif et analyse d’impact.</p>
+    <ul>
+      <li>Analyse de performance municipale</li>
+      <li>Tableaux de bord Power BI</li>
+      <li>Rapport d’impact pour les élus</li>
+      <li>Recommandations stratégiques</li>
+    </ul>
+  </div>
+</section>
+
+<!-- MINISTÈRES -->
+<section class="section-grey">
+  <h2>Policy Impact & Decision Pack™</h2>
+
+  <div class="offer">
+    <img src="assets/ministerial-services.jpg" alt="Offre ministérielle">
+    <p>Évaluation rigoureuse et indépendante des politiques publiques.</p>
+    <ul>
+      <li>Analyse économétrique</li>
+      <li>Analyse coûts-bénéfices</li>
+      <li>Scénarios prospectifs</li>
+      <li>Rapport de 20 à 40 pages</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PME -->
+<section class="section-light">
+  <h2>Performance & Data Clarity Pack™</h2>
+
+  <div class="offer">
+    <img src="assets/sme-services.jpg" alt="Offre PME">
+    <p>Tableau de bord PME, analyse de performance et plan d’action 90 jours.</p>
+    <ul>
+      <li>Tableau de bord complet</li>
+      <li>Prévisions financières</li>
+      <li>Analyse de performance</li>
+      <li>Atelier stratégique</li>
+    </ul>
+  </div>
+</section>
+
+<!-- OBNL -->
+<section class="section-grey">
+  <h2>OBNL Impact & Financial Literacy Pack™</h2>
+
+  <div class="offer">
+    <img src="assets/obnl-services.jpg" alt="Services OBNL">
+    <p>Accompagnement des OBNL en gouvernance financière, mesure d’impact et littératie financière.</p>
+    <ul>
+      <li>Tableaux de bord financiers pour bailleurs de fonds</li>
+      <li>Analyse de coûts, marges et programmes</li>
+      <li>Indicateurs d’impact (SROI, théorie du changement)</li>
+      <li>Formations en littératie financière (budget, crédit, dettes)</li>
+      <li>Ateliers interactifs en ligne ou en présentiel</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  © RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
+  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
+  <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">Réserver une consultation</a>
+</footer>
+
+<!-- SCRIPT MENU MOBILE -->
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
+
+<!-- SCRIPT DARK MODE PREMIUM -->
+<script>
+function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        icon.textContent = '☀️';
+        if (iconMobile) iconMobile.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        icon.textContent = '🌙';
+        if (iconMobile) iconMobile.textContent = '🌙';
+    }
+}
+
+const toggleBtn = document.getElementById('theme-toggle');
+const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
+const icon = document.getElementById('theme-icon');
+const iconMobile = document.getElementById('theme-icon-mobile');
+
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+
+applyTheme(savedTheme, prefersDark, icon, iconMobile);
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+
+    icon.textContent = isDark ? '☀️' : '🌙';
+    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+toggleBtn.addEventListener('click', toggleTheme);
+if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Detailed Offers – RG DATA & FINANCE INC.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <meta name="description" content="Detailed offers from RG DATA & FINANCE INC.: Municipalities, Ministries, SMEs, and Nonprofits. Economic analysis, data intelligence, dashboards, policy evaluation, and financial literacy training.">
+  <meta name="keywords" content="offers, services, economic analysis, data intelligence, municipalities, ministries, SMEs, nonprofits, financial literacy">
+  <meta name="author" content="RG DATA & FINANCE INC.">
+  <link rel="canonical" href="https://www.rgdatafinance.com/offers-en.html">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0A1A2F">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header-hero">
+
+  <!-- Language switch -->
+  <div class="lang-switch">
+    <a href="offers.html">FR</a>
+  </div>
+
+  <!-- Hamburger -->
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+  <!-- Navigation -->
+  <nav class="main-nav" id="mobileMenu">
+    <a href="index-en.html">Home</a>
+    <a href="offers-en.html" class="active">Offers</a>
+    <a href="insights-en.html">Insights</a>
+    <a href="about-en.html">About</a>
+    <a href="contact-en.html">Contact</a>
+    <a href="legal-notice-en.html">Legal Notice</a>
+
+    <!-- Dark Mode (mobile) -->
+    <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
+      <span id="theme-icon-mobile">🌙</span>
+    </button>
+  </nav>
+
+  <!-- Dark Mode (desktop) -->
+  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <h1>Our Detailed Offers</h1>
+</header>
+
+<!-- MUNICIPALITIES -->
+<section class="section-light">
+  <h2>Municipal Data & Impact Pack™</h2>
+
+  <div class="offer">
+    <img src="assets/municipal-services.jpg" alt="Municipal offer">
+    <p>Comprehensive diagnostics, dashboards, executive reports, and impact analysis.</p>
+    <ul>
+      <li>Municipal performance analysis</li>
+      <li>Power BI dashboards</li>
+      <li>Impact report for elected officials</li>
+      <li>Strategic recommendations</li>
+    </ul>
+  </div>
+</section>
+
+<!-- MINISTRIES -->
+<section class="section-grey">
+  <h2>Policy Impact & Decision Pack™</h2>
+
+  <div class="offer">
+    <img src="assets/ministerial-services.jpg" alt="Ministerial offer">
+    <p>Rigorous and independent evaluation of public policies.</p>
+    <ul>
+      <li>Econometric analysis</li>
+      <li>Cost-benefit analysis</li>
+      <li>Prospective scenarios</li>
+      <li>20–40 page report</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SMEs -->
+<section class="section-light">
+  <h2>Performance & Data Clarity Pack™</h2>
+
+  <div class="offer">
+    <img src="assets/sme-services.jpg" alt="SME offer">
+    <p>SME dashboard, performance analysis, and 90‑day action plan.</p>
+    <ul>
+      <li>Complete dashboard</li>
+      <li>Financial forecasting</li>
+      <li>Performance analysis</li>
+      <li>Strategic workshop</li>
+    </ul>
+  </div>
+</section>
+
+<!-- NONPROFITS -->
+<section class="section-grey">
+  <h2>Nonprofit Impact & Financial Literacy Pack™</h2>
+
+  <div class="offer">
+    <img src="assets/obnl-services.jpg" alt="Nonprofit services">
+    <p>Support for nonprofits in financial governance, impact measurement, and financial literacy training.</p>
+    <ul>
+      <li>Financial dashboards for funders</li>
+      <li>Cost and program performance analysis</li>
+      <li>Impact indicators (SROI, theory of change)</li>
+      <li>Financial literacy training (budgeting, credit, debt)</li>
+      <li>Interactive workshops (online or in person)</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  © RG DATA & FINANCE INC. – Economic Analysis & Data Intelligence<br>
+  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
+  <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">Book a consultation</a>
+</footer>
+
+<!-- SCRIPT MENU MOBILE -->
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
+
+<!-- SCRIPT DARK MODE PREMIUM -->
+<script>
+function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        icon.textContent = '☀️';
+        if (iconMobile) iconMobile.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        icon.textContent = '🌙';
+        if (iconMobile) iconMobile.textContent = '🌙';
+    }
+}
+
+const toggleBtn = document.getElementById('theme-toggle');
+const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
+const icon = document.getElementById('theme-icon');
+const iconMobile = document.getElementById('theme-icon-mobile');
+
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+
+applyTheme(savedTheme, prefersDark, icon, iconMobile);
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+
+    icon.textContent = isDark ? '☀️' : '🌙';
+    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+toggleBtn.addEventListener('click', toggleTheme);
+if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
+</script>
+
+</body>
+</html>

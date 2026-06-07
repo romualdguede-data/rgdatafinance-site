@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>RG DATA & FINANCE INC. – Economic Analysis & Data Intelligence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <meta name="description" content="RG DATA & FINANCE INC. – Economic analysis, data intelligence, dashboards, public policy evaluation, SME performance, nonprofit services and financial literacy training.">
+  <meta name="keywords" content="economic analysis, data intelligence, econometrics, dashboards, nonprofits, financial literacy, public policy, SMEs, municipalities, ministries">
+  <meta name="author" content="RG DATA & FINANCE INC.">
+  <link rel="canonical" href="https://www.rgdatafinance.com/index-en.html">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0A1A2F">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header-hero">
+
+  <!-- Language switch -->
+  <div class="lang-switch">
+    <a href="index.html">FR</a>
+  </div>
+
+  <!-- Hamburger -->
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+  <!-- Navigation -->
+  <nav class="main-nav" id="mobileMenu">
+    <a href="index-en.html" class="active">Home</a>
+    <a href="offers-en.html">Offers</a>
+    <a href="insights-en.html">Insights</a>
+    <a href="about-en.html">About</a>
+    <a href="contact-en.html">Contact</a>
+    <a href="legal-notice-en.html">Legal Notice</a>
+
+    <!-- Dark Mode (mobile) -->
+    <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
+      <span id="theme-icon-mobile">🌙</span>
+    </button>
+  </nav>
+
+  <!-- Dark Mode (desktop) -->
+  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <!-- Hero text -->
+  <h1>Turn your data into decisions.</h1>
+  <p class="subtitle">
+    Economic analysis • Data intelligence • Strategic decision-making<br>
+    RG DATA & FINANCE INC. supports public and private organizations.
+  </p>
+
+  <p class="hero-buttons">
+    <a href="#services" class="btn">Explore our services</a>
+    <a href="#contact" class="btn btn-outline">Book a meeting</a>
+  </p>
+
+</header>
+
+<!-- SERVICES -->
+<section id="services" class="section-light">
+  <h2>Our Offers</h2>
+
+  <div class="offers">
+
+    <div class="offer">
+      <img src="assets/municipal-services.jpg" alt="Municipal services">
+      <h3>Municipal Data & Impact Pack™</h3>
+      <p>Performance diagnostics, dashboards, and impact reports for municipalities.</p>
+      <a href="offers-en.html" class="btn">View offer</a>
+    </div>
+
+    <div class="offer">
+      <img src="assets/ministerial-services.jpg" alt="Ministerial services">
+      <h3>Policy Impact & Decision Pack™</h3>
+      <p>Evaluation of public programs, impact analysis, and econometric modeling.</p>
+      <a href="offers-en.html" class="btn">View offer</a>
+    </div>
+
+    <div class="offer">
+      <img src="assets/sme-services.jpg" alt="SME services">
+      <h3>Performance & Data Clarity Pack™</h3>
+      <p>SME dashboards, performance analysis, and a 90‑day action plan.</p>
+      <a href="offers-en.html" class="btn">View offer</a>
+    </div>
+
+    <div class="offer">
+      <img src="assets/obnl-services.jpg" alt="Nonprofit services">
+      <h3>Nonprofit Impact & Financial Literacy Pack™</h3>
+      <p>Financial governance, impact measurement, and financial literacy training.</p>
+      <a href="offers-en.html" class="btn">View offer</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-grey">
+  <h2>About</h2>
+
+  <div class="two-cols">
+    <div class="col">
+      <p>
+        RG DATA & FINANCE INC. is a consulting firm founded by
+        <strong>Romuald Guédé</strong>, economist and researcher in applied
+        econometrics and economic analysis.
+      </p>
+    </div>
+
+    <div class="col">
+      <h3>Our Values</h3>
+      <ul>
+        <li>Rigor and transparency</li>
+        <li>Impact and responsibility</li>
+        <li>Innovation and pedagogy</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section-light">
+  <h2>Contact</h2>
+  <p>To discuss a project or mandate:</p>
+
+  <p>
+    📧 <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a><br>
+    📅 <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">
+      Book a 30‑minute consultation
+    </a>
+  </p>
+</section>
+
+<footer>
+  © RG DATA & FINANCE INC. – Economic Analysis & Data Intelligence<br>
+  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
+  <a href="legal-notice-en.html">Legal Notice</a>
+</footer>
+
+<!-- SCRIPT MENU MOBILE -->
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
+
+<!-- SCRIPT DARK MODE PREMIUM -->
+<script>
+function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        icon.textContent = '☀️';
+        if (iconMobile) iconMobile.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        icon.textContent = '🌙';
+        if (iconMobile) iconMobile.textContent = '🌙';
+    }
+}
+
+const toggleBtn = document.getElementById('theme-toggle');
+const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
+const icon = document.getElementById('theme-icon');
+const iconMobile = document.getElementById('theme-icon-mobile');
+
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+
+applyTheme(savedTheme, prefersDark, icon, iconMobile);
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+
+    icon.textContent = isDark ? '☀️' : '🌙';
+    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+toggleBtn.addEventListener('click', toggleTheme);
+if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact – RG DATA & FINANCE INC.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <meta name="description" content="Contactez RG DATA & FINANCE INC. pour vos projets d’analyse économique, data intelligence, tableaux de bord, évaluation de politiques publiques et littératie financière.">
+  <meta name="author" content="RG DATA & FINANCE INC.">
+  <link rel="canonical" href="https://www.rgdatafinance.com/contact.html">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0A1A2F">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header-hero">
+
+  <!-- Lang switch -->
+  <div class="lang-switch">
+    <a href="contact-en.html">EN</a>
+  </div>
+
+  <!-- Hamburger -->
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu">☰</button>
+
+  <!-- Navigation -->
+  <nav class="main-nav" id="mobileMenu">
+    <a href="index.html">Accueil</a>
+    <a href="offers.html">Offres</a>
+    <a href="insights.html">Publications</a>
+    <a href="about.html">À propos</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+
+    <!-- Dark Mode mobile -->
+    <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Changer le thème">
+      <span id="theme-icon-mobile">🌙</span>
+    </button>
+  </nav>
+
+  <!-- Dark Mode desktop -->
+  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Changer le thème">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <h1>Contactez-nous</h1>
+</header>
+
+<section class="section-light">
+  <h2>Formulaire de contact</h2>
+
+  <form name="contact" method="POST" data-netlify="true" class="contact-form">
+    <input type="hidden" name="form-name" value="contact">
+
+    <label for="name">Nom complet</label>
+    <input id="name" type="text" name="name" required>
+
+    <label for="email">Courriel</label>
+    <input id="email" type="email" name="email" required>
+
+    <label for="subject">Objet</label>
+    <input id="subject" type="text" name="subject" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="6" required></textarea>
+
+    <button type="submit" class="btn">Envoyer</button>
+  </form>
+</section>
+
+<section class="section-grey">
+  <h2>Autres moyens de contact</h2>
+  <p>
+    📧 <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a><br>
+    📅 <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">
+      Réserver une consultation de 30 minutes
+    </a>
+  </p>
+</section>
+
+<section class="section-light">
+  <h2>FAQ</h2>
+  <ul>
+    <li><strong>Quels types de mandats réalisez-vous ?</strong><br>Analyse économique, tableaux de bord, évaluation de politiques publiques, performance PME, services OBNL et littératie financière.</li>
+    <li><strong>Travaillez-vous avec les municipalités ?</strong><br>Oui, via le Municipal Data & Impact Pack™.</li>
+    <li><strong>Offrez-vous des services aux PME ?</strong><br>Oui, via le Performance & Data Clarity Pack™.</li>
+    <li><strong>Accompagnez-vous les OBNL ?</strong><br>Oui, via le OBNL Impact & Financial Literacy Pack™.</li>
+  </ul>
+</section>
+
+<footer>
+  © RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
+  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
+  <a href="mentions-legales.html">Mentions légales</a>
+</footer>
+
+<!-- SCRIPT MENU MOBILE -->
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
+
+<!-- SCRIPT DARK MODE PREMIUM -->
+<script>
+function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        icon.textContent = '☀️';
+        if (iconMobile) iconMobile.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        icon.textContent = '🌙';
+        if (iconMobile) iconMobile.textContent = '🌙';
+    }
+}
+
+const toggleBtn = document.getElementById('theme-toggle');
+const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
+const icon = document.getElementById('theme-icon');
+const iconMobile = document.getElementById('theme-icon-mobile');
+
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+
+applyTheme(savedTheme, prefersDark, icon, iconMobile);
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+
+    icon.textContent = isDark ? '☀️' : '🌙';
+    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+toggleBtn.addEventListener('click', toggleTheme);
+if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
+</script>
+
+</body>
+</html>

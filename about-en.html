@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>About – RG DATA & FINANCE INC.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <meta name="description" content="About RG DATA & FINANCE INC.: economic analysis, data intelligence, applied econometrics and strategic consulting.">
+  <meta name="keywords" content="economic analysis, data intelligence, econometrics, strategic consulting, public policy">
+  <meta name="author" content="RG DATA & FINANCE INC.">
+  <link rel="canonical" href="https://www.rgdatafinance.com/about-en.html">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0A1A2F">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header-hero">
+
+  <!-- Language switch -->
+  <div class="lang-switch">
+    <a href="about.html">FR</a>
+  </div>
+
+  <!-- Hamburger -->
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+  <!-- Navigation -->
+  <nav class="main-nav" id="mobileMenu">
+    <a href="index-en.html">Home</a>
+    <a href="offers-en.html">Offers</a>
+    <a href="insights-en.html">Insights</a>
+    <a href="about-en.html" class="active">About</a>
+    <a href="contact-en.html">Contact</a>
+    <a href="legal-notice-en.html">Legal Notice</a>
+
+    <!-- Dark Mode (mobile) -->
+    <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
+      <span id="theme-icon-mobile">🌙</span>
+    </button>
+  </nav>
+
+  <!-- Dark Mode (desktop) -->
+  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <h1>About RG DATA & FINANCE INC.</h1>
+</header>
+
+<section class="section-light">
+  <h2>Our Mission</h2>
+  <p>
+    We help public and private organizations turn data into decisions through a unique combination
+    of scientific rigor, applied econometrics and business intelligence.
+  </p>
+</section>
+
+<section class="section-grey">
+  <h2>The Founder</h2>
+  <p>
+    <strong>Romuald Guédé</strong> is an economist, researcher and consultant specializing in economic analysis,
+    applied econometrics and data intelligence.
+  </p>
+  <ul>
+    <li>Expertise: econometrics, public policy evaluation, data intelligence</li>
+    <li>Presence: Quebec – Côte d’Ivoire</li>
+    <li>Founder of RG DATA & FINANCE INC.</li>
+  </ul>
+</section>
+
+<section class="section-light">
+  <h2>Our Values</h2>
+  <ul>
+    <li>Scientific rigor</li>
+    <li>Concrete impact</li>
+    <li>Transparency</li>
+    <li>Innovation</li>
+  </ul>
+</section>
+
+<footer>
+  © RG DATA & FINANCE INC. – Economic Analysis & Data Intelligence<br>
+  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
+  <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">Book a consultation</a>
+</footer>
+
+<!-- SCRIPT MENU MOBILE -->
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
+
+<!-- SCRIPT DARK MODE PREMIUM -->
+<script>
+function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        icon.textContent = '☀️';
+        if (iconMobile) iconMobile.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        icon.textContent = '🌙';
+        if (iconMobile) iconMobile.textContent = '🌙';
+    }
+}
+
+const toggleBtn = document.getElementById('theme-toggle');
+const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
+const icon = document.getElementById('theme-icon');
+const iconMobile = document.getElementById('theme-icon-mobile');
+
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+
+applyTheme(savedTheme, prefersDark, icon, iconMobile);
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+
+    icon.textContent = isDark ? '☀️' : '🌙';
+    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+toggleBtn.addEventListener('click', toggleTheme);
+if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
+</script>
+
+</body>
+</html>
