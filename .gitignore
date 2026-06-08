@@ -1,42 +1,68 @@
-# --- Fichiers système ---
+# ============================
+#  FICHIERS SYSTÈME
+# ============================
 Thumbs.db
 .DS_Store
 AppData/
 *.log
 *.tmp
 
-# --- Dossiers de build ou dépendances ---
-node_modules/
-dist/
-.cache/
-build/
-.tmp/
-
-# --- Fichiers de configuration sensibles ---
+# ============================
+#  ENVIRONNEMENT / SÉCURITÉ
+# ============================
 .env
 .env.*
 *.key
 *.pem
 *.crt
 *.csr
+*.p12
+*.pfx
 
-# --- Fichiers IDE et éditeurs ---
+# ============================
+#  BUILD / DÉPENDANCES
+# ============================
+node_modules/
+dist/
+build/
+.cache/
+.tmp/
+*.map
+
+# ============================
+#  NETLIFY
+# ============================
+.netlify/
+functions/node_modules/
+functions/.cache/
+
+# ============================
+#  GITHUB ACTIONS / CI-CD
+# ============================
+# On ignore les fichiers générés automatiquement
+.github/workflows/*.log
+.github/workflows/*.tmp
+.github/workflows/*-cache/
+
+# ============================
+#  ÉDITEURS / IDE
+# ============================
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# --- Fichiers Netlify ---
-# Ces fichiers sont générés automatiquement par Netlify
-.netlify/
-functions/node_modules/
-
-# --- Fichiers de déploiement ---
+# ============================
+#  ARCHIVES / EXPORTS
+# ============================
 *.zip
 *.tar
 *.gz
+*.rar
 
-# --- Fichiers personnels ou locaux ---
+# ============================
+#  FICHIERS PERSONNELS / LOCAUX
+# ============================
 *.bak
 *.old
 *.orig
