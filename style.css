@@ -10,9 +10,9 @@
   --text: #333333;
   --light-bg: #ffffff;
   --grey-bg: #f8f9fa;
-  --footer-bg: #050d18; /* Bande bleue d'encadrement haut et bas */
+  --footer-bg: #050d18; /* Bande bleue d'encadrement */
   --border-color: rgba(0, 0, 0, 0.1);
-  --radius: 6px;
+  --radius: 8px;
   --transition: 0.25s ease;
 }
 
@@ -54,7 +54,7 @@ a:hover {
 }
 
 /* ============================================================
-   POINT 1 & 2 : ACCUEIL EXCLUSIF PLEIN ÉCRAN ET LOGO AGRANDI
+   POINT 1 : ACCUEIL EXCLUSIF (BANDES DE 2CM & LOGO MAXIMISÉ)
    ============================================================ */
 
 .homepage-fullscreen {
@@ -66,13 +66,13 @@ a:hover {
   width: 100%;
   box-sizing: border-box;
   background-color: var(--dark-bg);
-  padding: 20px 20px 15px 20px;
+  padding: 10px 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  /* Encadrement strict par la bande bleue */
-  border-top: 25px solid var(--footer-bg);
-  border-bottom: 25px solid var(--footer-bg);
+  /* Encadrement strict haut et bas de 2cm */
+  border-top: 2cm solid var(--footer-bg);
+  border-bottom: 2cm solid var(--footer-bg);
 }
 
 .hero-content {
@@ -82,37 +82,43 @@ a:hover {
   align-items: center;
   flex-grow: 1;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
+  /* Garantit que le contenu reste à 2cm du bord des bandes bleues */
+  padding: 2cm 0;
+  box-sizing: border-box;
 }
 
 .hero-content .tagline {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 10px;
   text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
-/* Dimension du logo agrandie */
+/* Agrandissement maximal de l'image du logo */
 .hero-content .logo-container {
   background-image: url("assets/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  width: 280px; 
-  height: 280px;
-  margin-bottom: 15px;
+  width: 100%;
+  /* Calcule la hauteur maximale disponible moins l'espace des textes */
+  height: calc(100vh - 4cm - 250px); 
+  max-height: 380px;
+  min-height: 200px;
+  margin-bottom: 20px;
 }
 
 .hero-content .subtitle {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   color: var(--gold);
   font-weight: 600;
   margin-top: 0;
 }
 
 /* ============================================================
-   POINT 2 : MISE AU MÊME NIVEAU DES BOUTONS (BAS DE PAGE)
+   ALIGNEMENT BAS DE PAGE ACCUEIL
    ============================================================ */
 
 .homepage-footer {
@@ -124,12 +130,11 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px; /* Espace entre les deux boutons alignés */
+  gap: 20px;
   margin-bottom: 15px;
   flex-wrap: wrap;
 }
 
-/* Style commun pour l'alignement strict au même niveau */
 .footer-buttons a {
   padding: 12px 24px;
   font-size: 0.9rem;
@@ -142,7 +147,6 @@ a:hover {
   box-sizing: border-box;
 }
 
-/* Bouton : Découvrez nos services */
 .cta-primary {
   background-color: var(--primary);
   color: #ffffff !important;
@@ -154,7 +158,6 @@ a:hover {
   text-decoration: none;
 }
 
-/* Bouton : Prendre rendez-vous */
 .cta-secondary {
   background-color: transparent;
   color: var(--gold) !important;
@@ -266,7 +269,80 @@ a:hover {
 }
 
 /* ============================================================
-   FOOTER STANDARD DES PAGES SECONDAIRES
+   POINT 2 : GRILLE DES OFFRES (PRÉSENTATION 2 À 2)
+   ============================================================ */
+
+.offers-grid-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  /* Grille stricte à 2 colonnes d'égale dimension */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  background: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+body.dark-mode .service-card {
+  background: var(--grey-bg);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.card-image-wrapper {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.offer-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .offer-image {
+  transform: scale(1.03);
+}
+
+.card-content {
+  padding: 25px;
+  flex-grow: 1;
+}
+
+.card-content h2 {
+  color: var(--primary);
+  margin-bottom: 12px;
+  font-size: 1.45rem;
+}
+
+body.dark-mode .card-content h2 {
+  color: #ffffff;
+}
+
+.section-offers-block {
+  background-color: var(--light-bg);
+}
+body.dark-mode .section-offers-block {
+  background-color: var(--dark-bg);
+}
+
+/* ============================================================
+   FOOTER STANDARD
    ============================================================ */
 
 footer:not(.homepage-footer) {
@@ -286,17 +362,24 @@ footer:not(.homepage-footer) a {
    RESPONSIVE DESIGN
    ============================================================ */
 
+@media (max-width: 900px) {
+  /* Sur tablettes et mobiles, passage automatique à 1 colonne */
+  .offers-grid-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
 @media (max-width: 768px) {
   .homepage-fullscreen {
-    border-top-width: 15px;
-    border-bottom-width: 15px;
+    border-top-width: 1cm;
+    border-bottom-width: 1cm;
     height: auto;
     min-height: 100vh;
   }
-
-  .hero-content .logo-container {
-    width: 200px;
-    height: 200px;
+  
+  .hero-content {
+    padding: 1cm 0;
   }
 
   .footer-buttons {
