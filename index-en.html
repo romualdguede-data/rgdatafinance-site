@@ -54,18 +54,20 @@
     <span id="theme-icon">🌙</span>
   </button>
 
-  <!-- Hero text -->
-  <h1>Turn your data into decisions.</h1>
+  <!-- Tagline (new, above logo) -->
+  <div class="tagline">Turn your data into decisions.</div>
 
+  <!-- Subtitle (below logo) -->
   <p class="subtitle">
     Economic analysis • Data intelligence • Strategic decision-making<br>
     RG DATA & FINANCE INC. supports public and private organizations.
   </p>
 
-  <p class="hero-buttons">
+  <!-- Buttons (bottom of hero) -->
+  <div class="cta-container">
     <a href="#services" class="btn">Explore our services</a>
     <a href="#contact" class="btn btn-outline">Book a meeting</a>
-  </p>
+  </div>
 
 </header>
 
@@ -149,50 +151,8 @@
   <a href="legal-notice-en.html">Legal Notice</a>
 </footer>
 
-<!-- SCRIPT MENU MOBILE -->
-<script>
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("open");
-}
-</script>
-
-<!-- SCRIPT DARK MODE PREMIUM -->
-<script>
-function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.body.classList.add('dark-mode');
-        icon.textContent = '☀️';
-        if (iconMobile) iconMobile.textContent = '☀️';
-    } else {
-        document.body.classList.remove('dark-mode');
-        icon.textContent = '🌙';
-        if (iconMobile) iconMobile.textContent = '🌙';
-    }
-}
-
-const toggleBtn = document.getElementById('theme-toggle');
-const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
-const icon = document.getElementById('theme-icon');
-const iconMobile = document.getElementById('theme-icon-mobile');
-
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const savedTheme = localStorage.getItem('theme');
-
-applyTheme(savedTheme, prefersDark, icon, iconMobile);
-
-function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-
-    icon.textContent = isDark ? '☀️' : '🌙';
-    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
-
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
-
-toggleBtn.addEventListener('click', toggleTheme);
-if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
-</script>
+<!-- JS -->
+<script src="script.js"></script>
 
 </body>
 </html>

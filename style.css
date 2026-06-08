@@ -43,18 +43,43 @@ a:hover { text-decoration: underline; }
 
 header {
   text-align: center;
-  padding: 5px 20px;
+  padding: 0;
+  margin: 0;
   position: relative;
 }
 
+/* HERO */
 .header-hero {
-  background-image: url("assets/logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   background-color: var(--dark-bg);
-  padding-top: 40px;
-  padding-bottom: 40px;
+  background-image: url("assets/logo.png");
+  background-repeat: no-repeat;
+  background-position: center 120px;
+  background-size: 180px;
+
+  padding-top: 200px;
+  padding-bottom: 160px;
+  color: white;
+}
+
+/* Tagline (nouveau) */
+.header-hero .tagline {
+  margin-top: 20px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* Sous‑titre */
+.header-hero .subtitle {
+  margin-top: 40px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+/* Boutons */
+.header-hero .cta-container {
+  margin-top: 60px;
+  margin-bottom: 20px;
 }
 
 /* Dark mode hero */
@@ -63,26 +88,13 @@ header {
   filter: brightness(0.85);
 }
 
-.header-hero h1 {
-  margin-top: 10px;
-}
-
-.header-hero .subtitle {
-  margin-top: 20px;
-}
-
-.header-hero .cta-container {
-  margin-top: 40px;
-  margin-bottom: 15px;
-}
-
 /* ============================================================
    LANGUAGE SWITCH
    ============================================================ */
 
 .lang-switch {
   position: absolute;
-  top: 20px;
+  top: 15px;
   right: 20px;
 }
 
@@ -92,16 +104,19 @@ header {
 }
 
 /* ============================================================
-   NAVIGATION MENU
+   NAVIGATION MENU (bande blanche réduite)
    ============================================================ */
 
 .main-nav {
   display: flex;
   justify-content: center;
   gap: 25px;
-  padding: 15px 0;
+  padding: 10px 0;
   background: var(--light-bg);
   border-bottom: 1px solid #e5e5e5;
+
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .main-nav a {
@@ -253,7 +268,6 @@ footer a:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {
 
-  header { padding: 20px 15px; }
   h1 { font-size: 1.8rem; }
 
   .offers { gap: 20px; }
@@ -261,12 +275,12 @@ footer a:hover { text-decoration: underline; }
 
   .two-cols { flex-direction: column; text-align: center; }
 
-  .lang-switch { top: 15px; right: 15px; }
+  .lang-switch { top: 10px; right: 15px; }
 
   .header-hero {
-    padding-top: 120px;
-    padding-bottom: 120px;
-    background-size: contain;
+    padding-top: 180px;
+    padding-bottom: 140px;
+    background-size: 150px;
   }
 }
 

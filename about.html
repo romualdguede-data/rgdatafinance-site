@@ -42,11 +42,6 @@
     <a href="about.html" class="active">À propos</a>
     <a href="contact.html">Contact</a>
     <a href="mentions-legales.html">Mentions légales</a>
-
-    <!-- Dark Mode (mobile) -->
-    <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Changer le thème">
-      <span id="theme-icon-mobile">🌙</span>
-    </button>
   </nav>
 
   <!-- Dark Mode (desktop) -->
@@ -101,7 +96,7 @@ function toggleMenu() {
 }
 </script>
 
-<!-- SCRIPT DARK MODE PREMIUM -->
+<!-- SCRIPT DARK MODE -->
 <script>
 function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
@@ -141,3 +136,4 @@ if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
 
 </body>
 </html>
+
