@@ -10,13 +10,12 @@
   --text: #333333;
   --light-bg: #ffffff;
   --grey-bg: #f8f9fa;
-  --footer-bg: #050d18; 
+  --footer-bg: #050d18; /* Couleur du bandeau encadrant / onglet actif */
   --border-color: rgba(0, 0, 0, 0.1);
   --radius: 6px;
   --transition: 0.2s ease;
 }
 
-/* Surcharges et transitions du mode sombre */
 body.dark-mode {
   --text: #f0f0f0;
   --light-bg: #0A1A2F;
@@ -49,15 +48,13 @@ h1, h2, h3 {
 a {
   color: var(--primary);
   text-decoration: none;
-  transition: color var(--transition);
 }
-
 a:hover { 
   text-decoration: underline; 
 }
 
 /* ============================================================
-   PAGE D'ACCUEIL : PLEIN ÉCRAN ENCASTRE
+   POINT 1 : ACCUEIL EXCLUSIF PLEIN ÉCRAN ENCADRÉ
    ============================================================ */
 
 .homepage-fullscreen {
@@ -73,11 +70,11 @@ a:hover {
   text-align: center;
   position: relative;
   overflow: hidden;
+  /* Encadrement haut et bas exclusif par la bande bleue */
   border-top: 25px solid var(--footer-bg);
   border-bottom: 25px solid var(--footer-bg);
 }
 
-/* Zone centrale exclusive à l'accueil */
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -96,7 +93,6 @@ a:hover {
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-/* Conteneur de Logo (Arrière-plan) */
 .hero-content .logo-container {
   background-image: url("assets/logo.png");
   background-repeat: no-repeat;
@@ -115,26 +111,22 @@ a:hover {
   margin-bottom: 35px;
 }
 
-.hero-content .cta-container {
-  margin-bottom: 10px;
-}
-
 /* ============================================================
-   EN-TÊTE DES PAGES SECONDAIRES (Point 3)
+   EN-TÊTE DES PAGES SECONDAIRES & MENTIONS (POINT 3)
    ============================================================ */
 
 .header-secondary {
   background-color: var(--dark-bg);
-  border-top: 20px solid var(--footer-bg);
-  padding: 20px 20px 30px 20px;
+  /* Pas d'encadrement massif ici : design épuré conforme au point 3 */
+  border-top: 5px solid var(--primary); 
+  padding: 20px;
   text-align: center;
   position: relative;
   border-bottom: 1px solid var(--border-color);
 }
 
-/* Positionnement de la navigation tout en haut dans l'en-tête secondaire */
 .header-secondary .main-nav {
-  margin: 0 auto 30px auto;
+  margin: 0 auto 20px auto;
   border-top: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 15px;
@@ -142,13 +134,13 @@ a:hover {
 
 .header-secondary h1 {
   color: #ffffff;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-bottom: 0;
   font-size: 2.2rem;
 }
 
 /* ============================================================
-   NAVIGATION COMMUNE
+   NAVIGATION COMMUNE & COMPOSANTS
    ============================================================ */
 
 .main-nav {
@@ -157,10 +149,8 @@ a:hover {
   gap: 35px;
   padding: 15px 0;
   background: transparent;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
   max-width: 900px;
-  margin-top: auto; 
 }
 
 .main-nav a {
@@ -178,12 +168,12 @@ a:hover {
   text-decoration: none;
 }
 
-/* Sélecteurs Utilitaires (Langues / Thèmes) */
 .lang-switch {
   position: absolute;
   top: 35px;
   right: 25px;
   z-index: 10;
+  color: #fff;
 }
 
 .lang-switch a {
@@ -196,69 +186,25 @@ a:hover {
   border: none;
   font-size: 1.4rem;
   cursor: pointer;
-  z-index: 10;
+}
+
+/* Styles spécifiques pour le Point 2 (Logos d'offres) */
+.offer-logo {
+  height: 85px;
+  width: auto;
+  margin-bottom: 20px;
   transition: transform var(--transition);
 }
 
-.theme-toggle:hover {
-  transform: scale(1.1);
+.offer-logo:hover {
+  transform: scale(1.05);
 }
 
-/* ============================================================
-   BOUTONS ET COMPOSANTS D'ACTION
-   ============================================================ */
-
-.btn {
-  display: inline-block;
-  padding: 14px 32px;
-  border-radius: var(--radius);
-  background-color: var(--primary);
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: var(--transition);
-  box-shadow: 0 4px 15px rgba(0, 119, 204, 0.3);
-  border: none;
+.font-card {
+  text-align: center;
+  padding: 25px;
 }
 
-.btn:hover {
-  background-color: var(--primary-dark);
-  color: #ffffff;
-  text-decoration: none;
-  transform: translateY(-2px);
-}
-
-/* ============================================================
-   CONTENUS, SECTIONS ET LISTES D'INSIGHTS
-   ============================================================ */
-
-.section-light {
-  padding: 60px 20px;
-  background: var(--light-bg);
-}
-
-.section-grey {
-  padding: 60px 20px;
-  background: var(--grey-bg);
-}
-
-/* Listes d'articles et publications */
-.insights-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.insights-list li {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.insights-list li:last-child {
-  border-bottom: none;
-}
-
-/* Mises en page multi-colonnes */
 .two-cols {
   display: flex;
   flex-wrap: wrap;
@@ -270,7 +216,6 @@ a:hover {
   flex: 1 1 300px;
 }
 
-/* Hamburger pour menu mobile */
 .hamburger {
   display: none;
   background: none;
@@ -300,40 +245,14 @@ footer a {
   color: var(--gold);
 }
 
-footer a:hover {
-  text-decoration: underline;
-}
-
 /* ============================================================
-   RESPONSIVE DESIGN (TABLETTES ET SMARTPHONES)
+   RESPONSIVE DESIGN
    ============================================================ */
 
 @media (max-width: 768px) {
   .homepage-fullscreen {
     border-top-width: 15px;
     border-bottom-width: 15px;
-  }
-
-  .hero-content .tagline { 
-    font-size: 1.8rem; 
-  }
-  
-  .hero-content .logo-container {
-    width: 140px;
-    height: 140px;
-  }
-
-  .hero-content .subtitle {
-    font-size: 1.2rem;
-  }
-
-  .header-secondary {
-    border-top-width: 15px;
-    padding-top: 50px;
-  }
-
-  .header-secondary h1 {
-    font-size: 1.8rem;
   }
 
   .hamburger {
@@ -351,13 +270,12 @@ footer a:hover {
     gap: 0;
     padding: 0;
     width: 100%;
-    border-top: none;
   }
 
   .main-nav.open {
     display: flex;
     margin-top: 20px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: var(--radius);
   }
 
@@ -366,13 +284,5 @@ footer a:hover {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     width: 100%;
     box-sizing: border-box;
-  }
-}
-
-@media (max-width: 480px) {
-  .btn {
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
   }
 }
