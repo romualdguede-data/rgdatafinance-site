@@ -2,74 +2,54 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>RG DATA & FINANCE INC. – Economic Analysis & Data Intelligence</title>
+  <title>RG DATA & FINANCE INC. – Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO -->
-  <meta name="description" content="Empowering public and private organizations to turn their data into decisions through applied econometrics and business intelligence.">
-  <meta name="keywords" content="economic analysis, data intelligence, econometrics, strategic consulting">
-  <meta name="author" content="RG DATA & FINANCE INC.">
-  <link rel="canonical" href="https://www.rgdatafinance.com/index-en.html">
-
-  <!-- PWA -->
+  <meta name="description" content="Expertise in economic analysis and data intelligence.">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0A1A2F">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/icon-192.png">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- FULLSCREEN HOMEPAGE -->
-  <header class="homepage-fullscreen">
-    
-    <!-- Theme Toggle -->
-    <button id="theme-toggle" class="theme-toggle" style="position: absolute; top: 20px; left: 20px;" aria-label="Toggle theme">
-      <span id="theme-icon">🌙</span>
-    </button>
-
-    <!-- Language Switch -->
-    <div class="lang-switch">
-      <a href="index.html">FR</a>
-    </div>
-
-    <!-- Mobile Hamburger Menu -->
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
-
-    <!-- Central Hero Content -->
-    <div class="hero-content">
-      <!-- Tagline above the logo -->
-      <h1 class="tagline">Turn your data into financial opportunities</h1>
-      
-      <!-- Company Logo Container -->
-      <div class="logo-container"></div>
-      
-      <!-- Subtitle below the logo -->
-      <p class="subtitle">Economic Analysis & Data Intelligence</p>
-      
-      <!-- Main Call to Action -->
-      <div class="cta-container">
-        <a href="offers-en.html" class="btn">Discover our offers and book a consultation</a>
-      </div>
-    </div>
-
-    <!-- Navigation Bar aligned at the exact bottom -->
+<div class="homepage-fullscreen">
+  <!-- Navigation header integrated into fullscreen -->
+  <header style="width: 100%; max-width: 900px; position: relative;">
+    <button class="hamburger" id="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
     <nav class="main-nav" id="mobileMenu">
       <a href="index-en.html" class="active">Home</a>
       <a href="offers-en.html">Offers</a>
-      <a href="insights-en.html">Publications</a>
+      <a href="insights-en.html">Insights</a>
       <a href="about-en.html">About</a>
       <a href="contact-en.html">Contact</a>
-      <a href="legal-notice-en.html">Legal Notice</a>
     </nav>
+    <div class="lang-switch">
+      <a href="index.html">FR</a> | 
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"><span id="theme-icon">🌙</span></button>
+    </div>
   </header>
 
-<!-- Federated Global Scripts -->
-<script src="app.js"></script>
+  <!-- Central Hero Area -->
+  <main class="hero-content">
+    <div class="logo-container"></div>
+    <h1 class="tagline">RG DATA & FINANCE INC.</h1>
+    <p class="subtitle">Economic Analysis & Data Intelligence</p>
+    
+    <!-- CTA to offers -->
+    <a href="offers-en.html" class="cta-button">Discover our services and book an appointment</a>
+  </main>
 
+  <!-- Bottom Page with required Appointment section -->
+  <footer class="homepage-footer">
+    <div style="margin-bottom: 15px;">
+      <a href="contact-en.html" class="cta-appointment">BOOK AN APPOINTMENT</a>
+    </div>
+    <div class="footer-credits">
+      © 2026 RG DATA & FINANCE INC. | <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> | <a href="legal-notice-en.html">Legal Notice</a>
+    </div>
+  </footer>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>

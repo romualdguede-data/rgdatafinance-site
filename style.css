@@ -7,10 +7,11 @@
   --primary-dark: #005fa3;
   --dark-bg: #0A1A2F;
   --gold: #C9A86A;
+  --gold-hover: #b39255;
   --text: #333333;
   --light-bg: #ffffff;
   --grey-bg: #f8f9fa;
-  --footer-bg: #050d18; /* Couleur de la bande d'encadrement / onglet actif */
+  --footer-bg: #050d18; /* Bande bleue d'encadrement / onglet actif */
   --border-color: rgba(0, 0, 0, 0.1);
   --radius: 8px;
   --transition: 0.3s ease;
@@ -66,7 +67,7 @@ a:hover {
   width: 100%;
   box-sizing: border-box;
   background-color: var(--dark-bg);
-  padding: 20px;
+  padding: 20px 20px 10px 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -89,7 +90,7 @@ a:hover {
   font-size: 2.4rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
@@ -98,9 +99,9 @@ a:hover {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  width: 200px;
-  height: 200px;
-  margin-bottom: 25px;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 20px;
 }
 
 .hero-content .subtitle {
@@ -108,7 +109,65 @@ a:hover {
   color: var(--gold);
   font-weight: 600;
   margin-top: 0;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
+}
+
+/* Bouton CTA Principal de l'Accueil (Point 2) */
+.cta-button {
+  display: inline-block;
+  background-color: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  transition: background-color var(--transition), transform var(--transition);
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0, 119, 204, 0.3);
+}
+
+.cta-button:hover {
+  background-color: var(--primary-dark);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   LIAISON BAS DE PAGE & APPOINTMENT (POINT 2)
+   ============================================================ */
+
+.homepage-footer {
+  width: 100%;
+  max-width: 900px;
+  padding-bottom: 10px;
+}
+
+.cta-appointment {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.cta-appointment:hover {
+  background-color: var(--gold);
+  color: var(--footer-bg);
+  text-decoration: none;
+}
+
+.footer-credits {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+.footer-credits a {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* ============================================================
@@ -188,7 +247,7 @@ a:hover {
 }
 
 /* ============================================================
-   STRUCTURES DES NOUVELLES CARTES D'OFFRES VISUELLES (POINT 2)
+   STRUCTURES DES CARTES D'OFFRES VISUELLES
    ============================================================ */
 
 .two-cols {
@@ -273,10 +332,10 @@ body.dark-mode .card-content h2 {
 }
 
 /* ============================================================
-   FOOTER GLOBAL
+   FOOTER STANDARD DES PAGES SECONDAIRES
    ============================================================ */
 
-footer {
+footer:not(.homepage-footer) {
   text-align: center;
   padding: 35px 20px;
   background: var(--footer-bg);
@@ -285,7 +344,7 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-footer a {
+footer:not(.homepage-footer) a {
   color: var(--gold);
 }
 

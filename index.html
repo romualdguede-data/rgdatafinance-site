@@ -2,74 +2,54 @@
 <html lang="fr" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>RG DATA & FINANCE INC. – Analyse économique & Data intelligence</title>
+  <title>RG DATA & FINANCE INC. – Accueil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO -->
-  <meta name="description" content="Aide aux organisations publiques et privées pour transformer leurs données en décisions grâce à l’économétrie appliquée et l’intelligence d’affaires.">
-  <meta name="keywords" content="analyse économique, data intelligence, économétrie, conseil stratégique">
-  <meta name="author" content="RG DATA & FINANCE INC.">
-  <link rel="canonical" href="https://www.rgdatafinance.com/index.html">
-
-  <!-- PWA -->
+  <meta name="description" content="Expertise en analyse économique et data intelligence.">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0A1A2F">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/icon-192.png">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- PAGE D'ACCUEIL UNIQUE EN PLEIN ÉCRAN -->
-  <header class="homepage-fullscreen">
-    
-    <!-- Dark Mode -->
-    <button id="theme-toggle" class="theme-toggle" style="position: absolute; top: 20px; left: 20px;" aria-label="Changer le thème">
-      <span id="theme-icon">🌙</span>
-    </button>
-
-    <!-- Sélecteur de langue -->
-    <div class="lang-switch">
-      <a href="index-en.html">EN</a>
-    </div>
-
-    <!-- Hamburger pour le menu mobile -->
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu">☰</button>
-
-    <!-- Zone Centrale de Contenu -->
-    <div class="hero-content">
-      <!-- Tagline au-dessus du logo -->
-      <h1 class="tagline">Transformez vos données en opportunités financières</h1>
-      
-      <!-- Logo de l'entreprise -->
-      <div class="logo-container"></div>
-      
-      <!-- Sous-titre en dessous du logo -->
-      <p class="subtitle">Analyse économique & Data intelligence</p>
-      
-      <!-- Bouton d'action principal -->
-      <div class="cta-container">
-        <a href="offers.html" class="btn">Découvrez nos services et prenez rendez-vous</a>
-      </div>
-    </div>
-
-    <!-- Navigation principale calée tout en bas -->
+<div class="homepage-fullscreen">
+  <!-- En-tête de navigation intégrée au plein écran -->
+  <header style="width: 100%; max-width: 900px; position: relative;">
+    <button class="hamburger" id="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
     <nav class="main-nav" id="mobileMenu">
       <a href="index.html" class="active">Accueil</a>
       <a href="offers.html">Offres</a>
-      <a href="insights.html">Publications</a>
-      <a href="about.html">À propos</a>
+      <a href="insights.html">Insights</a>
+      <a href="about.html">À Propos</a>
       <a href="contact.html">Contact</a>
-      <a href="mentions-legales.html">Mentions légales</a>
     </nav>
+    <div class="lang-switch">
+      <a href="index-en.html">EN</a> | 
+      <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème"><span id="theme-icon">🌙</span></button>
+    </div>
   </header>
 
-<!-- Scripts unifiés et globaux -->
-<script src="app.js"></script>
+  <!-- Zone Centrale : Logo RGData et Textes -->
+  <main class="hero-content">
+    <div class="logo-container"></div>
+    <h1 class="tagline">RG DATA & FINANCE INC.</h1>
+    <p class="subtitle">Analyse Économique & Data Intelligence</p>
+    
+    <!-- CTA vers les offres -->
+    <a href="offers.html" class="cta-button">Découvrez nos services et prenez rendez-vous</a>
+  </main>
 
+  <!-- Bas de page avec le bouton Prendre Rendez-vous requis -->
+  <footer class="homepage-footer">
+    <div style="margin-bottom: 15px;">
+      <a href="contact.html" class="cta-appointment">PRENDRE RENDEZ-VOUS</a>
+    </div>
+    <div class="footer-credits">
+      © 2026 RG DATA & FINANCE INC. | <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> | <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+  </footer>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
