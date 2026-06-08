@@ -10,10 +10,10 @@
   --text: #333333;
   --light-bg: #ffffff;
   --grey-bg: #f8f9fa;
-  --footer-bg: #050d18; /* Couleur du bandeau encadrant / onglet actif */
+  --footer-bg: #050d18; /* Couleur de la bande d'encadrement / onglet actif */
   --border-color: rgba(0, 0, 0, 0.1);
-  --radius: 6px;
-  --transition: 0.2s ease;
+  --radius: 8px;
+  --transition: 0.3s ease;
 }
 
 body.dark-mode {
@@ -70,7 +70,7 @@ a:hover {
   text-align: center;
   position: relative;
   overflow: hidden;
-  /* Encadrement haut et bas exclusif par la bande bleue */
+  /* Encadrement strict haut et bas par le bandeau bleu foncé */
   border-top: 25px solid var(--footer-bg);
   border-bottom: 25px solid var(--footer-bg);
 }
@@ -112,12 +112,11 @@ a:hover {
 }
 
 /* ============================================================
-   EN-TÊTE DES PAGES SECONDAIRES & MENTIONS (POINT 3)
+   EN-TÊTE DES PAGES SECONDAIRES
    ============================================================ */
 
 .header-secondary {
   background-color: var(--dark-bg);
-  /* Pas d'encadrement massif ici : design épuré conforme au point 3 */
   border-top: 5px solid var(--primary); 
   padding: 20px;
   text-align: center;
@@ -188,33 +187,78 @@ a:hover {
   cursor: pointer;
 }
 
-/* Styles spécifiques pour le Point 2 (Logos d'offres) */
-.offer-logo {
-  height: 85px;
-  width: auto;
-  margin-bottom: 20px;
-  transition: transform var(--transition);
-}
-
-.offer-logo:hover {
-  transform: scale(1.05);
-}
-
-.font-card {
-  text-align: center;
-  padding: 25px;
-}
+/* ============================================================
+   STRUCTURES DES NOUVELLES CARTES D'OFFRES VISUELLES (POINT 2)
+   ============================================================ */
 
 .two-cols {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 30px;
   justify-content: center;
+  padding: 10px;
 }
 
 .two-cols .col {
-  flex: 1 1 300px;
+  flex: 1 1 450px;
+  max-width: 520px;
 }
+
+.service-card {
+  background: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+body.dark-mode .service-card {
+  background: var(--grey-bg);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+}
+
+.card-image-wrapper {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: #000;
+}
+
+.offer-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .offer-image {
+  transform: scale(1.04);
+}
+
+.card-content {
+  padding: 25px;
+  flex-grow: 1;
+}
+
+.card-content h2 {
+  color: var(--primary);
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+}
+
+body.dark-mode .card-content h2 {
+  color: #ffffff;
+}
+
+.section-light { background-color: var(--light-bg); padding: 40px 20px; }
+.section-grey { background-color: var(--grey-bg); padding: 40px 20px; }
 
 .hamburger {
   display: none;
@@ -253,6 +297,10 @@ footer a {
   .homepage-fullscreen {
     border-top-width: 15px;
     border-bottom-width: 15px;
+  }
+
+  .card-image-wrapper {
+    height: 180px;
   }
 
   .hamburger {
