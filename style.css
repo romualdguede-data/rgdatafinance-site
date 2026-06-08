@@ -1,5 +1,61 @@
 /* ============================================================
-   ACCUEIL : CORRECTION DE LA VISIBILITÉ COMPLÈTE (SANS COUPURE)
+   1. VARIABLES GLOBALES ET THÈMES
+   ============================================================ */
+
+:root {
+  --primary: #0077cc;
+  --primary-dark: #005fa3;
+  --dark-bg: #0A1A2F;
+  --gold: #C9A86A;
+  --text: #333333;
+  --light-bg: #ffffff;
+  --grey-bg: #f8f9fa;
+  --footer-bg: #050d18; /* Couleur de la bande fine */
+  --border-color: rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+  --transition: 0.2s ease-in-out;
+}
+
+body.dark-mode {
+  --text: #f0f0f0;
+  --light-bg: #0A1A2F;
+  --grey-bg: #112240;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .homepage-fullscreen {
+  background-color: #050d18;
+}
+
+/* ============================================================
+   2. STYLES DE BASE
+   ============================================================ */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background-color: var(--light-bg);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 700;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover { 
+  text-decoration: underline; 
+}
+
+/* ============================================================
+   3. ACCUEIL : VERROUILLAGE SANS SCROLL (PROPORTIONS PARFAITES)
    ============================================================ */
 
 .homepage-fullscreen {
@@ -7,86 +63,374 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 100vh; /* Permet à la page de respirer sans bloquer l'écran */
+  height: 100vh;            /* Fixe l'écran strictement à la hauteur visible */
   width: 100%;
   box-sizing: border-box;
   background-color: var(--dark-bg);
   padding: 10px 20px;
   text-align: center;
   position: relative;
+  overflow: hidden;         /* Coupe tout défilement technique résiduel */
   
-  /* Bandes réduites et fluides */
-  border-top: 20px solid var(--footer-bg);
-  border-bottom: 20px solid var(--footer-bg);
+  /* Bandes de finition réduites */
+  border-top: 15px solid var(--footer-bg);
+  border-bottom: 15px solid var(--footer-bg);
 }
 
-/* Conteneur global du centre - Ajusté pour tout faire monter */
+/* Forcer la visibilité absolue de la navigation sur l'accueil */
+.homepage-fullscreen .main-nav {
+  margin: 5px auto 0 auto;
+  padding: 5px 0;
+  z-index: 10;
+}
+
+/* Conteneur central distribuant les espaces de manière égale */
 .hero-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly; 
   align-items: center;
   flex-grow: 1;
   width: 100%;
   max-width: 1100px;
-  padding: 5px 0; /* Réduction de l'espace interne */
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 .hero-content .tagline {
-  font-size: 2.2rem; /* Légèrement réduit pour gagner de l'espace */
+  font-size: 1.9rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 5px;
+  margin: 2px 0;
   text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
-/* Image RG DATA & FINANCE optimisée pour ne pas pousser les boutons vers le bas */
+/* Image RG DATA & FINANCE : Maximisée mais bridée à 28% de la hauteur de l'écran */
 .hero-content .logo-container {
   background-image: url("assets/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   width: 100%;
-  height: 35vh; /* Réduit de 45vh à 35vh pour libérer l'espace des boutons */
-  max-height: 400px; 
-  min-height: 220px;
-  margin: 10px 0;
+  height: 28vh; 
+  max-height: 300px; 
+  min-height: 160px;
+  margin: 5px 0;
 }
 
 .hero-content .subtitle {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--gold);
   font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 15px;
+  margin: 2px 0;
 }
 
-/* Zone des boutons entièrement dégagée de la bande inférieure */
+/* Zone des boutons : Entièrement remontée au-dessus de la bande noire */
 .homepage-footer {
   width: 100%;
   max-width: 900px;
-  margin-bottom: 5px; /* Évite de coller à la bande noire/bleue */
-  z-index: 5;
+  margin-bottom: 5px; 
+  z-index: 10;
 }
 
 .footer-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   margin-bottom: 5px;
   flex-wrap: wrap;
 }
 
 .footer-buttons a {
-  padding: 12px 24px;
+  padding: 10px 22px;
   font-size: 0.95rem;
   font-weight: 700;
   border-radius: var(--radius);
   letter-spacing: 0.5px;
   transition: var(--transition);
   text-align: center;
-  min-width: 240px;
+  min-width: 220px;
   box-sizing: border-box;
+}
+
+.cta-primary {
+  background-color: var(--primary);
+  color: #ffffff !important;
+  box-shadow: 0 4px 6px rgba(0, 119, 204, 0.2);
+}
+
+.cta-primary:hover {
+  background-color: var(--primary-dark);
+  text-decoration: none;
+}
+
+.cta-secondary {
+  background-color: transparent;
+  color: var(--gold) !important;
+  border: 2px solid var(--gold);
+}
+
+.cta-secondary:hover {
+  background-color: var(--gold);
+  color: var(--footer-bg) !important;
+  text-decoration: none;
+}
+
+.footer-credits {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.footer-credits a {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   4. NAVIGATION COMMUNE & EN-TÊTES SECONDAIRES
+   ============================================================ */
+
+.header-secondary {
+  background-color: var(--dark-bg);
+  border-top: 5px solid var(--primary); 
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-secondary .main-nav {
+  margin: 0 auto 20px auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+}
+
+.header-secondary h1 {
+  color: #ffffff;
+  margin-top: 10px;
+  font-size: 2.2rem;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  padding: 10px 0;
+  background: transparent;
+  width: 100%;
+  max-width: 900px;
+}
+
+.main-nav a {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.lang-switch {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 15;
+  color: #fff;
+}
+
+.lang-switch a {
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+/* ============================================================
+   5. GRILLE DES OFFRES (STRICTE 2 PAR 2)
+   ============================================================ */
+
+.section-offers-block {
+  background-color: var(--light-bg);
+}
+body.dark-mode .section-offers-block {
+  background-color: var(--dark-bg);
+}
+
+.offers-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+.service-card {
+  background-color: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .service-card {
+  background-color: var(--grey-bg);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card-image-wrapper {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.offer-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content h2 {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+body.dark-mode .card-content h2 {
+  color: #ffffff;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: var(--text);
+  margin: 0;
+}
+
+body.dark-mode .card-content p {
+  color: #ccd6f6;
+}
+
+/* ============================================================
+   6. FOOTER STANDARD DES PAGES SECONDAIRES
+   ============================================================ */
+
+footer:not(.homepage-footer) {
+  text-align: center;
+  padding: 35px 20px;
+  background: var(--footer-bg);
+  color: #ffffff;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer:not(.homepage-footer) a {
+  color: var(--gold);
+}
+
+/* ============================================================
+   7. RESPONSIVE DESIGN (MOBILES & TABLETTES)
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .offers-grid-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage-fullscreen {
+    height: auto;
+    min-height: 100vh;
+    overflow: auto; /* Autorise le scroll uniquement sur petit mobile si l'écran est minuscule */
+  }
+  
+  .hero-content {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero-content .logo-container {
+    height: 25vh;
+    min-height: 150px;
+  }
+
+  .footer-buttons {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .footer-buttons a {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  .main-nav.open {
+    display: flex;
+    margin-top: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: var(--radius);
+  }
+
+  .main-nav a {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
