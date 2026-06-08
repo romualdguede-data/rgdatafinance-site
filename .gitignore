@@ -1,0 +1,43 @@
+# --- Fichiers système ---
+Thumbs.db
+.DS_Store
+AppData/
+*.log
+*.tmp
+
+# --- Dossiers de build ou dépendances ---
+node_modules/
+dist/
+.cache/
+build/
+.tmp/
+
+# --- Fichiers de configuration sensibles ---
+.env
+.env.*
+*.key
+*.pem
+*.crt
+*.csr
+
+# --- Fichiers IDE et éditeurs ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Fichiers Netlify ---
+# Ces fichiers sont générés automatiquement par Netlify
+.netlify/
+functions/node_modules/
+
+# --- Fichiers de déploiement ---
+*.zip
+*.tar
+*.gz
+
+# --- Fichiers personnels ou locaux ---
+*.bak
+*.old
+*.orig
+*.local
