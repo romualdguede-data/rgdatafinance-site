@@ -10,7 +10,7 @@
   --text: #333333;
   --light-bg: #ffffff;
   --grey-bg: #f8f9fa;
-  --footer-bg: #050d18; /* Couleur de la bande fine */
+  --footer-bg: #050d18;
   --border-color: rgba(0, 0, 0, 0.1);
   --radius: 8px;
   --transition: 0.2s ease-in-out;
@@ -50,120 +50,104 @@ a {
   color: var(--primary);
   text-decoration: none;
 }
-a:hover { 
-  text-decoration: underline; 
-}
+a:hover { text-decoration: underline; }
 
 /* ============================================================
-   3. ACCUEIL : VERROUILLAGE SANS SCROLL (PROPORTIONS PARFAITES)
+   3. ACCUEIL : FIX VISIBILITÉ CTA + CENTRAGE PARFAIT
    ============================================================ */
 
 .homepage-fullscreen {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; /* Distribue correctement */
   align-items: center;
-  height: 100vh;            /* Fixe l'écran strictement à la hauteur visible */
+  height: 100vh;
   width: 100%;
-  box-sizing: border-box;
   background-color: var(--dark-bg);
-  padding: 10px 20px;
+  padding: 20px 20px;
   text-align: center;
   position: relative;
-  overflow: hidden;         /* Coupe tout défilement technique résiduel */
-  
-  /* Bandes de finition réduites */
-  border-top: 15px solid var(--footer-bg);
-  border-bottom: 15px solid var(--footer-bg);
+  overflow: hidden;
+
+  border-top: 12px solid var(--footer-bg);
+  border-bottom: 12px solid var(--footer-bg);
 }
 
-/* Forcer la visibilité absolue de la navigation sur l'accueil */
+/* NAV visible */
 .homepage-fullscreen .main-nav {
-  margin: 5px auto 0 auto;
-  padding: 5px 0;
+  margin-top: 5px;
   z-index: 10;
 }
 
-/* Conteneur central distribuant les espaces de manière égale */
+/* Bloc central */
 .hero-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly; 
+  justify-content: center; /* Correction clé */
   align-items: center;
   flex-grow: 1;
   width: 100%;
   max-width: 1100px;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+  gap: 18px; /* Ajout pour espacement propre */
 }
 
+/* Slogan */
 .hero-content .tagline {
-  font-size: 1.9rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #ffffff;
-  margin: 2px 0;
   text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
-/* Image RG DATA & FINANCE : Maximisée mais bridée à 28% de la hauteur de l'écran */
+/* Logo */
 .hero-content .logo-container {
   background-image: url("assets/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   width: 100%;
-  height: 28vh; 
-  max-height: 300px; 
+  height: 26vh; /* Ajusté */
+  max-height: 280px;
   min-height: 160px;
-  margin: 5px 0;
 }
 
+/* Sous-texte */
 .hero-content .subtitle {
   font-size: 1.2rem;
   color: var(--gold);
   font-weight: 600;
-  margin: 2px 0;
 }
 
-/* Zone des boutons : Entièrement remontée au-dessus de la bande noire */
+/* CTA FIXÉS ET VISIBLES */
 .homepage-footer {
   width: 100%;
   max-width: 900px;
-  margin-bottom: 5px; 
-  z-index: 10;
+  margin-bottom: 10px;
+  z-index: 20;
 }
 
 .footer-buttons {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 15px;
-  margin-bottom: 5px;
   flex-wrap: wrap;
 }
 
 .footer-buttons a {
-  padding: 10px 22px;
-  font-size: 0.95rem;
+  padding: 12px 26px;
+  font-size: 1rem;
   font-weight: 700;
   border-radius: var(--radius);
-  letter-spacing: 0.5px;
-  transition: var(--transition);
-  text-align: center;
   min-width: 220px;
-  box-sizing: border-box;
+  transition: var(--transition);
 }
 
 .cta-primary {
   background-color: var(--primary);
   color: #ffffff !important;
-  box-shadow: 0 4px 6px rgba(0, 119, 204, 0.2);
 }
-
 .cta-primary:hover {
   background-color: var(--primary-dark);
-  text-decoration: none;
 }
 
 .cta-secondary {
@@ -171,266 +155,55 @@ a:hover {
   color: var(--gold) !important;
   border: 2px solid var(--gold);
 }
-
 .cta-secondary:hover {
   background-color: var(--gold);
   color: var(--footer-bg) !important;
-  text-decoration: none;
-}
-
-.footer-credits {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.8rem;
-  margin-top: 2px;
-}
-
-.footer-credits a {
-  color: rgba(255, 255, 255, 0.6);
 }
 
 /* ============================================================
-   4. NAVIGATION COMMUNE & EN-TÊTES SECONDAIRES
+   4. NAVIGATION
    ============================================================ */
-
-.header-secondary {
-  background-color: var(--dark-bg);
-  border-top: 5px solid var(--primary); 
-  padding: 20px;
-  text-align: center;
-  position: relative;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.header-secondary .main-nav {
-  margin: 0 auto 20px auto;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 15px;
-}
-
-.header-secondary h1 {
-  color: #ffffff;
-  margin-top: 10px;
-  font-size: 2.2rem;
-}
 
 .main-nav {
   display: flex;
   justify-content: center;
   gap: 35px;
   padding: 10px 0;
-  background: transparent;
-  width: 100%;
   max-width: 900px;
 }
 
 .main-nav a {
   font-weight: 600;
   color: #ffffff;
-  font-size: 1rem;
-  transition: var(--transition);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-
 .main-nav a:hover,
 .main-nav a.active {
   color: var(--gold);
-  text-decoration: none;
-}
-
-.lang-switch {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  z-index: 15;
-  color: #fff;
-}
-
-.lang-switch a {
-  font-weight: 600;
-  color: var(--gold);
-}
-
-.theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.3rem;
-  cursor: pointer;
-  margin-left: 5px;
-}
-
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 1.8rem;
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  left: 20px;
 }
 
 /* ============================================================
-   5. GRILLE DES OFFRES (STRICTE 2 PAR 2)
+   5. RESPONSIVE
    ============================================================ */
-
-.section-offers-block {
-  background-color: var(--light-bg);
-}
-body.dark-mode .section-offers-block {
-  background-color: var(--dark-bg);
-}
-
-.offers-grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  box-sizing: border-box;
-}
-
-.service-card {
-  background-color: var(--light-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-body.dark-mode .service-card {
-  background-color: var(--grey-bg);
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
-}
-
-.card-image-wrapper {
-  width: 100%;
-  height: 240px;
-  overflow: hidden;
-}
-
-.offer-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-content {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.card-content h2 {
-  font-size: 1.4rem;
-  color: var(--primary);
-  margin-bottom: 12px;
-}
-
-body.dark-mode .card-content h2 {
-  color: #ffffff;
-}
-
-.card-content p {
-  font-size: 1rem;
-  color: var(--text);
-  margin: 0;
-}
-
-body.dark-mode .card-content p {
-  color: #ccd6f6;
-}
-
-/* ============================================================
-   6. FOOTER STANDARD DES PAGES SECONDAIRES
-   ============================================================ */
-
-footer:not(.homepage-footer) {
-  text-align: center;
-  padding: 35px 20px;
-  background: var(--footer-bg);
-  color: #ffffff;
-  font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-footer:not(.homepage-footer) a {
-  color: var(--gold);
-}
-
-/* ============================================================
-   7. RESPONSIVE DESIGN (MOBILES & TABLETTES)
-   ============================================================ */
-
-@media (max-width: 900px) {
-  .offers-grid-container {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 40px 20px;
-  }
-}
 
 @media (max-width: 768px) {
   .homepage-fullscreen {
     height: auto;
     min-height: 100vh;
-    overflow: auto; /* Autorise le scroll uniquement sur petit mobile si l'écran est minuscule */
-  }
-  
-  .hero-content {
-    justify-content: center;
-    gap: 15px;
+    overflow: auto;
   }
 
-  .hero-content .logo-container {
-    height: 25vh;
-    min-height: 150px;
+  .hero-content {
+    gap: 12px;
   }
 
   .footer-buttons {
     flex-direction: column;
-    gap: 10px;
     width: 100%;
   }
 
   .footer-buttons a {
     width: 100%;
-    min-width: 0;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .main-nav {
-    display: none;
-    flex-direction: column;
-    gap: 0;
-    width: 100%;
-  }
-
-  .main-nav.open {
-    display: flex;
-    margin-top: 15px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: var(--radius);
-  }
-
-  .main-nav a {
-    padding: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    width: 100%;
-    box-sizing: border-box;
   }
 }
