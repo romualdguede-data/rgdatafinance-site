@@ -7,14 +7,13 @@
   --primary-dark: #005fa3;
   --dark-bg: #0A1A2F;
   --gold: #C9A86A;
-  --gold-hover: #b39255;
   --text: #333333;
   --light-bg: #ffffff;
   --grey-bg: #f8f9fa;
-  --footer-bg: #050d18; /* Bande bleue d'encadrement / onglet actif */
+  --footer-bg: #050d18; /* Bande bleue d'encadrement haut et bas */
   --border-color: rgba(0, 0, 0, 0.1);
-  --radius: 8px;
-  --transition: 0.3s ease;
+  --radius: 6px;
+  --transition: 0.25s ease;
 }
 
 body.dark-mode {
@@ -55,7 +54,7 @@ a:hover {
 }
 
 /* ============================================================
-   POINT 1 : ACCUEIL EXCLUSIF PLEIN ÉCRAN ENCADRÉ
+   POINT 1 & 2 : ACCUEIL EXCLUSIF PLEIN ÉCRAN ET LOGO AGRANDI
    ============================================================ */
 
 .homepage-fullscreen {
@@ -67,11 +66,11 @@ a:hover {
   width: 100%;
   box-sizing: border-box;
   background-color: var(--dark-bg);
-  padding: 20px 20px 10px 20px;
+  padding: 20px 20px 15px 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  /* Encadrement strict haut et bas par le bandeau bleu foncé */
+  /* Encadrement strict par la bande bleue */
   border-top: 25px solid var(--footer-bg);
   border-bottom: 25px solid var(--footer-bg);
 }
@@ -87,87 +86,95 @@ a:hover {
 }
 
 .hero-content .tagline {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
+/* Dimension du logo agrandie */
 .hero-content .logo-container {
   background-image: url("assets/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  width: 180px;
-  height: 180px;
-  margin-bottom: 20px;
+  width: 280px; 
+  height: 280px;
+  margin-bottom: 15px;
 }
 
 .hero-content .subtitle {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   color: var(--gold);
   font-weight: 600;
   margin-top: 0;
-  margin-bottom: 30px;
-}
-
-/* Bouton CTA Principal de l'Accueil (Point 2) */
-.cta-button {
-  display: inline-block;
-  background-color: var(--primary);
-  color: #ffffff;
-  font-weight: 600;
-  padding: 14px 28px;
-  border-radius: var(--radius);
-  transition: background-color var(--transition), transform var(--transition);
-  font-size: 1.1rem;
-  box-shadow: 0 4px 10px rgba(0, 119, 204, 0.3);
-}
-
-.cta-button:hover {
-  background-color: var(--primary-dark);
-  text-decoration: none;
-  transform: translateY(-2px);
 }
 
 /* ============================================================
-   LIAISON BAS DE PAGE & APPOINTMENT (POINT 2)
+   POINT 2 : MISE AU MÊME NIVEAU DES BOUTONS (BAS DE PAGE)
    ============================================================ */
 
 .homepage-footer {
   width: 100%;
   max-width: 900px;
-  padding-bottom: 10px;
 }
 
-.cta-appointment {
-  display: inline-block;
-  background-color: transparent;
-  color: var(--gold);
-  border: 2px solid var(--gold);
+.footer-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Espace entre les deux boutons alignés */
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+/* Style commun pour l'alignement strict au même niveau */
+.footer-buttons a {
+  padding: 12px 24px;
+  font-size: 0.9rem;
   font-weight: 700;
-  padding: 10px 24px;
   border-radius: var(--radius);
-  letter-spacing: 1px;
-  font-size: 0.95rem;
+  letter-spacing: 0.5px;
   transition: var(--transition);
+  text-align: center;
+  min-width: 240px;
+  box-sizing: border-box;
 }
 
-.cta-appointment:hover {
+/* Bouton : Découvrez nos services */
+.cta-primary {
+  background-color: var(--primary);
+  color: #ffffff !important;
+  box-shadow: 0 4px 6px rgba(0, 119, 204, 0.2);
+}
+
+.cta-primary:hover {
+  background-color: var(--primary-dark);
+  text-decoration: none;
+}
+
+/* Bouton : Prendre rendez-vous */
+.cta-secondary {
+  background-color: transparent;
+  color: var(--gold) !important;
+  border: 2px solid var(--gold);
+}
+
+.cta-secondary:hover {
   background-color: var(--gold);
-  color: var(--footer-bg);
+  color: var(--footer-bg) !important;
   text-decoration: none;
 }
 
 .footer-credits {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.85rem;
   margin-top: 10px;
 }
 
 .footer-credits a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* ============================================================
@@ -246,79 +253,6 @@ a:hover {
   cursor: pointer;
 }
 
-/* ============================================================
-   STRUCTURES DES CARTES D'OFFRES VISUELLES
-   ============================================================ */
-
-.two-cols {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  padding: 10px;
-}
-
-.two-cols .col {
-  flex: 1 1 450px;
-  max-width: 520px;
-}
-
-.service-card {
-  background: var(--light-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  transition: transform var(--transition), box-shadow var(--transition);
-  display: flex;
-  flex-direction: column;
-}
-
-body.dark-mode .service-card {
-  background: var(--grey-bg);
-}
-
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.12);
-}
-
-.card-image-wrapper {
-  width: 100%;
-  height: 240px;
-  overflow: hidden;
-  background: #000;
-}
-
-.offer-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.service-card:hover .offer-image {
-  transform: scale(1.04);
-}
-
-.card-content {
-  padding: 25px;
-  flex-grow: 1;
-}
-
-.card-content h2 {
-  color: var(--primary);
-  margin-bottom: 12px;
-  font-size: 1.5rem;
-}
-
-body.dark-mode .card-content h2 {
-  color: #ffffff;
-}
-
-.section-light { background-color: var(--light-bg); padding: 40px 20px; }
-.section-grey { background-color: var(--grey-bg); padding: 40px 20px; }
-
 .hamburger {
   display: none;
   background: none;
@@ -356,10 +290,24 @@ footer:not(.homepage-footer) a {
   .homepage-fullscreen {
     border-top-width: 15px;
     border-bottom-width: 15px;
+    height: auto;
+    min-height: 100vh;
   }
 
-  .card-image-wrapper {
-    height: 180px;
+  .hero-content .logo-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .footer-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .footer-buttons a {
+    width: 100%;
+    min-width: 0;
   }
 
   .hamburger {
