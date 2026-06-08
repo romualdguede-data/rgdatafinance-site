@@ -51,6 +51,9 @@ functions/.cache/
 .github/workflows/*.log
 .github/workflows/*.tmp
 .github/workflows/*-cache/
+.github/artifacts/
+.github/cache/
+*.cache.json
 
 # =========================================
 #  TESTS (Jest, Vitest, Cypress)
