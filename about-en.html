@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO -->
-  <meta name="description" content="About RG DATA & FINANCE INC.: economic analysis, data intelligence, applied econometrics and strategic consulting.">
-  <meta name="keywords" content="economic analysis, data intelligence, econometrics, strategic consulting, public policy">
+  <meta name="description" content="About RG DATA & FINANCE INC.: Economic analysis, data intelligence, applied econometrics, and strategic consulting.">
+  <meta name="keywords" content="economic analysis, data intelligence, econometrics, strategic consulting, public policies">
   <meta name="author" content="RG DATA & FINANCE INC.">
   <link rel="canonical" href="https://www.rgdatafinance.com/about-en.html">
 
@@ -20,73 +20,31 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Ajustements spécifiques pour l'en-tête des pages secondaires -->
-  <style>
-    .header-secondary {
-      background-color: var(--dark-bg);
-      padding: 40px 20px;
-      text-align: center;
-      position: relative;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .header-secondary h1 {
-      color: #ffffff;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      font-size: 2.2rem;
-    }
-    /* Menu adapté en blanc sur fond sombre pour les pages intérieures */
-    .header-secondary .main-nav {
-      background: transparent;
-      border: none;
-      margin: 20px auto 0 auto;
-    }
-    .header-secondary .main-nav a {
-      color: #ffffff;
-    }
-    .header-secondary .main-nav a:hover, 
-    .header-secondary .main-nav a.active {
-      color: var(--gold);
-      text-decoration: none;
-    }
-    .theme-toggle.desktop-only {
-      position: absolute;
-      top: 15px;
-      left: 20px;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-  </style>
 </head>
 
 <body>
 
-<!-- Header secondaire harmonisé (Pas de plein écran ici, défilement naturel) -->
 <header class="header-secondary">
-
-  <!-- Dark Mode (desktop) -->
-  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Toggle theme">
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" class="theme-toggle" style="position: absolute; top: 35px; left: 25px;" aria-label="Toggle theme">
     <span id="theme-icon">🌙</span>
   </button>
 
-  <!-- Language switch -->
+  <!-- Language Switch -->
   <div class="lang-switch">
     <a href="about.html">FR</a>
   </div>
 
-  <!-- Hamburger -->
+  <!-- Mobile Hamburger Menu -->
   <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
 
   <h1>About RG DATA & FINANCE INC.</h1>
 
-  <!-- Navigation principale alignée en bas de l'en-tête -->
+  <!-- Top Navigation Bar -->
   <nav class="main-nav" id="mobileMenu">
     <a href="index-en.html">Home</a>
     <a href="offers-en.html">Offers</a>
-    <a href="insights-en.html">Insights</a>
+    <a href="insights-en.html">Publications</a>
     <a href="about-en.html" class="active">About</a>
     <a href="contact-en.html">Contact</a>
     <a href="legal-notice-en.html">Legal Notice</a>
@@ -98,8 +56,8 @@
     <div style="max-width: 900px; margin: 0 auto;">
       <h2>Our Mission</h2>
       <p>
-        We help public and private organizations turn data into decisions through a unique combination
-        of scientific rigor, applied econometrics and business intelligence.
+        We empower public and private organizations to turn their data into decisions
+        through a unique combination of scientific rigor, applied econometrics, and business intelligence.
       </p>
     </div>
   </section>
@@ -108,12 +66,12 @@
     <div style="max-width: 900px; margin: 0 auto;">
       <h2>The Founder</h2>
       <p>
-        <strong>Romuald Guédé</strong> is an economist, researcher and consultant specializing in economic analysis,
-        applied econometrics and data intelligence.
+        <strong>Romuald Guédé</strong> is an economist, researcher, and consultant specializing in economic analysis,
+        applied econometrics, and data intelligence.
       </p>
       <ul style="padding-left: 20px;">
-        <li>Expertise: econometrics, public policy evaluation, data intelligence</li>
-        <li>Presence: Quebec – Côte d’Ivoire</li>
+        <li>Expertise: Econometrics, public policy evaluation, data intelligence</li>
+        <li>Presence: Quebec – Ivory Coast</li>
         <li>Founder of RG DATA & FINANCE INC.</li>
       </ul>
     </div>
@@ -124,7 +82,7 @@
       <h2>Our Values</h2>
       <ul style="padding-left: 20px;">
         <li>Scientific rigor</li>
-        <li>Concrete impact</li>
+        <li>Tangible impact</li>
         <li>Transparency</li>
         <li>Innovation</li>
       </ul>
@@ -138,50 +96,8 @@
   <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">Book a consultation</a>
 </footer>
 
-<!-- SCRIPT MENU MOBILE -->
-<script>
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("open");
-}
-</script>
-
-<!-- SCRIPT DARK MODE -->
-<script>
-function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.body.classList.add('dark-mode');
-        icon.textContent = '☀️';
-        if (iconMobile) iconMobile.textContent = '☀️';
-    } else {
-        document.body.classList.remove('dark-mode');
-        icon.textContent = '🌙';
-        if (iconMobile) iconMobile.textContent = '🌙';
-    }
-}
-
-const toggleBtn = document.getElementById('theme-toggle');
-const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
-const icon = document.getElementById('theme-icon');
-const iconMobile = document.getElementById('theme-icon-mobile');
-
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const savedTheme = localStorage.getItem('theme');
-
-applyTheme(savedTheme, prefersDark, icon, iconMobile);
-
-function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-
-    icon.textContent = isDark ? '☀️' : '🌙';
-    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
-
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
-
-toggleBtn.addEventListener('click', toggleTheme);
-if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
-</script>
+<!-- Global Scripts -->
+<script src="app.js"></script>
 
 </body>
 </html>

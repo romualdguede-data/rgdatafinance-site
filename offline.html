@@ -7,89 +7,70 @@
 
   <!-- SEO -->
   <meta name="description" content="Page hors ligne de RG DATA & FINANCE INC. Veuillez vérifier votre connexion Internet.">
+  <meta name="author" content="RG DATA & FINANCE INC.">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/style.css">
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0A1A2F">
 
-  <style>
-    /* Spécifique à la page offline */
-    .offline-container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
 
-    .offline-icon {
-      font-size: 60px;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-
-    .offline-message {
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-      line-height: 1.6;
-    }
-
-    .offline-cta {
-      margin-top: 30px;
-    }
-
-    .offline-cta .btn {
-      width: 100%;
-      max-width: 260px;
-    }
-
-    /* Dark mode */
-    .dark-mode .offline-container {
-      color: #eee;
-    }
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="header-hero">
+<header class="header-secondary">
+  <!-- Indicateur permanent d'état réseau à la place du bouton de langue -->
   <div class="lang-switch">
-    <span style="color:white; font-weight:600;">OFFLINE</span>
+    <span class="offline-badge" style="font-weight: 600; color: var(--gold, #D4AF37);">HORS LIGNE</span>
   </div>
 
-  <h1 style="color:white; text-shadow:0 0 8px rgba(0,0,0,0.4);">
-    Vous êtes hors ligne
-  </h1>
+  <h1>Vous êtes hors ligne</h1>
 </header>
 
-<section class="section-light offline-container">
-  <div class="offline-icon">📡</div>
+<main>
+  <section class="section-light">
+    <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+      <div style="font-size: 60px; margin-bottom: 20px;">📡</div>
 
-  <p class="offline-message">
-    Il semble que votre connexion Internet soit interrompue.<br>
-    Pas d’inquiétude — votre application RG DATA & FINANCE INC. reste accessible hors ligne.
-  </p>
+      <p style="font-size: 1.2rem; margin-bottom: 25px; line-height: 1.6;">
+        Il semble que votre connexion Internet soit interrompue.<br>
+        Pas d’inquiétude — l'application RG DATA & FINANCE INC. reste accessible hors ligne.
+      </p>
 
-  <p class="offline-message">
-    Certaines pages nécessitent toutefois une connexion active pour être chargées.
-  </p>
+      <p style="font-size: 1.2rem; margin-bottom: 25px; line-height: 1.6;">
+        Certaines pages non consultées auparavant nécessitent toutefois une connexion active pour être chargées.
+      </p>
 
-  <div class="offline-cta">
-    <a href="/index.html" class="btn">Retour à l’accueil</a>
-  </div>
-</section>
+      <div style="margin-top: 30px;">
+        <a href="index.html" class="btn">Retour à l’accueil</a>
+      </div>
+    </div>
+  </section>
 
-<section class="section-grey offline-container">
-  <h2>Fonctionnalités disponibles hors ligne</h2>
-  <ul style="text-align:left; max-width:420px; margin:20px auto;">
-    <li>Consultation des pages déjà visitées</li>
-    <li>Navigation dans les menus</li>
-    <li>Accès aux contenus mis en cache</li>
-  </ul>
-</section>
+  <section class="section-grey">
+    <div style="max-width: 600px; margin: 0 auto;">
+      <h2 style="text-align: center;">Fonctionnalités disponibles</h2>
+      <ul style="max-width: 420px; margin: 20px auto; padding-left: 20px; line-height: 1.8;">
+        <li>Consultation des pages déjà visitées</li>
+        <li>Navigation dans la structure globale</li>
+        <li>Accès aux contenus mis en cache par l'application</li>
+      </ul>
+    </div>
+  </section>
+</main>
 
 <footer>
-  © RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
-  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a>
+  © 2026 RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
+  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
+  <a href="mentions-legales.html">Mentions légales</a>
 </footer>
+
+<!-- Couplage au moteur logique global pour le maintien des thèmes si le cache répond -->
+<script src="app.js"></script>
 
 </body>
 </html>

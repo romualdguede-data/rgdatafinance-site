@@ -2,12 +2,12 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Insights – RG DATA & FINANCE INC.</title>
+  <title>Publications – RG DATA & FINANCE INC.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO -->
-  <meta name="description" content="Publications and analysis from RG DATA & FINANCE INC.: economics, econometrics, data intelligence, and public policy.">
-  <meta name="keywords" content="insights, publications, economic analysis, econometrics, data intelligence, public policy">
+  <meta name="description" content="Publications and analyses by RG DATA & FINANCE INC.: economics, econometrics, data intelligence, and public policy.">
+  <meta name="keywords" content="publications, economic analysis, econometrics, data intelligence, public policy">
   <meta name="author" content="RG DATA & FINANCE INC.">
   <link rel="canonical" href="https://www.rgdatafinance.com/insights-en.html">
 
@@ -20,73 +20,31 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Ajustements spécifiques pour l'en-tête des pages secondaires -->
-  <style>
-    .header-secondary {
-      background-color: var(--dark-bg);
-      padding: 40px 20px;
-      text-align: center;
-      position: relative;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .header-secondary h1 {
-      color: #ffffff;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      font-size: 2.2rem;
-    }
-    /* Menu adapté en blanc sur fond sombre pour les pages intérieures */
-    .header-secondary .main-nav {
-      background: transparent;
-      border: none;
-      margin: 20px auto 0 auto;
-    }
-    .header-secondary .main-nav a {
-      color: #ffffff;
-    }
-    .header-secondary .main-nav a:hover, 
-    .header-secondary .main-nav a.active {
-      color: var(--gold);
-      text-decoration: none;
-    }
-    .theme-toggle.desktop-only {
-      position: absolute;
-      top: 15px;
-      left: 20px;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-  </style>
 </head>
 
 <body>
 
-<!-- Harmonized secondary header (No fullscreen, normal scroll) -->
 <header class="header-secondary">
-
-  <!-- Dark Mode (desktop) -->
-  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Toggle theme">
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" class="theme-toggle" style="position: absolute; top: 35px; left: 25px;" aria-label="Toggle theme">
     <span id="theme-icon">🌙</span>
   </button>
 
-  <!-- Language switch -->
+  <!-- Language Switch -->
   <div class="lang-switch">
     <a href="insights.html">FR</a>
   </div>
 
-  <!-- Hamburger -->
+  <!-- Mobile Hamburger -->
   <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
 
-  <h1>Insights & Analyses</h1>
+  <h1>Publications & Analyses</h1>
 
-  <!-- Navigation primary menu positioned at the bottom of header -->
+  <!-- Navigation principal aligned at the top (Point 3) -->
   <nav class="main-nav" id="mobileMenu">
     <a href="index-en.html">Home</a>
     <a href="offers-en.html">Offers</a>
-    <a href="insights-en.html" class="active">Insights</a>
+    <a href="insights-en.html" class="active">Publications</a>
     <a href="about-en.html">About</a>
     <a href="contact-en.html">Contact</a>
     <a href="legal-notice-en.html">Legal Notice</a>
@@ -96,27 +54,24 @@
 <main>
   <section class="section-light">
     <div style="max-width: 900px; margin: 0 auto;">
-      <h2>Recent Insights</h2>
+      <h2>Recent Analyses</h2>
 
       <ul class="insights-list">
         <li>
           <strong>Impact Evaluation: Modern Methods and Applications</strong><br>
-          How advanced econometric approaches are reshaping public policy evaluations.
+          How advanced econometric approaches are transforming public policy evaluations.
         </li>
-
         <li>
           <strong>Data Intelligence: A Strategic Lever for Organizations</strong><br>
-          Harnessing data as a core driver for performance and continuous innovation.
+          Data as a driving force for performance and innovation.
         </li>
-
         <li>
           <strong>Economic Modeling: Understanding to Decide Better</strong><br>
-          The critical importance of models in navigating complex strategic decisions.
+          The critical importance of models in strategic decision-making.
         </li>
-
         <li>
           <strong>Development Economics: Africa – North America Perspectives</strong><br>
-          A comparative analysis of emerging economic dynamics and business trends.
+          Comparative analysis of emerging economic dynamics.
         </li>
       </ul>
     </div>
@@ -129,50 +84,8 @@
   <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">Book a consultation</a>
 </footer>
 
-<!-- SCRIPT MOBILE MENU -->
-<script>
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("open");
-}
-</script>
-
-<!-- SCRIPT DARK MODE -->
-<script>
-function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.body.classList.add('dark-mode');
-        icon.textContent = '☀️';
-        if (iconMobile) iconMobile.textContent = '☀️';
-    } else {
-        document.body.classList.remove('dark-mode');
-        icon.textContent = '🌙';
-        if (iconMobile) iconMobile.textContent = '🌙';
-    }
-}
-
-const toggleBtn = document.getElementById('theme-toggle');
-const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
-const icon = document.getElementById('theme-icon');
-const iconMobile = document.getElementById('theme-icon-mobile');
-
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const savedTheme = localStorage.getItem('theme');
-
-applyTheme(savedTheme, prefersDark, icon, iconMobile);
-
-function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-
-    icon.textContent = isDark ? '☀️' : '🌙';
-    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
-
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
-
-toggleBtn.addEventListener('click', toggleTheme);
-if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
-</script>
+<!-- Unified Script Attachment -->
+<script src="app.js"></script>
 
 </body>
 </html>

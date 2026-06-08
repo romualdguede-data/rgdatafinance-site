@@ -1,4 +1,21 @@
+# ============================================================
+# RG DATA & FINANCE INC. - Robots Configuration File
+# Année de référence : 2026
+# ============================================================
+
 User-agent: *
+
+# Autoriser l'exploration de tout le contenu public
 Allow: /
 
+# Interdire l'indexation des fichiers de configuration technique PWA
+Disallow: /sw.js
+Disallow: /manifest.json
+Disallow: /app.js
+
+# Interdire l'indexation des pages de secours hors ligne (uniquement pour l'usage PWA)
+Disallow: /offline.html
+Disallow: /offline-en.html
+
+# Emplacement officiel du plan du site pour les moteurs de recherche
 Sitemap: https://www.rgdatafinance.com/sitemap.xml

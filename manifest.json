@@ -1,26 +1,50 @@
 {
-  "short_name": "RG Data & Fin",
+  "alphabetic": "en",
+  "dir": "ltr",
   "name": "RG DATA & FINANCE INC.",
-  "description": "Analyse économique, économétrie appliquée et data intelligence pour les organisations.",
+  "short_name": "RG Data & Fin",
+  "description": "Analyse économique & Data intelligence. Accédez à vos outils et rapports même hors ligne.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0A1A2F",
+  "theme-color": "#0A1A2F",
+  "categories": [
+    "business",
+    "finance"
+  ],
   "icons": [
     {
       "src": "assets/icon-192.png",
-      "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "assets/icon-192.png",
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "sizes": "192x192",
       "purpose": "any"
+    },
+    {
+      "src": "assets/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
-  "start_url": "/index.html",
-  "background_color": "#0A1A2F",
-  "theme_color": "#0A1A2F",
-  "display": "standalone",
-  "orientation": "portrait-primary",
-  "dir": "ltr",
-  "lang": "fr"
+  "screenshots": [
+    {
+      "src": "assets/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "assets/screenshot-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
 }

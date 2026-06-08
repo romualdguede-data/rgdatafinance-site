@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <title>Offline – RG DATA & FINANCE INC.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <meta name="description" content="Offline page of RG DATA & FINANCE INC. Please check your internet connection.">
+  <meta name="author" content="RG DATA & FINANCE INC.">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0A1A2F">
 
   <!-- Favicon -->
@@ -11,81 +18,59 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* Structure plein écran temporaire dédiée à la panne réseau */
-    .offline-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      width: 100%;
-      box-sizing: border-box;
-      background-color: var(--dark-bg);
-      color: #ffffff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .offline-icon {
-      font-size: 4rem;
-      color: var(--gold);
-      margin-bottom: 20px;
-      animation: pulse 2s infinite;
-    }
-
-    .offline-container h1 {
-      font-size: 2rem;
-      margin-bottom: 15px;
-      color: #ffffff;
-    }
-
-    .offline-container p {
-      font-size: 1.1rem;
-      max-width: 500px;
-      margin-bottom: 30px;
-      color: #e0e0e0;
-    }
-
-    .btn-retry {
-      background-color: transparent;
-      border: 2px solid var(--gold);
-      color: var(--gold);
-      padding: 12px 24px;
-      border-radius: var(--radius);
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: var(--transition);
-    }
-
-    .btn-retry:hover {
-      background-color: var(--gold);
-      color: var(--dark-bg);
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.05); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
-    }
-  </style>
 </head>
 
 <body>
 
-  <div class="offline-container">
-    <!-- Icône visuelle de connexion manquante -->
-    <div class="offline-icon">📡</div>
-    
-    <h1>You are currently offline</h1>
-    
-    <p>It looks like your internet connection is unavailable. Pages you have previously visited remain accessible offline.</p>
-    
-    <!-- Bouton pour recharger la page dès que le réseau revient -->
-    <button class="btn-retry" onclick="window.location.reload();">Try Again</button>
+<header class="header-secondary">
+  <!-- Permanent network state indicator instead of language switcher -->
+  <div class="lang-switch">
+    <span class="offline-badge" style="font-weight: 600; color: var(--gold, #D4AF37);">OFFLINE</span>
   </div>
+
+  <h1>You are offline</h1>
+</header>
+
+<main>
+  <section class="section-light">
+    <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+      <div style="font-size: 60px; margin-bottom: 20px;">📡</div>
+
+      <p style="font-size: 1.2rem; margin-bottom: 25px; line-height: 1.6;">
+        It appears that your internet connection is currently interrupted.<br>
+        Don't worry — the RG DATA & FINANCE INC. web app remains operational offline.
+      </p>
+
+      <p style="font-size: 1.2rem; margin-bottom: 25px; line-height: 1.6;">
+        However, some pages that haven't been previously opened require an active network link to load.
+      </p>
+
+      <div style="margin-top: 30px;">
+        <a href="index-en.html" class="btn">Return to home page</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-grey">
+    <div style="max-width: 600px; margin: 0 auto;">
+      <h2 style="text-align: center;">Available Features</h2>
+      <ul style="max-width: 420px; margin: 20px auto; padding-left: 20px; line-height: 1.8;">
+        <li>Reviewing previously visited pages</li>
+        <li>Navigating within the core site frame</li>
+        <li>Accessing locally cached application data</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 RG DATA & FINANCE INC. – Economic Analysis & Data Intelligence<br>
+  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
+  <a href="legal-notice-en.html">Legal Notice</a>
+</footer>
+
+<!-- Federated Global Script Attachment -->
+<script src="app.js"></script>
 
 </body>
 </html>

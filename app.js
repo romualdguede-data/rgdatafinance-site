@@ -1,65 +1,79 @@
-/* =========================================================
-   RG DATA & FINANCE INC. – APP.JS
-   Core script: Menu mobile, Dark Mode, PWA registration
-========================================================= */
+/**
+ * RG DATA & FINANCE INC. - Core Application Script
+ * Source unifiée pour la gestion du menu mobile et du thème sombre (Dark Mode)
+ * Année de référence : 2026
+ */
 
-/* ===== MENU MOBILE ===== */
+// ==========================================
+// 1. GESTION DU MENU MOBILE (HAMBURGER)
+// ==========================================
+
+/**
+ * Alterne l'état d'ouverture du menu de navigation mobile
+ */
 function toggleMenu() {
-  const menu = document.getElementById("mobileMenu");
-  if (menu) {
-    menu.classList.toggle("open");
-  }
+    const mobileMenu = document.getElementById("mobileMenu");
+    if (mobileMenu) {
+        mobileMenu.classList.toggle("open");
+    }
 }
 
-/* ===== GESTION DU THÈME (DARK MODE) ===== */
-function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
-  const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+// Exposition de la fonction au scope global pour l'attribut onclick="toggleMenu()"
+window.toggleMenu = toggleMenu;
 
-  if (isDark) {
-    document.body.classList.add('dark-mode');
-    if (icon) icon.textContent = '☀️';
-    if (iconMobile) iconMobile.textContent = '☀️';
-  } else {
-    document.body.classList.remove('dark-mode');
-    if (icon) icon.textContent = '🌙';
-    if (iconMobile) iconMobile.textContent = '🌙';
-  }
-}
 
-/* ===== INITIALISATION GLOBALE ===== */
+// ==========================================
+// 2. GESTION DU THEME (DARK / LIGHT MODE)
+// ==========================================
+
 document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById('theme-toggle');
-  const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
-  const icon = document.getElementById('theme-icon');
-  const iconMobile = document.getElementById('theme-icon-mobile');
+    const toggleBtn = document.getElementById('theme-toggle');
+    const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
+    const icon = document.getElementById('theme-icon');
+    const iconMobile = document.getElementById('theme-icon-mobile');
 
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const savedTheme = localStorage.getItem('theme');
+    // Détection des préférences utilisateur (LocalStorage ou Système)
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
 
-  // Application initiale dès que le DOM est prêt
-  applyTheme(savedTheme, prefersDark, icon, iconMobile);
+    /**
+     * Applique graphiquement le thème sélectionné et met à jour les icônes
+     */
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+            if (icon) icon.textContent = '☀️';
+            if (iconMobile) iconMobile.textContent = '☀️';
+        } else {
+            document.body.classList.remove('dark-mode');
+            if (icon) icon.textContent = '🌙';
+            if (iconMobile) iconMobile.textContent = '🌙';
+        }
+    }
 
-  // Fonction de bascule au clic
-  function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
+    /**
+     * Alterne le thème entre clair et sombre, puis sauvegarde le choix
+     */
+    function toggleTheme() {
+        const isCurrentlyDark = document.body.classList.contains('dark-mode');
+        const nextTheme = isCurrentlyDark ? 'light' : 'dark';
+        
+        applyTheme(nextTheme);
+        localStorage.setItem('theme', nextTheme);
+    }
 
-    if (icon) icon.textContent = isDark ? '☀️' : '🌙';
-    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
+    // Initialisation du thème au premier chargement de la page
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else {
+        applyTheme(prefersDark ? 'dark' : 'light');
+    }
 
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  }
-
-  // Attribution des écouteurs d'événements
-  if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
-  if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
+    // Écouteurs d'événements sur les boutons de changement de thème (Bureau & Mobile)
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleTheme);
+    }
+    if (toggleBtnMobile) {
+        toggleBtnMobile.addEventListener('click', toggleTheme);
+    }
 });
-
-/* ===== PWA – ENREGISTREMENT DU SERVICE WORKER ===== */
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/service-worker.js")
-      .then(reg => console.log("✅ Service Worker registered:", reg.scope))
-      .catch(err => console.error("❌ Service Worker registration failed:", err));
-  });
-}
