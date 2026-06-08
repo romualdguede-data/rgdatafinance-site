@@ -3,7 +3,11 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Homepage FR -->
+  <!-- ============================================================
+       VERSION FRANÇAISE (FR)
+       ============================================================ -->
+
+  <!-- Racine du site -->
   <url>
     <loc>https://www.rgdatafinance.com/</loc>
     <lastmod>2026-05-22</lastmod>
@@ -13,7 +17,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.rgdatafinance.com/index-en.html"/>
   </url>
 
-  <!-- FR Pages -->
+  <!-- Page d'accueil explicite -->
   <url>
     <loc>https://www.rgdatafinance.com/index.html</loc>
     <lastmod>2026-05-22</lastmod>
@@ -23,6 +27,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.rgdatafinance.com/index-en.html"/>
   </url>
 
+  <!-- Offres -->
   <url>
     <loc>https://www.rgdatafinance.com/offers.html</loc>
     <lastmod>2026-05-22</lastmod>
@@ -32,6 +37,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.rgdatafinance.com/offers-en.html"/>
   </url>
 
+  <!-- À propos -->
   <url>
     <loc>https://www.rgdatafinance.com/about.html</loc>
     <lastmod>2026-05-22</lastmod>
@@ -41,6 +47,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.rgdatafinance.com/about-en.html"/>
   </url>
 
+  <!-- Publications -->
   <url>
     <loc>https://www.rgdatafinance.com/insights.html</loc>
     <lastmod>2026-05-22</lastmod>
@@ -50,6 +57,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.rgdatafinance.com/insights-en.html"/>
   </url>
 
+  <!-- Contact -->
   <url>
     <loc>https://www.rgdatafinance.com/contact.html</loc>
     <lastmod>2026-05-22</lastmod>
@@ -59,6 +67,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.rgdatafinance.com/contact-en.html"/>
   </url>
 
+  <!-- Mentions Légales -->
   <url>
     <loc>https://www.rgdatafinance.com/mentions-legales.html</loc>
     <lastmod>2026-05-22</lastmod>
@@ -68,7 +77,11 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.rgdatafinance.com/legal-notice-en.html"/>
   </url>
 
-  <!-- EN Pages -->
+  <!-- ============================================================
+       ENGLISH VERSION (EN)
+       ============================================================ -->
+
+  <!-- Home -->
   <url>
     <loc>https://www.rgdatafinance.com/index-en.html</loc>
     <lastmod>2026-05-22</lastmod>
@@ -78,6 +91,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.rgdatafinance.com/index.html"/>
   </url>
 
+  <!-- Offers -->
   <url>
     <loc>https://www.rgdatafinance.com/offers-en.html</loc>
     <lastmod>2026-05-22</lastmod>
@@ -87,6 +101,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.rgdatafinance.com/offers.html"/>
   </url>
 
+  <!-- About -->
   <url>
     <loc>https://www.rgdatafinance.com/about-en.html</loc>
     <lastmod>2026-05-22</lastmod>
@@ -96,6 +111,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.rgdatafinance.com/about.html"/>
   </url>
 
+  <!-- Insights -->
   <url>
     <loc>https://www.rgdatafinance.com/insights-en.html</loc>
     <lastmod>2026-05-22</lastmod>
@@ -105,6 +121,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.rgdatafinance.com/insights.html"/>
   </url>
 
+  <!-- Contact -->
   <url>
     <loc>https://www.rgdatafinance.com/contact-en.html</loc>
     <lastmod>2026-05-22</lastmod>
@@ -114,6 +131,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.rgdatafinance.com/contact.html"/>
   </url>
 
+  <!-- Legal Notice -->
   <url>
     <loc>https://www.rgdatafinance.com/legal-notice-en.html</loc>
     <lastmod>2026-05-22</lastmod>

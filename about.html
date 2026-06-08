@@ -20,11 +20,57 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Ajustements spécifiques pour l'en-tête des pages secondaires -->
+  <style>
+    .header-secondary {
+      background-color: var(--dark-bg);
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-secondary h1 {
+      color: #ffffff;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-size: 2.2rem;
+    }
+    /* Menu adapté en blanc sur fond sombre pour les pages intérieures */
+    .header-secondary .main-nav {
+      background: transparent;
+      border: none;
+      margin: 20px auto 0 auto;
+    }
+    .header-secondary .main-nav a {
+      color: #ffffff;
+    }
+    .header-secondary .main-nav a:hover, 
+    .header-secondary .main-nav a.active {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .theme-toggle.desktop-only {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="header-hero">
+<!-- Header secondaire harmonisé (Pas de plein écran ici, défilement naturel) -->
+<header class="header-secondary">
+
+  <!-- Dark Mode (desktop) -->
+  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Changer le thème">
+    <span id="theme-icon">🌙</span>
+  </button>
 
   <!-- Lang switch -->
   <div class="lang-switch">
@@ -34,7 +80,9 @@
   <!-- Hamburger -->
   <button class="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu">☰</button>
 
-  <!-- Navigation -->
+  <h1>À propos de RG DATA & FINANCE INC.</h1>
+
+  <!-- Navigation principale alignée en bas de l'en-tête -->
   <nav class="main-nav" id="mobileMenu">
     <a href="index.html">Accueil</a>
     <a href="offers.html">Offres</a>
@@ -43,48 +91,49 @@
     <a href="contact.html">Contact</a>
     <a href="mentions-legales.html">Mentions légales</a>
   </nav>
-
-  <!-- Dark Mode (desktop) -->
-  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Changer le thème">
-    <span id="theme-icon">🌙</span>
-  </button>
-
-  <h1>À propos de RG DATA & FINANCE INC.</h1>
 </header>
 
-<section class="section-light">
-  <h2>Notre mission</h2>
-  <p>
-    Nous aidons les organisations publiques et privées à transformer leurs données en décisions
-    grâce à une combinaison unique de rigueur scientifique, d’économétrie appliquée et d’intelligence d’affaires.
-  </p>
-</section>
+<main>
+  <section class="section-light">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2>Notre mission</h2>
+      <p>
+        Nous aidons les organisations publiques et privées à transformer leurs données en décisions
+        grâce à une combinaison unique de rigueur scientifique, d’économétrie appliquée et d’intelligence d’affaires.
+      </p>
+    </div>
+  </section>
 
-<section class="section-grey">
-  <h2>Le fondateur</h2>
-  <p>
-    <strong>Romuald Guédé</strong> est économiste, chercheur et consultant spécialisé en analyse économique,
-    économétrie appliquée et data intelligence.
-  </p>
-  <ul>
-    <li>Expertises : économétrie, évaluation de politiques publiques, data intelligence</li>
-    <li>Présence : Québec – Côte d’Ivoire</li>
-    <li>Fondateur de RG DATA & FINANCE INC.</li>
-  </ul>
-</section>
+  <section class="section-grey">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2>Le fondateur</h2>
+      <p>
+        <strong>Romuald Guédé</strong> est économiste, chercheur et consultant spécialisé en analyse économique,
+        économétrie appliquée et data intelligence.
+      </p>
+      <ul style="padding-left: 20px;">
+        <li>Expertises : économétrie, évaluation de politiques publiques, data intelligence</li>
+        <li>Présence : Québec – Côte d’Ivoire</li>
+        <li>Fondateur de RG DATA & FINANCE INC.</li>
+      </ul>
+    </div>
+  </section>
 
-<section class="section-light">
-  <h2>Nos valeurs</h2>
-  <ul>
-    <li>Rigueur scientifique</li>
-    <li>Impact concret</li>
-    <li>Transparence</li>
-    <li>Innovation</li>
-  </ul>
-</section>
+  <section class="section-light">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2>Nos valeurs</h2>
+      <ul style="padding-left: 20px;">
+        <li>Rigueur scientifique</li>
+        <li>Impact concret</li>
+        <li>Transparence</li>
+        <li>Innovation</li>
+      </ul>
+    </div>
+  </section>
+</main>
 
 <footer>
-  © RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
+  © 2026 RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
   <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
   <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">Réserver une consultation</a>
 </footer>
@@ -136,4 +185,3 @@ if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
 
 </body>
 </html>
-

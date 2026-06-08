@@ -1,94 +1,26 @@
 {
-  "id": "/",
-  "name": "RG DATA & FINANCE INC. – Analyse économique & Data intelligence",
-  "short_name": "RG DATA",
-  "description": "RG DATA & FINANCE INC. aide les organisations à transformer leurs données en décisions : analyse économique, data intelligence, tableaux de bord, politiques publiques, PME et OBNL.",
-  "lang": "fr",
-  "dir": "ltr",
-
-  "start_url": "/index.html",
-  "scope": "/",
-  "display": "standalone",
-  "orientation": "portrait-primary",
-
-  "background_color": "#0A1A2F",
-  "theme_color": "#0A1A2F",
-
-  "categories": [
-    "business",
-    "productivity",
-    "finance",
-    "analytics",
-    "consulting"
-  ],
-
+  "short_name": "RG Data & Fin",
+  "name": "RG DATA & FINANCE INC.",
+  "description": "Analyse économique, économétrie appliquée et data intelligence pour les organisations.",
   "icons": [
     {
-      "src": "/assets/icon-192.png",
+      "src": "assets/icon-192.png",
+      "type": "image/png",
       "sizes": "192x192",
-      "type": "image/png"
+      "purpose": "any maskable"
     },
     {
-      "src": "/assets/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "/assets/icon-maskable-512.png",
-      "sizes": "512x512",
+      "src": "assets/icon-192.png",
       "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/assets/icon-monochrome.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "monochrome"
-    },
-    {
-      "src": "/assets/favicon.ico",
-      "sizes": "64x64",
-      "type": "image/x-icon"
+      "sizes": "192x192",
+      "purpose": "any"
     }
   ],
-
-  "screenshots": [
-    {
-      "src": "/assets/screenshot-home.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Accueil – RG DATA & FINANCE INC."
-    },
-    {
-      "src": "/assets/screenshot-offers.png",
-      "sizes": "1920x1080",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Offres – Analyse économique & Data intelligence"
-    }
-  ],
-
-  "shortcuts": [
-    {
-      "name": "Offres",
-      "short_name": "Offres",
-      "url": "/offers.html",
-      "icons": [{ "src": "/assets/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Publications",
-      "short_name": "Insights",
-      "url": "/insights.html",
-      "icons": [{ "src": "/assets/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Contact",
-      "short_name": "Contact",
-      "url": "/contact.html",
-      "icons": [{ "src": "/assets/icon-192.png", "sizes": "192x192" }]
-    }
-  ],
-
-  "prefer_related_applications": false
+  "start_url": "/index.html",
+  "background_color": "#0A1A2F",
+  "theme_color": "#0A1A2F",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "dir": "ltr",
+  "lang": "fr"
 }

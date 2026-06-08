@@ -1,5 +1,5 @@
 /* ============================================================
-   GLOBAL STYLES
+   VARIABLES GLOBALES ET THÈMES
    ============================================================ */
 
 :root {
@@ -7,12 +7,30 @@
   --primary-dark: #005fa3;
   --dark-bg: #0A1A2F;
   --gold: #C9A86A;
-  --text: #333;
+  --text: #333333;
   --light-bg: #ffffff;
-  --grey-bg: #f0f0f0;
+  --grey-bg: #f8f9fa;
+  --footer-bg: #050d18;
+  --border-color: rgba(0, 0, 0, 0.1);
   --radius: 6px;
   --transition: 0.2s ease;
 }
+
+/* Surcharges automatiques pour le mode sombre */
+body.dark-mode {
+  --text: #f0f0f0;
+  --light-bg: #0A1A2F;
+  --grey-bg: #112240;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .homepage-fullscreen {
+  background-color: #050d18; /* Nuance encore plus sombre pour le mode nuit */
+}
+
+/* ============================================================
+   STYLES DE BASE
+   ============================================================ */
 
 body {
   margin: 0;
@@ -20,6 +38,7 @@ body {
   line-height: 1.6;
   color: var(--text);
   background-color: var(--light-bg);
+  transition: background-color var(--transition), color var(--transition);
 }
 
 h1, h2, h3 {
@@ -27,196 +46,219 @@ h1, h2, h3 {
   font-weight: 700;
 }
 
-h1 { font-size: 2.2rem; }
-h2 { font-size: 1.8rem; margin-bottom: 20px; }
-h3 { font-size: 1.3rem; }
-
 a {
   color: var(--primary);
   text-decoration: none;
 }
-a:hover { text-decoration: underline; }
+a:hover { 
+  text-decoration: underline; 
+}
 
 /* ============================================================
-   HEADER + HERO
+   PAGE D'ACCUEIL : PLEIN ÉCRAN EXCLUSIF
    ============================================================ */
 
-header {
+.homepage-fullscreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Propulse la navigation au bas de l'écran */
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--dark-bg);
+  padding: 40px 20px 0 20px;
   text-align: center;
-  padding: 0;
-  margin: 0;
   position: relative;
+  overflow: hidden;
 }
 
-/* HERO */
-.header-hero {
-  background-color: var(--dark-bg);
+/* Zone centrale (Textes, Logo, Bouton de conversion) */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 900px;
+}
+
+.hero-content .tagline {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.hero-content .logo-container {
   background-image: url("assets/logo.png");
   background-repeat: no-repeat;
-  background-position: center 120px;
-  background-size: 180px;
-
-  padding-top: 200px;
-  padding-bottom: 160px;
-  color: white;
+  background-position: center;
+  background-size: contain;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 30px;
 }
 
-/* Tagline (nouveau) */
-.header-hero .tagline {
-  margin-top: 20px;
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: white;
+.hero-content .subtitle {
+  font-size: 1.4rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 40px;
 }
 
-/* Sous‑titre */
-.header-hero .subtitle {
-  margin-top: 40px;
-  font-size: 1.2rem;
-  color: white;
-}
-
-/* Boutons */
-.header-hero .cta-container {
-  margin-top: 60px;
+.hero-content .cta-container {
   margin-bottom: 20px;
 }
 
-/* Dark mode hero */
-.dark-mode .header-hero {
-  background-color: #000;
-  filter: brightness(0.85);
-}
-
 /* ============================================================
-   LANGUAGE SWITCH
+   EN-TÊTE DES PAGES SECONDAIRES (Ajustement fluide)
    ============================================================ */
 
-.lang-switch {
-  position: absolute;
-  top: 15px;
-  right: 20px;
+.header-secondary {
+  background-color: var(--dark-bg);
+  padding: 40px 20px 20px 20px;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.lang-switch a {
-  font-weight: 600;
-  color: var(--primary);
+.header-secondary h1 {
+  color: #ffffff;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+}
+
+/* Intégration adaptative de la barre de navigation interne */
+.header-secondary .main-nav {
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 20px auto 0 auto;
 }
 
 /* ============================================================
-   NAVIGATION MENU (bande blanche réduite)
+   NAVIGATION COMMUNE
    ============================================================ */
 
 .main-nav {
   display: flex;
   justify-content: center;
-  gap: 25px;
-  padding: 10px 0;
-  background: var(--light-bg);
-  border-bottom: 1px solid #e5e5e5;
-
+  gap: 30px;
+  padding: 20px 0;
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
   max-width: 900px;
-  margin: 0 auto;
+  margin-top: auto; /* Utilisé sur la home fullscreen */
 }
 
 .main-nav a {
   font-weight: 600;
-  color: var(--text);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: var(--transition);
 }
 
-.main-nav a:hover {
-  color: var(--primary);
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--gold);
+  text-decoration: none;
 }
 
-@media (max-width: 600px) {
-  .main-nav {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
+/* Sélecteur de langues et bascule de thèmes */
+.lang-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.lang-switch a {
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform var(--transition);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
 }
 
 /* ============================================================
-   BUTTONS
+   BOUTONS ET COMPOSANTS D'ACTION
    ============================================================ */
 
 .btn {
   display: inline-block;
-  padding: 10px 20px;
-  margin: 5px;
+  padding: 14px 28px;
   border-radius: var(--radius);
   background-color: var(--primary);
-  color: white;
+  color: #ffffff;
   font-weight: 600;
+  font-size: 1.1rem;
   transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 119, 204, 0.3);
 }
 
 .btn:hover {
   background-color: var(--primary-dark);
-}
-
-.btn-outline {
-  background-color: transparent;
-  border: 2px solid var(--primary);
-  color: var(--primary);
-}
-
-.btn-outline:hover {
-  background-color: var(--primary);
-  color: white;
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 /* ============================================================
-   SECTIONS
+   CONTENUS ET LISTES DES PAGES INTERNES
    ============================================================ */
 
 .section-light {
-  padding: 60px 20px;
+  padding: 80px 20px;
   background: var(--light-bg);
 }
 
 .section-grey {
-  padding: 60px 20px;
+  padding: 80px 20px;
   background: var(--grey-bg);
 }
 
-/* ============================================================
-   OFFERS GRID
-   ============================================================ */
-
-.offers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+/* Listes de publications (Insights) */
+.insights-list {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
 }
 
-.offer {
-  width: 300px;
-  background: white;
-  border-radius: var(--radius);
+.insights-list li {
   padding: 20px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  border-left: 4px solid var(--gold);
+  background-color: var(--grey-bg);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  transition: transform var(--transition);
 }
 
-.offer img {
-  width: 100%;
-  border-radius: var(--radius);
-  margin-bottom: 15px;
+.insights-list li:hover {
+  transform: translateX(5px);
 }
 
-.offer ul {
-  margin-top: 15px;
-  padding-left: 20px;
-}
-.offer ul li {
-  margin-bottom: 8px;
+.insights-list strong {
+  font-size: 1.2rem;
+  color: var(--primary);
+  display: inline-block;
+  margin-bottom: 5px;
 }
 
-/* ============================================================
-   TWO-COLUMN LAYOUT
-   ============================================================ */
-
+/* Mises en page multi-colonnes */
 .two-cols {
   display: flex;
   flex-wrap: wrap;
@@ -228,110 +270,99 @@ header {
   flex: 1 1 300px;
 }
 
-/* ============================================================
-   INSIGHTS PAGE
-   ============================================================ */
-
-.insights-list {
-  max-width: 700px;
-  margin: 0 auto;
-  padding-left: 20px;
-}
-
-.insights-list li {
-  margin-bottom: 12px;
-  line-height: 1.5;
+/* Hamburger pour le menu mobile (caché sur desktop) */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  left: 20px;
 }
 
 /* ============================================================
-   FOOTER
+   FOOTER GLOBAL
    ============================================================ */
 
 footer {
   text-align: center;
-  padding: 25px 10px;
-  background: var(--dark-bg);
-  color: #fff;
+  padding: 40px 20px;
+  background: var(--footer-bg);
+  color: #ffffff;
   font-size: 0.9rem;
-  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 footer a {
   color: var(--gold);
-  font-weight: 600;
 }
-footer a:hover { text-decoration: underline; }
+
+footer a:hover {
+  text-decoration: underline;
+}
 
 /* ============================================================
    RESPONSIVE DESIGN
    ============================================================ */
 
 @media (max-width: 768px) {
+  .hero-content .tagline { 
+    font-size: 1.6rem; 
+  }
+  
+  .hero-content .logo-container {
+    width: 130px;
+    height: 130px;
+  }
 
-  h1 { font-size: 1.8rem; }
+  .hero-content .subtitle {
+    font-size: 1.1rem;
+  }
 
-  .offers { gap: 20px; }
-  .offer { width: 90%; }
+  .header-secondary h1 {
+    font-size: 1.8rem;
+  }
 
-  .two-cols { flex-direction: column; text-align: center; }
+  /* Gestion du menu mobile */
+  .hamburger {
+    display: block;
+  }
 
-  .lang-switch { top: 10px; right: 15px; }
+  .main-nav {
+    display: none; /* Masqué par défaut sur mobile */
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    width: 100%;
+    border-top: none;
+  }
 
-  .header-hero {
-    padding-top: 180px;
-    padding-bottom: 140px;
-    background-size: 150px;
+  .main-nav.open {
+    display: flex; /* S'affiche au clic sur le hamburger */
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius);
+  }
+
+  .main-nav a {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
 @media (max-width: 480px) {
-  h1 { font-size: 1.6rem; }
-  .btn { width: 100%; text-align: center; }
-  .offer img { max-width: 100%; }
-}
-
-/* ============================================================
-   HAMBURGER MENU
-   ============================================================ */
-
-.hamburger {
-  display: none;
-  font-size: 28px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-}
-
-#mobileMenu {
-  display: flex;
-  gap: 20px;
-}
-
-@media (max-width: 768px) {
-  .hamburger { display: block; }
-
-  #mobileMenu {
-    display: none;
-    flex-direction: column;
-    background: white;
-    padding: 20px;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    border-radius: var(--radius);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 1000;
+  .homepage-fullscreen {
+    padding-top: 60px;
   }
-
-  #mobileMenu a {
-    padding: 10px 0;
-    font-size: 18px;
-  }
-
-  #mobileMenu.open {
-    display: flex;
+  
+  .btn {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
   }
 }

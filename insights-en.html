@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO -->
-  <meta name="description" content="Insights and analyses from RG DATA & FINANCE INC.: economics, econometrics, data intelligence and public policy.">
-  <meta name="keywords" content="insights, economic analysis, econometrics, data intelligence, public policy">
+  <meta name="description" content="Publications and analysis from RG DATA & FINANCE INC.: economics, econometrics, data intelligence, and public policy.">
+  <meta name="keywords" content="insights, publications, economic analysis, econometrics, data intelligence, public policy">
   <meta name="author" content="RG DATA & FINANCE INC.">
   <link rel="canonical" href="https://www.rgdatafinance.com/insights-en.html">
 
@@ -20,11 +20,57 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Ajustements spécifiques pour l'en-tête des pages secondaires -->
+  <style>
+    .header-secondary {
+      background-color: var(--dark-bg);
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-secondary h1 {
+      color: #ffffff;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-size: 2.2rem;
+    }
+    /* Menu adapté en blanc sur fond sombre pour les pages intérieures */
+    .header-secondary .main-nav {
+      background: transparent;
+      border: none;
+      margin: 20px auto 0 auto;
+    }
+    .header-secondary .main-nav a {
+      color: #ffffff;
+    }
+    .header-secondary .main-nav a:hover, 
+    .header-secondary .main-nav a.active {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .theme-toggle.desktop-only {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="header-hero">
+<!-- Harmonized secondary header (No fullscreen, normal scroll) -->
+<header class="header-secondary">
+
+  <!-- Dark Mode (desktop) -->
+  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span>
+  </button>
 
   <!-- Language switch -->
   <div class="lang-switch">
@@ -34,7 +80,9 @@
   <!-- Hamburger -->
   <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
 
-  <!-- Navigation -->
+  <h1>Insights & Analyses</h1>
+
+  <!-- Navigation primary menu positioned at the bottom of header -->
   <nav class="main-nav" id="mobileMenu">
     <a href="index-en.html">Home</a>
     <a href="offers-en.html">Offers</a>
@@ -43,48 +91,45 @@
     <a href="contact-en.html">Contact</a>
     <a href="legal-notice-en.html">Legal Notice</a>
   </nav>
-
-  <!-- Dark Mode (desktop) -->
-  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Toggle theme">
-    <span id="theme-icon">🌙</span>
-  </button>
-
-  <h1>Insights & Analysis</h1>
 </header>
 
-<section class="section-light">
-  <h2>Recent Insights</h2>
+<main>
+  <section class="section-light">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2>Recent Insights</h2>
 
-  <ul class="insights-list">
-    <li>
-      <strong>Impact Evaluation: Modern Methods and Applications</strong><br>
-      How advanced econometric approaches are transforming public policy assessment.
-    </li>
+      <ul class="insights-list">
+        <li>
+          <strong>Impact Evaluation: Modern Methods and Applications</strong><br>
+          How advanced econometric approaches are reshaping public policy evaluations.
+        </li>
 
-    <li>
-      <strong>Data Intelligence: A Strategic Lever for Organizations</strong><br>
-      How data drives performance, innovation and strategic decision‑making.
-    </li>
+        <li>
+          <strong>Data Intelligence: A Strategic Lever for Organizations</strong><br>
+          Harnessing data as a core driver for performance and continuous innovation.
+        </li>
 
-    <li>
-      <strong>Economic Modelling: Understanding to Decide Better</strong><br>
-      Why models matter for anticipating outcomes and guiding strategy.
-    </li>
+        <li>
+          <strong>Economic Modeling: Understanding to Decide Better</strong><br>
+          The critical importance of models in navigating complex strategic decisions.
+        </li>
 
-    <li>
-      <strong>Development Economics: Africa – North America Perspectives</strong><br>
-      A comparative look at emerging economic dynamics across regions.
-    </li>
-  </ul>
-</section>
+        <li>
+          <strong>Development Economics: Africa – North America Perspectives</strong><br>
+          A comparative analysis of emerging economic dynamics and business trends.
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
 
 <footer>
-  © RG DATA & FINANCE INC. – Economic Analysis & Data Intelligence<br>
+  © 2026 RG DATA & FINANCE INC. – Economic Analysis & Data Intelligence<br>
   <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
   <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">Book a consultation</a>
 </footer>
 
-<!-- SCRIPT MENU MOBILE -->
+<!-- SCRIPT MOBILE MENU -->
 <script>
 function toggleMenu() {
   document.getElementById("mobileMenu").classList.toggle("open");

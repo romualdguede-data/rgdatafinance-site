@@ -19,11 +19,92 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Ajustements spécifiques pour l'en-tête et les formulaires des pages secondaires -->
+  <style>
+    .header-secondary {
+      background-color: var(--dark-bg);
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-secondary h1 {
+      color: #ffffff;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-size: 2.2rem;
+    }
+    /* Menu adapté en blanc sur fond sombre pour les pages intérieures */
+    .header-secondary .main-nav {
+      background: transparent;
+      border: none;
+      margin: 20px auto 0 auto;
+    }
+    .header-secondary .main-nav a {
+      color: #ffffff;
+    }
+    .header-secondary .main-nav a:hover, 
+    .header-secondary .main-nav a.active {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .theme-toggle.desktop-only {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    /* Style minimaliste pour le formulaire aligné sur la charte */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .contact-form label {
+      font-weight: 600;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+    .contact-form input, .contact-form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .contact-form .btn {
+      margin-top: 25px;
+      align-self: flex-start;
+      cursor: pointer;
+      border: none;
+    }
+    /* Ajustements FAQ */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      padding-left: 20px;
+    }
+    .faq-list li {
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="header-hero">
+<!-- Header secondaire harmonisé (Pas de plein écran ici) -->
+<header class="header-secondary">
+
+  <!-- Dark Mode desktop -->
+  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Changer le thème">
+    <span id="theme-icon">🌙</span>
+  </button>
 
   <!-- Lang switch -->
   <div class="lang-switch">
@@ -33,7 +114,9 @@
   <!-- Hamburger -->
   <button class="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu">☰</button>
 
-  <!-- Navigation -->
+  <h1>Contactez-nous</h1>
+
+  <!-- Navigation principale alignée en bas du header sombre -->
   <nav class="main-nav" id="mobileMenu">
     <a href="index.html">Accueil</a>
     <a href="offers.html">Offres</a>
@@ -43,68 +126,60 @@
     <a href="mentions-legales.html">Mentions légales</a>
 
     <!-- Dark Mode mobile -->
-    <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Changer le thème">
+    <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Changer le thème" style="display: none;">
       <span id="theme-icon-mobile">🌙</span>
     </button>
   </nav>
-
-  <!-- Dark Mode desktop -->
-  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Changer le thème">
-    <span id="theme-icon">🌙</span>
-  </button>
-
-  <!-- Tagline (au-dessus du logo) -->
-  <div class="tagline">Transformez vos données en décisions.</div>
-
-  <!-- Titre principal (sous le logo) -->
-  <h1>Contactez-nous</h1>
-
 </header>
 
-<section class="section-light">
-  <h2>Formulaire de contact</h2>
+<main>
+  <section class="section-light">
+    <h2>Formulaire de contact</h2>
 
-  <form name="contact" method="POST" data-netlify="true" class="contact-form">
-    <input type="hidden" name="form-name" value="contact">
+    <form name="contact" method="POST" data-netlify="true" class="contact-form">
+      <input type="hidden" name="form-name" value="contact">
 
-    <label for="name">Nom complet</label>
-    <input id="name" type="text" name="name" required>
+      <label for="name">Nom complet</label>
+      <input id="name" type="text" name="name" required>
 
-    <label for="email">Courriel</label>
-    <input id="email" type="email" name="email" required>
+      <label for="email">Courriel</label>
+      <input id="email" type="email" name="email" required>
 
-    <label for="subject">Objet</label>
-    <input id="subject" type="text" name="subject" required>
+      <label for="subject">Objet</label>
+      <input id="subject" type="text" name="subject" required>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="6" required></textarea>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
 
-    <button type="submit" class="btn">Envoyer</button>
-  </form>
-</section>
+      <button type="submit" class="btn">Envoyer</button>
+    </form>
+  </section>
 
-<section class="section-grey">
-  <h2>Autres moyens de contact</h2>
-  <p>
-    📧 <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a><br>
-    📅 <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">
-      Réserver une consultation de 30 minutes
-    </a>
-  </p>
-</section>
+  <section class="section-grey">
+    <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+      <h2>Autres moyens de contact</h2>
+      <p>
+        📧 <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a><br><br>
+        📅 <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener" class="btn" style="color: white; text-decoration: none;">
+          Réserver une consultation de 30 minutes
+        </a>
+      </p>
+    </div>
+  </section>
 
-<section class="section-light">
-  <h2>FAQ</h2>
-  <ul>
-    <li><strong>Quels types de mandats réalisez-vous ?</strong><br>Analyse économique, tableaux de bord, évaluation de politiques publiques, performance PME, services OBNL et littératie financière.</li>
-    <li><strong>Travaillez-vous avec les municipalités ?</strong><br>Oui, via le Municipal Data & Impact Pack™.</li>
-    <li><strong>Offrez-vous des services aux PME ?</strong><br>Oui, via le Performance & Data Clarity Pack™.</li>
-    <li><strong>Accompagnez-vous les OBNL ?</strong><br>Oui, via le OBNL Impact & Financial Literacy Pack™.</li>
-  </ul>
-</section>
+  <section class="section-light">
+    <h2>FAQ</h2>
+    <ul class="faq-list">
+      <li><strong>Quels types de mandats réalisez-vous ?</strong><br>Analyse économique, tableaux de bord, évaluation de politiques publiques, performance PME, services OBNL et littératie financière.</li>
+      <li><strong>Travaillez-vous avec les municipalités ?</strong><br>Oui, via le Municipal Data & Impact Pack™.</li>
+      <li><strong>Offrez-vous des services aux PME ?</strong><br>Oui, via le Performance & Data Clarity Pack™.</li>
+      <li><strong>Accompagnez-vous les OBNL ?</strong><br>Oui, via le OBNL Impact & Financial Literacy Pack™.</li>
+    </ul>
+  </section>
+</main>
 
 <footer>
-  © RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
+  © 2026 RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
   <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
   <a href="mentions-legales.html">Mentions légales</a>
 </footer>
@@ -116,7 +191,7 @@ function toggleMenu() {
 }
 </script>
 
-<!-- SCRIPT DARK MODE PREMIUM -->
+<!-- SCRIPT DARK MODE -->
 <script>
 function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {

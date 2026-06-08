@@ -4,9 +4,7 @@
 =========================================================== */
 
 /**
- * Apply the correct theme based on:
- * - saved user preference
- * - system preference (prefers-color-scheme)
+ * Applique le thème adéquat selon les préférences sauvegardées ou système
  */
 function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
   const isDark = savedTheme === "dark" || (!savedTheme && prefersDark);
@@ -18,7 +16,7 @@ function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
 }
 
 /**
- * Toggle theme and persist user choice
+ * Alterne le thème (Toggle) et sauvegarde le choix de l'utilisateur
  */
 function toggleTheme(icon, iconMobile) {
   document.body.classList.toggle("dark-mode");
@@ -31,7 +29,7 @@ function toggleTheme(icon, iconMobile) {
 }
 
 /* ============================================================
-   INITIALIZATION
+   INITIALISATION
 =========================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   const toggleBtn = document.getElementById("theme-toggle");
@@ -42,10 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const savedTheme = localStorage.getItem("theme");
 
-  // Apply theme on load
+  // Application du thème au chargement initial de la page
   applyTheme(savedTheme, prefersDark, icon, iconMobile);
 
-  // Bind events only if buttons exist
+  // Affectation des écouteurs d'événements si les éléments existent dans le DOM
   if (toggleBtn) {
     toggleBtn.addEventListener("click", () => toggleTheme(icon, iconMobile));
   }

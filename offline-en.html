@@ -4,92 +4,88 @@
   <meta charset="UTF-8">
   <title>Offline – RG DATA & FINANCE INC.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0A1A2F">
 
-  <!-- SEO -->
-  <meta name="description" content="Offline page for RG DATA & FINANCE INC. Please check your Internet connection.">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 
   <style>
-    /* Page-specific styling */
+    /* Structure plein écran temporaire dédiée à la panne réseau */
     .offline-container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: var(--dark-bg);
+      color: #ffffff;
+      padding: 20px;
       text-align: center;
     }
 
     .offline-icon {
-      font-size: 60px;
+      font-size: 4rem;
+      color: var(--gold);
       margin-bottom: 20px;
-      opacity: 0.9;
+      animation: pulse 2s infinite;
     }
 
-    .offline-message {
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-      line-height: 1.6;
+    .offline-container h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #ffffff;
     }
 
-    .offline-cta {
-      margin-top: 30px;
+    .offline-container p {
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin-bottom: 30px;
+      color: #e0e0e0;
     }
 
-    .offline-cta .btn {
-      width: 100%;
-      max-width: 260px;
+    .btn-retry {
+      background-color: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
     }
 
-    /* Dark mode */
-    .dark-mode .offline-container {
-      color: #eee;
+    .btn-retry:hover {
+      background-color: var(--gold);
+      color: var(--dark-bg);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
     }
   </style>
 </head>
 
 <body>
 
-<header class="header-hero">
-  <div class="lang-switch">
-    <span style="color:white; font-weight:600;">OFFLINE</span>
+  <div class="offline-container">
+    <!-- Icône visuelle de connexion manquante -->
+    <div class="offline-icon">📡</div>
+    
+    <h1>You are currently offline</h1>
+    
+    <p>It looks like your internet connection is unavailable. Pages you have previously visited remain accessible offline.</p>
+    
+    <!-- Bouton pour recharger la page dès que le réseau revient -->
+    <button class="btn-retry" onclick="window.location.reload();">Try Again</button>
   </div>
-
-  <h1 style="color:white; text-shadow:0 0 8px rgba(0,0,0,0.4);">
-    You Are Offline
-  </h1>
-</header>
-
-<section class="section-light offline-container">
-  <div class="offline-icon">📡</div>
-
-  <p class="offline-message">
-    It looks like your Internet connection is temporarily unavailable.<br>
-    No worries — your RG DATA & FINANCE INC. application remains accessible offline.
-  </p>
-
-  <p class="offline-message">
-    Some pages may require an active connection to load new content.
-  </p>
-
-  <div class="offline-cta">
-    <a href="/index-en.html" class="btn">Back to Home</a>
-  </div>
-</section>
-
-<section class="section-grey offline-container">
-  <h2>Available Offline Features</h2>
-  <ul style="text-align:left; max-width:420px; margin:20px auto;">
-    <li>Access to previously visited pages</li>
-    <li>Navigation through cached menus</li>
-    <li>Viewing content stored locally</li>
-  </ul>
-</section>
-
-<footer>
-  © RG DATA & FINANCE INC. – Economic Analysis & Data Intelligence<br>
-  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a>
-</footer>
 
 </body>
 </html>

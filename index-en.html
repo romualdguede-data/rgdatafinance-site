@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO -->
-  <meta name="description" content="RG DATA & FINANCE INC. – Economic analysis, data intelligence, dashboards, public policy evaluation, SME performance, nonprofit services and financial literacy training.">
-  <meta name="keywords" content="economic analysis, data intelligence, econometrics, dashboards, nonprofits, financial literacy, public policy, SMEs, municipalities, ministries">
+  <meta name="description" content="Helping public and private organizations turn data into decisions through applied econometrics and business intelligence.">
+  <meta name="keywords" content="economic analysis, data intelligence, econometrics, strategic consulting">
   <meta name="author" content="RG DATA & FINANCE INC.">
-  <link rel="canonical" href="https://www.rgdatafinance.com/index-en.html">
+  <link class="canonical" href="https://www.rgdatafinance.com/index-en.html">
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.json">
@@ -24,135 +24,96 @@
 
 <body>
 
-<header class="header-hero">
-
-  <!-- Language switch -->
-  <div class="lang-switch">
-    <a href="index.html">FR</a>
-  </div>
-
-  <!-- Hamburger -->
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
-
-  <!-- Navigation -->
-  <nav class="main-nav" id="mobileMenu">
-    <a href="index-en.html" class="active">Home</a>
-    <a href="offers-en.html">Offers</a>
-    <a href="insights-en.html">Insights</a>
-    <a href="about-en.html">About</a>
-    <a href="contact-en.html">Contact</a>
-    <a href="legal-notice-en.html">Legal Notice</a>
-
-    <!-- Dark Mode (mobile) -->
-    <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
-      <span id="theme-icon-mobile">🌙</span>
+  <!-- EXCLUSIVE FULLSCREEN HOMEPAGE -->
+  <header class="homepage-fullscreen">
+    
+    <!-- Dark Mode (desktop) -->
+    <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Toggle theme" style="position: absolute; top: 20px; left: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer;">
+      <span id="theme-icon">🌙</span>
     </button>
-  </nav>
 
-  <!-- Dark Mode (desktop) -->
-  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Toggle theme">
-    <span id="theme-icon">🌙</span>
-  </button>
-
-  <!-- Tagline (new, above logo) -->
-  <div class="tagline">Turn your data into decisions.</div>
-
-  <!-- Subtitle (below logo) -->
-  <p class="subtitle">
-    Economic analysis • Data intelligence • Strategic decision-making<br>
-    RG DATA & FINANCE INC. supports public and private organizations.
-  </p>
-
-  <!-- Buttons (bottom of hero) -->
-  <div class="cta-container">
-    <a href="#services" class="btn">Explore our services</a>
-    <a href="#contact" class="btn btn-outline">Book a meeting</a>
-  </div>
-
-</header>
-
-<!-- SERVICES -->
-<section id="services" class="section-light">
-  <h2>Our Offers</h2>
-
-  <div class="offers">
-
-    <div class="offer">
-      <img src="assets/municipal-services.jpg" alt="Municipal services">
-      <h3>Municipal Data & Impact Pack™</h3>
-      <p>Performance diagnostics, dashboards, and impact reports for municipalities.</p>
-      <a href="offers-en.html" class="btn">View offer</a>
+    <!-- Language Switch -->
+    <div class="lang-switch">
+      <a href="index.html">FR</a>
     </div>
 
-    <div class="offer">
-      <img src="assets/ministerial-services.jpg" alt="Ministerial services">
-      <h3>Policy Impact & Decision Pack™</h3>
-      <p>Evaluation of public programs, impact analysis, and econometric modeling.</p>
-      <a href="offers-en.html" class="btn">View offer</a>
+    <!-- Hamburger for mobile menu -->
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+    <!-- Central Content Area -->
+    <div class="hero-content">
+      <!-- Point 4: Displayed right above the logo -->
+      <h1 class="tagline">Transform your data into financial opportunities</h1>
+      
+      <!-- Company Logo -->
+      <div class="logo-container"></div>
+      
+      <!-- Point 5: Positioned right below the logo -->
+      <p class="subtitle">Economic Analysis & Data Intelligence</p>
+      
+      <!-- Point 6: Action button positioned right above navigation -->
+      <div class="cta-container">
+        <a href="offers-en.html" class="btn">Discover our services and book an appointment</a>
+      </div>
     </div>
 
-    <div class="offer">
-      <img src="assets/sme-services.jpg" alt="SME services">
-      <h3>Performance & Data Clarity Pack™</h3>
-      <p>SME dashboards, performance analysis, and a 90‑day action plan.</p>
-      <a href="offers-en.html" class="btn">View offer</a>
-    </div>
+    <!-- Point 2 & 7: Navigation pushed completely to the bottom, without white bar -->
+    <nav class="main-nav" id="mobileMenu">
+      <a href="index-en.html" class="active">Home</a>
+      <a href="offers-en.html">Offers</a>
+      <a href="insights-en.html">Insights</a>
+      <a href="about-en.html">About</a>
+      <a href="contact-en.html">Contact</a>
+      <a href="legal-notice-en.html">Legal Notice</a>
+    </nav>
+  </header>
 
-    <div class="offer">
-      <img src="assets/obnl-services.jpg" alt="Nonprofit services">
-      <h3>Nonprofit Impact & Financial Literacy Pack™</h3>
-      <p>Financial governance, impact measurement, and financial literacy training.</p>
-      <a href="offers-en.html" class="btn">View offer</a>
-    </div>
+  <!-- Rest of the site if applicable -->
 
-  </div>
-</section>
+<!-- SCRIPT MOBILE MENU -->
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
 
-<!-- ABOUT -->
-<section id="about" class="section-grey">
-  <h2>About</h2>
+<!-- SCRIPT DARK MODE -->
+<script>
+function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        icon.textContent = '☀️';
+        if (iconMobile) iconMobile.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        icon.textContent = '🌙';
+        if (iconMobile) iconMobile.textContent = '🌙';
+    }
+}
 
-  <div class="two-cols">
-    <div class="col">
-      <p>
-        RG DATA & FINANCE INC. is a consulting firm founded by
-        <strong>Romuald Guédé</strong>, economist and researcher in applied
-        econometrics and economic analysis.
-      </p>
-    </div>
+const toggleBtn = document.getElementById('theme-toggle');
+const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
+const icon = document.getElementById('theme-icon');
+const iconMobile = document.getElementById('theme-icon-mobile');
 
-    <div class="col">
-      <h3>Our Values</h3>
-      <ul>
-        <li>Rigor and transparency</li>
-        <li>Impact and responsibility</li>
-        <li>Innovation and pedagogy</li>
-      </ul>
-    </div>
-  </div>
-</section>
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
 
-<!-- CONTACT -->
-<section id="contact" class="section-light">
-  <h2>Contact</h2>
-  <p>To discuss a project or mandate:</p>
+applyTheme(savedTheme, prefersDark, icon, iconMobile);
 
-  <p>
-    📧 <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a><br>
-    📅 <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">
-      Book a 30‑minute consultation
-    </a>
-  </p>
-</section>
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
 
-<footer>
-  © RG DATA & FINANCE INC. – Economic Analysis & Data Intelligence<br>
-  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
-  <a href="legal-notice-en.html">Legal Notice</a>
-</footer>
+    icon.textContent = isDark ? '☀️' : '🌙';
+    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
 
-<!-- JS -->
-<script src="script.js"></script>
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+toggleBtn.addEventListener('click', toggleTheme);
+if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
+</script>
 
 </body>
 </html>

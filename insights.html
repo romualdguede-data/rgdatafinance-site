@@ -20,11 +20,57 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Ajustements spécifiques pour l'en-tête des pages secondaires -->
+  <style>
+    .header-secondary {
+      background-color: var(--dark-bg);
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-secondary h1 {
+      color: #ffffff;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-size: 2.2rem;
+    }
+    /* Menu adapté en blanc sur fond sombre pour les pages intérieures */
+    .header-secondary .main-nav {
+      background: transparent;
+      border: none;
+      margin: 20px auto 0 auto;
+    }
+    .header-secondary .main-nav a {
+      color: #ffffff;
+    }
+    .header-secondary .main-nav a:hover, 
+    .header-secondary .main-nav a.active {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .theme-toggle.desktop-only {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="header-hero">
+<!-- Header secondaire harmonisé (Pas de plein écran, défilement naturel) -->
+<header class="header-secondary">
+
+  <!-- Dark Mode (desktop) -->
+  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Changer le thème">
+    <span id="theme-icon">🌙</span>
+  </button>
 
   <!-- Lang switch -->
   <div class="lang-switch">
@@ -34,7 +80,9 @@
   <!-- Hamburger -->
   <button class="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu">☰</button>
 
-  <!-- Navigation -->
+  <h1>Publications & Analyses</h1>
+
+  <!-- Navigation principale alignée en bas de l'en-tête -->
   <nav class="main-nav" id="mobileMenu">
     <a href="index.html">Accueil</a>
     <a href="offers.html">Offres</a>
@@ -43,43 +91,40 @@
     <a href="contact.html">Contact</a>
     <a href="mentions-legales.html">Mentions légales</a>
   </nav>
-
-  <!-- Dark Mode (desktop) -->
-  <button id="theme-toggle" class="theme-toggle desktop-only" aria-label="Changer le thème">
-    <span id="theme-icon">🌙</span>
-  </button>
-
-  <h1>Publications & Analyses</h1>
 </header>
 
-<section class="section-light">
-  <h2>Analyses récentes</h2>
+<main>
+  <section class="section-light">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2>Analyses récentes</h2>
 
-  <ul class="insights-list">
-    <li>
-      <strong>Évaluation d’impact : méthodes modernes et applications</strong><br>
-      Comment les approches économétriques avancées transforment l’évaluation des politiques publiques.
-    </li>
+      <ul class="insights-list">
+        <li>
+          <strong>Évaluation d’impact : méthodes modernes et applications</strong><br>
+          Comment les approches économétriques avancées transforment l’évaluation des politiques publiques.
+        </li>
 
-    <li>
-      <strong>Data intelligence : un levier stratégique pour les organisations</strong><br>
-      Les données comme moteur de performance et d’innovation.
-    </li>
+        <li>
+          <strong>Data intelligence : un levier stratégique pour les organisations</strong><br>
+          Les données comme moteur de performance et d’innovation.
+        </li>
 
-    <li>
-      <strong>Modélisation économique : comprendre pour mieux décider</strong><br>
-      L’importance des modèles dans la prise de décision stratégique.
-    </li>
+        <li>
+          <strong>Modélisation économique : comprendre pour mieux décider</strong><br>
+          L’importance des modèles dans la prise de décision stratégique.
+        </li>
 
-    <li>
-      <strong>Économie du développement : perspectives Afrique – Amérique du Nord</strong><br>
-      Analyse comparative des dynamiques économiques émergentes.
-    </li>
-  </ul>
-</section>
+        <li>
+          <strong>Économie du développement : perspectives Afrique – Amérique du Nord</strong><br>
+          Analyse comparative des dynamiques économiques émergentes.
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
 
 <footer>
-  © RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
+  © 2026 RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
   <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
   <a href="https://calendly.com/rgdatafinance/consultation" target="_blank" rel="noopener">Réserver une consultation</a>
 </footer>

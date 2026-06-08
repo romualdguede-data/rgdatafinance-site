@@ -11,7 +11,7 @@ function toggleMenu() {
   }
 }
 
-/* ===== DARK MODE PREMIUM ===== */
+/* ===== GESTION DU THÈME (DARK MODE) ===== */
 function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
   const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
 
@@ -26,7 +26,7 @@ function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
   }
 }
 
-/* ===== INITIALISATION ===== */
+/* ===== INITIALISATION GLOBALE ===== */
 document.addEventListener("DOMContentLoaded", () => {
   const toggleBtn = document.getElementById('theme-toggle');
   const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
@@ -36,8 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const savedTheme = localStorage.getItem('theme');
 
+  // Application initiale dès que le DOM est prêt
   applyTheme(savedTheme, prefersDark, icon, iconMobile);
 
+  // Fonction de bascule au clic
   function toggleTheme() {
     document.body.classList.toggle('dark-mode');
     const isDark = document.body.classList.contains('dark-mode');
@@ -48,11 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   }
 
+  // Attribution des écouteurs d'événements
   if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
   if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
 });
 
-/* ===== PWA – SERVICE WORKER REGISTRATION ===== */
+/* ===== PWA – ENREGISTREMENT DU SERVICE WORKER ===== */
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("/service-worker.js")
