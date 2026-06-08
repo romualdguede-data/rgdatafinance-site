@@ -54,7 +54,7 @@ a:hover {
 }
 
 /* ============================================================
-   POINT 1 : ACCUEIL EXCLUSIF (BANDES DE 2CM & LOGO MAXIMISÉ)
+   ACCUEIL : BANDES DE 2CM & LOGO AGRANDI MAX
    ============================================================ */
 
 .homepage-fullscreen {
@@ -83,7 +83,6 @@ a:hover {
   flex-grow: 1;
   width: 100%;
   max-width: 1000px;
-  /* Garantit que le contenu reste à 2cm du bord des bandes bleues */
   padding: 2cm 0;
   box-sizing: border-box;
 }
@@ -96,14 +95,12 @@ a:hover {
   text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
-/* Agrandissement maximal de l'image du logo */
 .hero-content .logo-container {
   background-image: url("assets/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   width: 100%;
-  /* Calcule la hauteur maximale disponible moins l'espace des textes */
   height: calc(100vh - 4cm - 250px); 
   max-height: 380px;
   min-height: 200px;
@@ -117,10 +114,7 @@ a:hover {
   margin-top: 0;
 }
 
-/* ============================================================
-   ALIGNEMENT BAS DE PAGE ACCUEIL
-   ============================================================ */
-
+/* ALIGNEMENT DES BOUTONS DE L'ACCUEIL */
 .homepage-footer {
   width: 100%;
   max-width: 900px;
@@ -208,7 +202,7 @@ a:hover {
 }
 
 /* ============================================================
-   NAVIGATION COMMUNE & COMPOSANTS
+   NAVIGATION COMMUNE
    ============================================================ */
 
 .main-nav {
@@ -269,42 +263,50 @@ a:hover {
 }
 
 /* ============================================================
-   POINT 2 : GRILLE DES OFFRES (PRÉSENTATION 2 À 2)
+   PRÉSENTATION PROFESSIONNELLE DES OFFRES (2 À 2)
    ============================================================ */
 
+.section-offers-block {
+  background-color: var(--light-bg);
+}
+body.dark-mode .section-offers-block {
+  background-color: var(--dark-bg);
+}
+
 .offers-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Grille stricte 2 colonnes */
+  gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
-  /* Grille stricte à 2 colonnes d'égale dimension */
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  padding: 60px 20px;
+  box-sizing: border-box;
 }
 
 .service-card {
-  background: var(--light-bg);
+  background-color: var(--light-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.04);
-  transition: transform var(--transition), box-shadow var(--transition);
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 body.dark-mode .service-card {
-  background: var(--grey-bg);
+  background-color: var(--grey-bg);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
 }
 
 .card-image-wrapper {
   width: 100%;
-  height: 250px;
+  height: 240px;
   overflow: hidden;
 }
 
@@ -312,33 +314,41 @@ body.dark-mode .service-card {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .service-card:hover .offer-image {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .card-content {
-  padding: 25px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
 }
 
 .card-content h2 {
+  font-size: 1.5rem;
   color: var(--primary);
-  margin-bottom: 12px;
-  font-size: 1.45rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
 }
 
 body.dark-mode .card-content h2 {
   color: #ffffff;
 }
 
-.section-offers-block {
-  background-color: var(--light-bg);
+.card-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
 }
-body.dark-mode .section-offers-block {
-  background-color: var(--dark-bg);
+
+body.dark-mode .card-content p {
+  color: #ccd6f6;
 }
 
 /* ============================================================
@@ -363,10 +373,10 @@ footer:not(.homepage-footer) a {
    ============================================================ */
 
 @media (max-width: 900px) {
-  /* Sur tablettes et mobiles, passage automatique à 1 colonne */
   .offers-grid-container {
-    grid-template-columns: 1fr;
-    gap: 25px;
+    grid-template-columns: 1fr; /* Passage sur 1 colonne sur tablette/mobile */
+    gap: 30px;
+    padding: 40px 20px;
   }
 }
 
