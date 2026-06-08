@@ -1,115 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="fr" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Legal Notice – RG DATA & FINANCE INC.</title>
+  <title>Nos Offres – RG DATA & FINANCE INC.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO -->
-  <meta name="description" content="Legal notice of RG DATA & FINANCE INC. Legal information, responsibility, intellectual property, privacy and compliance.">
-  <meta name="author" content="RG DATA & FINANCE INC.">
-  <link rel="canonical" href="https://www.rgdatafinance.com/legal-notice-en.html">
-
-  <!-- PWA -->
+  <meta name="description" content="Services d'analyse de données et d'intelligence économique pour PME, OBNL, Municipalités et Ministères.">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0A1A2F">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/icon-192.png">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header class="header-secondary">
-  <!-- Theme Toggle -->
-  <button id="theme-toggle" class="theme-toggle" style="position: absolute; top: 35px; left: 25px;" aria-label="Toggle theme">
-    <span id="theme-icon">🌙</span>
-  </button>
-
-  <!-- Language Switch -->
-  <div class="lang-switch">
-    <a href="mentions-legales.html">FR</a>
-  </div>
-
-  <!-- Mobile Hamburger Menu -->
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
-
-  <h1>Legal Notice</h1>
-
-  <!-- Navigation Bar aligned at the top (Point 3) -->
+  <button class="hamburger" id="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
   <nav class="main-nav" id="mobileMenu">
-    <a href="index-en.html">Home</a>
-    <a href="offers-en.html">Offers</a>
-    <a href="insights-en.html">Publications</a>
-    <a href="about-en.html">About</a>
-    <a href="contact-en.html">Contact</a>
-    <a href="legal-notice-en.html" class="active">Legal Notice</a>
+    <a href="index.html">Accueil</a>
+    <a href="offers.html" class="active">Offres</a>
+    <a href="insights.html">Insights</a>
+    <a href="about.html">À Propos</a>
+    <a href="contact.html">Contact</a>
   </nav>
+  <div class="lang-switch">
+    <a href="offers-en.html">EN</a> | 
+    <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème"><span id="theme-icon">🌙</span></button>
+  </div>
+  <h1>Nos Offres de Services</h1>
 </header>
 
 <main>
   <section class="section-light">
-    <div style="max-width: 900px; margin: 0 auto;">
-      <h2>Legal Information</h2>
-      <p>
-        <strong>Company name:</strong> RG DATA & FINANCE INC.<br>
-        <strong>Status:</strong> Corporation (Quebec, Canada)<br>
-        <strong>Business Number (NEQ):</strong> To be completed<br>
-        <strong>Head office:</strong> Quebec, Canada<br>
-        <strong>Email:</strong> contact@rgdatafinance.com
-      </p>
+    <div class="two-cols" style="max-width: 1100px; margin: 0 auto;">
+      <!-- Secteur PME -->
+      <div class="col" style="text-align: center; padding: 20px;">
+        <img src="assets/logo-sme.png" alt="Logo PME / SME" style="height: 80px; width: auto; margin-bottom: 15px;">
+        <h2>PME (SME)</h2>
+        <p>Optimisation des processus d'affaires, tableaux de bord de performance et valorisation de vos données commerciales pour accélérer votre croissance.</p>
+      </div>
+
+      <!-- Secteur OBNL -->
+      <div class="col" style="text-align: center; padding: 20px;">
+        <img src="assets/logo-obnl.png" alt="Logo OBNL" style="height: 80px; width: auto; margin-bottom: 15px;">
+        <h2>OBNL</h2>
+        <p>Mesure d'impact social, analyse des donateurs et optimisation des ressources budgétaires grâce à une intelligence de données adaptée à votre mission.</p>
+      </div>
     </div>
   </section>
 
   <section class="section-grey">
-    <div style="max-width: 900px; margin: 0 auto;">
-      <h2>Intellectual Property</h2>
-      <p>
-        All content on this website (texts, images, logos, structure, HTML/CSS code) is the exclusive property of RG DATA & FINANCE INC., unless otherwise stated. Any reproduction, distribution or modification without authorization is prohibited.
-      </p>
-    </div>
-  </section>
+    <div class="two-cols" style="max-width: 1100px; margin: 0 auto;">
+      <!-- Secteur Municipal -->
+      <div class="col" style="text-align: center; padding: 20px;">
+        <img src="assets/logo-municipal.png" alt="Logo Municipal" style="height: 80px; width: auto; margin-bottom: 15px;">
+        <h2>Municipal</h2>
+        <p>Analyse territoriale, indicateurs de gestion citoyenne et modélisation prédictive pour des infrastructures et des services locaux intelligents.</p>
+      </div>
 
-  <section class="section-light">
-    <div style="max-width: 900px; margin: 0 auto;">
-      <h2>Liability</h2>
-      <p>
-        The information provided on this website is for informational purposes only. RG DATA & FINANCE INC. cannot be held responsible for any misinterpretation or inappropriate use of the information presented.
-      </p>
-    </div>
-  </section>
-
-  <section class="section-grey">
-    <div style="max-width: 900px; margin: 0 auto;">
-      <h2>Data Protection</h2>
-      <p>
-        RG DATA & FINANCE INC. complies with Law 25 (Quebec), PIPEDA (Canada) and GDPR (Europe). No personal data is collected without explicit consent. Netlify forms are secure and data is never sold or shared.
-      </p>
-    </div>
-  </section>
-
-  <section class="section-light">
-    <div style="max-width: 900px; margin: 0 auto;">
-      <h2>Hosting</h2>
-      <p>
-        The website is hosted by Netlify, Inc.<br>
-        2325 3rd Street, Suite 296, San Francisco, CA 94107, USA.
-      </p>
+      <!-- Secteur Ministériel -->
+      <div class="col" style="text-align: center; padding: 20px;">
+        <img src="assets/logo-ministeriel.png" alt="Logo Ministériel" style="height: 80px; width: auto; margin-bottom: 15px;">
+        <h2>Ministériel</h2>
+        <p>Gouvernance des données publiques, appui à la prise de décision stratégique et analyses macroéconomiques rigoureuses conformes aux normes étatiques.</p>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
-  © 2026 RG DATA & FINANCE INC. – Economic Analysis & Data Intelligence<br>
-  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
-  <a href="legal-notice-en.html">Legal Notice</a>
+  © 2026 RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
+  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> | <a href="mentions-legales.html">Mentions légales</a>
 </footer>
 
-<!-- Federated Global Script Attachment -->
 <script src="app.js"></script>
-
 </body>
 </html>
