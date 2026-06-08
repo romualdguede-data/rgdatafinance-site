@@ -1,8 +1,8 @@
 /* ============================================================
-   RG DATA & FINANCE INC. — Service Worker (Option B: Advanced)
+   RG DATA & FINANCE INC. — Service Worker (Advanced, Optimized)
    ============================================================ */
 
-const CACHE_NAME = "rgdf-cache-v2";
+const CACHE_NAME = "rgdf-cache-v3";
 const OFFLINE_URL = "/offline.html";
 
 /* ------------------------------------------------------------
@@ -75,12 +75,14 @@ self.addEventListener("fetch", event => {
           caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
           return response;
         })
-        .catch(() => caches.match(request).then(r => r || caches.match(OFFLINE_URL)))
+        .catch(() =>
+          caches.match(request).then(r => r || caches.match(OFFLINE_URL))
+        )
     );
     return;
   }
 
-  // 2. Images → Cache First + fallback placeholder
+  // 2. Images → Cache First + fallback empty response
   if (request.destination === "image") {
     event.respondWith(
       caches.match(request).then(cached => {
@@ -99,12 +101,14 @@ self.addEventListener("fetch", event => {
     return;
   }
 
-  // 3. CSS / JS / static → Stale While Revalidate
+  // 3. CSS / JS → Stale While Revalidate
   if (["style", "script"].includes(request.destination)) {
     event.respondWith(
       caches.match(request).then(cached => {
         const fetchPromise = fetch(request).then(response => {
-          caches.open(CACHE_NAME).then(cache => cache.put(request, response.clone()));
+          caches.open(CACHE_NAME).then(cache =>
+            cache.put(request, response.clone())
+          );
           return response;
         });
         return cached || fetchPromise;
@@ -120,7 +124,9 @@ self.addEventListener("fetch", event => {
         cached ||
         fetch(request)
           .then(response => {
-            caches.open(CACHE_NAME).then(cache => cache.put(request, response.clone()));
+            caches.open(CACHE_NAME).then(cache =>
+              cache.put(request, response.clone())
+            );
             return response;
           })
           .catch(() => cached)

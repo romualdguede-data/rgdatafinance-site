@@ -56,6 +56,7 @@
 
   <!-- Hero text -->
   <h1>Transformez vos données en décisions.</h1>
+
   <p class="subtitle">
     Analyse économique • Data intelligence • Décision stratégique<br>
     RG DATA & FINANCE INC. accompagne les organisations publiques et privées.
@@ -144,54 +145,11 @@
 
 <footer>
   © RG DATA & FINANCE INC. – Analyse économique & Data intelligence<br>
-  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
-  <a href="mentions-legales.html">Mentions légales</a>
+  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a>
 </footer>
 
-<!-- SCRIPT MENU MOBILE -->
-<script>
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("open");
-}
-</script>
-
-<!-- SCRIPT DARK MODE PREMIUM -->
-<script>
-function applyTheme(savedTheme, prefersDark, icon, iconMobile) {
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.body.classList.add('dark-mode');
-        icon.textContent = '☀️';
-        if (iconMobile) iconMobile.textContent = '☀️';
-    } else {
-        document.body.classList.remove('dark-mode');
-        icon.textContent = '🌙';
-        if (iconMobile) iconMobile.textContent = '🌙';
-    }
-}
-
-const toggleBtn = document.getElementById('theme-toggle');
-const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
-const icon = document.getElementById('theme-icon');
-const iconMobile = document.getElementById('theme-icon-mobile');
-
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const savedTheme = localStorage.getItem('theme');
-
-applyTheme(savedTheme, prefersDark, icon, iconMobile);
-
-function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-
-    icon.textContent = isDark ? '☀️' : '🌙';
-    if (iconMobile) iconMobile.textContent = isDark ? '☀️' : '🌙';
-
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
-
-toggleBtn.addEventListener('click', toggleTheme);
-if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
-</script>
+<!-- JS -->
+<script src="script.js"></script>
 
 </body>
 </html>

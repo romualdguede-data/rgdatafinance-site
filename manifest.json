@@ -67,5 +67,28 @@
       "form_factor": "wide",
       "label": "Offres – Analyse économique & Data intelligence"
     }
-  ]
+  ],
+
+  "shortcuts": [
+    {
+      "name": "Offres",
+      "short_name": "Offres",
+      "url": "/offers.html",
+      "icons": [{ "src": "/assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Publications",
+      "short_name": "Insights",
+      "url": "/insights.html",
+      "icons": [{ "src": "/assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "url": "/contact.html",
+      "icons": [{ "src": "/assets/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+
+  "prefer_related_applications": false
 }
