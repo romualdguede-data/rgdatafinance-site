@@ -10,7 +10,7 @@
   --text: #333333;
   --light-bg: #ffffff;
   --grey-bg: #f8f9fa;
-  --footer-bg: #050d18; /* Bleu foncé pour les bordures de 2cm */
+  --footer-bg: #050d18; /* Couleur bleue de l'encadré */
   --border-color: rgba(0, 0, 0, 0.1);
   --radius: 8px;
   --transition: 0.25s ease;
@@ -21,10 +21,6 @@ body.dark-mode {
   --light-bg: #0A1A2F;
   --grey-bg: #112240;
   --border-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .homepage-fullscreen {
-  background-color: #050d18;
 }
 
 /* ============================================================
@@ -55,7 +51,7 @@ a:hover {
 }
 
 /* ============================================================
-   ACCUEIL : ENCADREMENT CADRE DE 2CM ET EFFET SANS SCROLL
+   ACCUEIL : SANS SCROLL - REQUIS 2CM HAUT/BAS EN LIEN AVEC L'IMAGE
    ============================================================ */
 
 .homepage-fullscreen {
@@ -66,26 +62,21 @@ a:hover {
   height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  background-color: var(--dark-bg);
-  padding: 0 20px;
+  background: linear-gradient(to bottom, var(--footer-bg) 2cm, var(--dark-bg) 2cm, var(--dark-bg) calc(100% - 2cm), var(--footer-bg) calc(100% - 2cm));
+  padding: calc(2cm + 10px) 20px calc(2cm + 15px) 20px; /* Intègre l'encadré de 2cm proprement */
   text-align: center;
   position: relative;
-  overflow: hidden; /* Empêche strictement tout défilement */
-  
-  /* REQUIS : Encadrement par la bande bleue de 2 cm */
-  border-top: 2cm solid var(--footer-bg);
-  border-bottom: 2cm solid var(--footer-bg);
+  overflow: hidden; 
 }
 
 /* Menu haut - Accueil */
 .homepage-fullscreen header {
   width: 100%;
   max-width: 900px;
-  margin-top: 10px;
   z-index: 10;
 }
 
-/* Zone centrale : Ajustée pour respecter les 2cm d'espace du bord haut/bas */
+/* Zone centrale : Image à 2cm maximum des bordures */
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -94,7 +85,6 @@ a:hover {
   flex-grow: 1;
   width: 100%;
   max-width: 1000px;
-  padding: 2cm 0; /* REQUIS : Espacement de l'image à 2cm des bandes */
   box-sizing: border-box;
 }
 
@@ -106,15 +96,15 @@ a:hover {
   text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
-/* REQUIS : Image agrandie au maximum dans l'espace disponible */
+/* Image RG DATA & FINANCE : Agrandie au maximum dans l'espace disponible */
 .hero-content .logo-container {
   background-image: url("assets/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   width: 100%;
-  height: 32vh; /* Dimension maximale fluide sans pousser les boutons */
-  max-height: 400px;
+  height: 38vh; /* Exploite au maximum la hauteur restante */
+  max-height: 420px;
   min-height: 200px;
   margin: 10px 0;
 }
@@ -127,11 +117,10 @@ a:hover {
   margin-bottom: 5px;
 }
 
-/* Zone basse - Boutons au même niveau */
+/* Zone basse - Boutons */
 .homepage-footer {
   width: 100%;
   max-width: 900px;
-  margin-bottom: 15px;
   z-index: 10;
 }
 
@@ -276,7 +265,7 @@ a:hover {
 }
 
 /* ============================================================
-   PRÉSENTATION DES OFFRES : GRILLE UNIQUE ET NETTE (2 À 2)
+   OFFRES : DISPOSITION STRICTE ET PROFESSIONNELLE 2 À 2
    ============================================================ */
 
 .section-offers-block {
@@ -288,7 +277,7 @@ body.dark-mode .section-offers-block {
 
 .offers-grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Force l'affichage 2 par 2 */
+  grid-template-columns: repeat(2, 1fr); /* 2 colonnes strictes */
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
@@ -374,12 +363,12 @@ footer:not(.homepage-footer) a {
 }
 
 /* ============================================================
-   RESPONSIVE DESIGN (AUTOMATIQUE MOBILES)
+   RESPONSIVE DESIGN (MOBILE & TABLETTE)
    ============================================================ */
 
 @media (max-width: 900px) {
   .offers-grid-container {
-    grid-template-columns: 1fr; /* Passage sur 1 colonne sur petit écran */
+    grid-template-columns: 1fr; /* Passage automatique à 1 colonne sur mobile */
     gap: 30px;
     padding: 40px 20px;
   }
@@ -390,12 +379,8 @@ footer:not(.homepage-footer) a {
     height: auto;
     min-height: 100vh;
     overflow: auto;
-    border-top-width: 1cm;
-    border-bottom-width: 1cm;
-  }
-  
-  .hero-content {
-    padding: 1cm 0;
+    background: var(--dark-bg);
+    padding: 20px;
   }
 
   .footer-buttons {
