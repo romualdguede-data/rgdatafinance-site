@@ -10,7 +10,7 @@
   --text: #333333;
   --light-bg: #ffffff;
   --grey-bg: #f8f9fa;
-  --footer-bg: #050d18; /* Couleur bleue de l'encadré */
+  --footer-bg: #050d18;
   --border-color: rgba(0, 0, 0, 0.1);
   --radius: 8px;
   --transition: 0.25s ease;
@@ -46,103 +46,79 @@ a {
   color: var(--primary);
   text-decoration: none;
 }
-a:hover { 
-  text-decoration: underline; 
-}
+a:hover { text-decoration: underline; }
 
 /* ============================================================
-   3. ACCUEIL : HARMONISATION STRICTE SANS SCROLL (TOUT RESTE VISIBLE)
+   3. HERO : LOGO PLEIN ÉCRAN EN FOND + TEXTES AU-DESSUS
    ============================================================ */
 
 .homepage-fullscreen {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh; /* Verrouille la hauteur à 100% de l'écran */
-  width: 100%;
-  box-sizing: border-box;
-  /* Crée l'effet visuel des bandes de 2cm en haut et en bas */
-  background: linear-gradient(to bottom, var(--footer-bg) 2cm, var(--dark-bg) 2cm, var(--dark-bg) calc(100% - 2cm), var(--footer-bg) calc(100% - 2cm));
-  padding: calc(2cm + 15px) 20px calc(2cm + 15px) 20px; 
-  text-align: center;
   position: relative;
-  overflow: hidden; /* Empêche l'apparition d'une barre de défilement */
-}
-
-/* Menu haut - Accueil */
-.homepage-fullscreen header {
   width: 100%;
-  max-width: 900px;
-  z-index: 10;
-}
-
-/* Zone centrale contenant le logo et les titres */
-.hero-content {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
+  text-align: center;
+  overflow: hidden;
+  background-color: var(--dark-bg);
+}
+
+/* Logo en fond plein écran */
+.hero-logo-background {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 1000px;
-  box-sizing: border-box;
-}
-
-.hero-content .tagline {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 5px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-}
-
-/* CORRECTION : Hauteur maximale de l'image bridée pour ne plus chasser les boutons */
-.hero-content .logo-container {
+  height: 100%;
   background-image: url("assets/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  width: 100%;
-  height: 30vh; /* Limite le logo à 30% de la hauteur de l'écran maximum */
-  max-height: 340px;
-  min-height: 180px;
-  margin: 10px 0;
+  opacity: 0.18;
+  z-index: 1;
 }
 
-.hero-content .subtitle {
-  font-size: 1.3rem;
+/* Textes au-dessus */
+.hero-content-overlay {
+  position: relative;
+  z-index: 5;
+  max-width: 900px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.hero-content-overlay .tagline {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+}
+
+.hero-content-overlay .subtitle {
+  font-size: 1.4rem;
   color: var(--gold);
   font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
-/* Zone basse - Boutons (Désormais parfaitement visibles au-dessus des 2cm du bas) */
-.homepage-footer {
-  width: 100%;
-  max-width: 900px;
-  z-index: 10;
-}
-
+/* Boutons */
 .footer-buttons {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 20px;
-  margin-bottom: 5px;
   flex-wrap: wrap;
 }
 
 .footer-buttons a {
-  padding: 12px 24px;
-  font-size: 0.95rem;
+  padding: 14px 28px;
+  font-size: 1rem;
   font-weight: 700;
   border-radius: var(--radius);
-  letter-spacing: 0.5px;
-  transition: var(--transition);
-  text-align: center;
   min-width: 240px;
+  text-align: center;
   box-sizing: border-box;
 }
 
@@ -151,7 +127,6 @@ a:hover {
   color: #ffffff !important;
   box-shadow: 0 4px 6px rgba(0, 119, 204, 0.2);
 }
-
 .cta-primary:hover {
   background-color: var(--primary-dark);
   text-decoration: none;
@@ -162,49 +137,14 @@ a:hover {
   color: var(--gold) !important;
   border: 2px solid var(--gold);
 }
-
 .cta-secondary:hover {
   background-color: var(--gold);
   color: var(--footer-bg) !important;
   text-decoration: none;
 }
 
-.footer-credits {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.85rem;
-}
-
-.footer-credits a {
-  color: rgba(255, 255, 255, 0.6);
-}
-
 /* ============================================================
-   4. EN-TÊTE DES PAGES SECONDAIRES
-   ============================================================ */
-
-.header-secondary {
-  background-color: var(--dark-bg);
-  border-top: 5px solid var(--primary); 
-  padding: 20px;
-  text-align: center;
-  position: relative;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.header-secondary .main-nav {
-  margin: 0 auto 20px auto;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 15px;
-}
-
-.header-secondary h1 {
-  color: #ffffff;
-  margin-top: 10px;
-  font-size: 2.2rem;
-}
-
-/* ============================================================
-   5. NAVIGATION COMMUNE
+   4. NAVIGATION
    ============================================================ */
 
 .main-nav {
@@ -212,7 +152,6 @@ a:hover {
   justify-content: center;
   gap: 35px;
   padding: 10px 0;
-  background: transparent;
   width: 100%;
   max-width: 900px;
 }
@@ -221,11 +160,9 @@ a:hover {
   font-weight: 600;
   color: #ffffff;
   font-size: 1rem;
-  transition: var(--transition);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-
 .main-nav a:hover,
 .main-nav a.active {
   color: var(--gold);
@@ -266,88 +203,7 @@ a:hover {
 }
 
 /* ============================================================
-   6. OFFRES : DISPOSITION STRICTE ET PROFESSIONNELLE 2 À 2
-   ============================================================ */
-
-.section-offers-block {
-  background-color: var(--light-bg);
-}
-body.dark-mode .section-offers-block {
-  background-color: var(--dark-bg);
-}
-
-.offers-grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Grille 2x2 */
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  box-sizing: border-box;
-}
-
-.service-card {
-  background-color: var(--light-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-body.dark-mode .service-card {
-  background-color: var(--grey-bg);
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
-}
-
-.card-image-wrapper {
-  width: 100%;
-  height: 240px;
-  overflow: hidden;
-}
-
-.offer-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-content {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.card-content h2 {
-  font-size: 1.4rem;
-  color: var(--primary);
-  margin-bottom: 12px;
-}
-
-body.dark-mode .card-content h2 {
-  color: #ffffff;
-}
-
-.card-content p {
-  font-size: 1rem;
-  color: var(--text);
-  margin: 0;
-}
-
-body.dark-mode .card-content p {
-  color: #ccd6f6;
-}
-
-/* ============================================================
-   7. FOOTER STANDARD
+   5. FOOTER
    ============================================================ */
 
 footer:not(.homepage-footer) {
@@ -364,59 +220,42 @@ footer:not(.homepage-footer) a {
 }
 
 /* ============================================================
-   8. RESPONSIVE DESIGN (MOBILE & TABLETTE)
+   6. RESPONSIVE
    ============================================================ */
 
-@media (max-width: 900px) {
-  .offers-grid-container {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 40px 20px;
-  }
-}
-
 @media (max-width: 768px) {
-  .homepage-fullscreen {
-    height: auto;
-    min-height: 100vh;
-    overflow: auto;
-    background: var(--dark-bg);
-    padding: 20px;
+  .hero-content-overlay .tagline {
+    font-size: 2rem;
   }
-
+  .hero-content-overlay .subtitle {
+    font-size: 1.2rem;
+  }
   .footer-buttons {
     flex-direction: column;
     gap: 12px;
-    width: 100%;
   }
-
   .footer-buttons a {
     width: 100%;
     min-width: 0;
   }
-
   .hamburger {
     display: block;
   }
-
   .main-nav {
     display: none;
     flex-direction: column;
     gap: 0;
     width: 100%;
   }
-
   .main-nav.open {
     display: flex;
     margin-top: 15px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: var(--radius);
   }
-
   .main-nav a {
     padding: 12px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     width: 100%;
-    box-sizing: border-box;
   }
 }

@@ -10,42 +10,46 @@
   <link rel="icon" type="image/png" href="assets/icon-192.png">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="homepage-fullscreen">
-  <!-- Navigation Header -->
-  <header style="width: 100%; max-width: 900px; position: relative;">
-    <button class="hamburger" id="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+
+  <div class="hero-logo-background"></div>
+
+  <header style="width: 100%; max-width: 900px; position: relative; z-index: 10;">
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
     <nav class="main-nav" id="mobileMenu">
       <a href="index-en.html" class="active">Home</a>
-      <a href="offers-en.html">Offers</a>
+      <a href="offers-en.html">Services</a>
       <a href="insights-en.html">Insights</a>
       <a href="about-en.html">About</a>
       <a href="contact-en.html">Contact</a>
     </nav>
     <div class="lang-switch">
-      <a href="index.html">FR</a> | 
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"><span id="theme-icon">🌙</span></button>
+      <a href="index.html">FR</a> |
+      <button id="theme-toggle" class="theme-toggle"><span id="theme-icon">🌙</span></button>
     </div>
   </header>
 
-  <!-- Central Area : Enlarged Logo -->
-  <main class="hero-content">
-    <div class="logo-container"></div>
+  <main class="hero-content-overlay">
     <h1 class="tagline">RG DATA & FINANCE INC.</h1>
     <p class="subtitle">Economic Analysis & Data Intelligence</p>
-  </main>
 
-  <!-- Bottom Page : Buttons at the exact same level -->
-  <footer class="homepage-footer">
     <div class="footer-buttons">
       <a href="offers-en.html" class="cta-primary">DISCOVER OUR SERVICES</a>
-      <a href="contact-en.html" class="cta-secondary">BOOK AN APPOINTMENT</a>
+      <a href="contact-en.html" class="cta-secondary">BOOK A MEETING</a>
     </div>
+  </main>
+
+  <footer class="homepage-footer">
     <div class="footer-credits">
-      © 2026 RG DATA & FINANCE INC. | <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> | <a href="legal-notice-en.html">Legal Notice</a>
+      © 2026 RG DATA & FINANCE INC. |
+      <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
+      <a href="legal-notice-en.html">Legal Notice</a>
     </div>
   </footer>
+
 </div>
 
 <script src="app.js"></script>
