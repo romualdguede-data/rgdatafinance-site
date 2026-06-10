@@ -1,17 +1,60 @@
-/* ============================================================
-   Offers-en
-   ============================================================ */
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Our Offers – RG DATA & FINANCE INC.</title>
+  <title>Offline Mode – RG DATA & FINANCE INC.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Data analysis and economic intelligence services for SMEs, Non-profits, Municipalities, and Government Ministries.">
+  <meta name="description" content="You are currently offline. RG DATA & FINANCE INC.">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0A1A2F">
   <link rel="icon" type="image/png" href="assets/icon-192.png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Specific styles to center the offline/error page content */
+    .offline-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      padding: 40px 20px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .offline-icon {
+      font-size: 4rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .offline-content h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    body.dark-mode .offline-content h2 {
+      color: #ffffff;
+    }
+    .offline-content p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+    .btn-retry {
+      padding: 12px 30px;
+      font-weight: 700;
+      background-color: var(--primary);
+      color: #ffffff !important;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 6px rgba(0, 119, 204, 0.2);
+    }
+    .btn-retry:hover {
+      background-color: var(--primary-dark);
+    }
+  </style>
 </head>
 <body>
 
@@ -19,61 +62,24 @@
   <button class="hamburger" id="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
   <nav class="main-nav" id="mobileMenu">
     <a href="index-en.html">Home</a>
-    <a href="offers-en.html" class="active">Offers</a>
+    <a href="offers-en.html">Offers</a>
     <a href="insights-en.html">Insights</a>
     <a href="about-en.html">About</a>
     <a href="contact-en.html">Contact</a>
   </nav>
   <div class="lang-switch">
-    <a href="offers.html">FR</a> | 
+    <a href="offline.html">FR</a> | 
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"><span id="theme-icon">🌙</span></button>
   </div>
-  <h1>Our Service Offers</h1>
+  <h1>RG DATA & FINANCE INC.</h1>
 </header>
 
 <main class="section-offers-block">
-  <div class="offers-grid-container">
-    
-    <div class="service-card">
-      <div class="card-image-wrapper">
-        <img src="assets/sme-services.jpg" alt="SME Services" class="offer-image">
-      </div>
-      <div class="card-content">
-        <h2>SME</h2>
-        <p>Business process optimization, performance dashboards, and commercial data valuation to accelerate your business and economic growth.</p>
-      </div>
-    </div>
-
-    <div class="service-card">
-      <div class="card-image-wrapper">
-        <img src="assets/obnl-services.jpg" alt="Non-Profit Services" class="offer-image">
-      </div>
-      <div class="card-content">
-        <h2>Non-Profits (OBNL)</h2>
-        <p>Social impact measurement, donor predictive analysis, and budgetary resource optimization driven by a data architecture tailored to your mission.</p>
-      </div>
-    </div>
-
-    <div class="service-card">
-      <div class="card-image-wrapper">
-        <img src="assets/municipal-services.jpg" alt="Municipal Services" class="offer-image">
-      </div>
-      <div class="card-content">
-        <h2>Municipal</h2>
-        <p>Advanced territorial analysis, citizen management indicators, and data modeling for the strategic deployment of smart local infrastructure.</p>
-      </div>
-    </div>
-
-    <div class="service-card">
-      <div class="card-image-wrapper">
-        <img src="assets/ministerial-services.jpg" alt="Government Ministries Services" class="offer-image">
-      </div>
-      <div class="card-content">
-        <h2>Government Ministries</h2>
-        <p>Public data governance, strategic decision support, and data-driven macroeconomic models meeting strict administrative and state standards.</p>
-      </div>
-    </div>
-
+  <div class="offline-content">
+    <div class="offline-icon">📡</div>
+    <h2>You are offline</h2>
+    <p>It looks like you are not currently connected to the Internet. Please check your network connection and try reloading the page.</p>
+    <button class="btn-retry" onclick="window.location.reload();">Retry Connection</button>
   </div>
 </main>
 
