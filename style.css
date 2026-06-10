@@ -10,7 +10,7 @@
   --text: #333333;
   --light-bg: #ffffff;
   --grey-bg: #f8f9fa;
-  --footer-bg: #050d18; /* Couleur bleue de l'encadré */
+  --footer-bg: #050d18; /* Couleur bleue de l'encadré de 2cm */
   --border-color: rgba(0, 0, 0, 0.1);
   --radius: 8px;
   --transition: 0.25s ease;
@@ -51,7 +51,7 @@ a:hover {
 }
 
 /* ============================================================
-   ACCUEIL : SANS SCROLL - REQUIS 2CM HAUT/BAS EN LIEN AVEC L'IMAGE
+   ACCUEIL : LOGO EN PLEIN ÉCRAN / FOND D'ÉCRAN + ENCADRÉ BLEU 2CM
    ============================================================ */
 
 .homepage-fullscreen {
@@ -62,11 +62,29 @@ a:hover {
   height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  background: linear-gradient(to bottom, var(--footer-bg) 2cm, var(--dark-bg) 2cm, var(--dark-bg) calc(100% - 2cm), var(--footer-bg) calc(100% - 2cm));
-  padding: calc(2cm + 10px) 20px calc(2cm + 15px) 20px; /* Intègre l'encadré de 2cm proprement */
+  
+  /* LOGO EN FOND D'ÉCRAN ET PLEIN ÉCRAN */
+  background-image: url("assets/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* Couvre tout l'écran */
+  
   text-align: center;
   position: relative;
   overflow: hidden; 
+
+  /* ENCADRÉ BLEU DE 2CM EN HAUT ET EN BAS VIA DES BORDURES STRICTES */
+  border-top: 2cm solid var(--footer-bg);
+  border-bottom: 2cm solid var(--footer-bg);
+}
+
+/* Filtre de lisibilité optionnel directement sur l'accueil */
+.homepage-fullscreen::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 26, 47, 0.65); /* Assombrit le fond pour faire ressortir les textes */
+  z-index: 1;
 }
 
 /* Menu haut - Accueil */
@@ -74,9 +92,10 @@ a:hover {
   width: 100%;
   max-width: 900px;
   z-index: 10;
+  margin-top: 15px;
 }
 
-/* Zone centrale : Image à 2cm maximum des bordures */
+/* Zone centrale (Titres épurés car le logo est en fond d'écran) */
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -86,42 +105,37 @@ a:hover {
   width: 100%;
   max-width: 1000px;
   box-sizing: border-box;
+  z-index: 10;
 }
 
 .hero-content .tagline {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 5px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  margin-bottom: 10px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
 
-/* Image RG DATA & FINANCE : Agrandie au maximum dans l'espace disponible */
+/* Suppression de l'ancienne boîte conteneur d'image car elle est en background */
 .hero-content .logo-container {
-  background-image: url("assets/logo.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  width: 100%;
-  height: 38vh; /* Exploite au maximum la hauteur restante */
-  max-height: 420px;
-  min-height: 200px;
-  margin: 10px 0;
+  display: none; 
 }
 
 .hero-content .subtitle {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--gold);
   font-weight: 600;
   margin-top: 0;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
-/* Zone basse - Boutons */
+/* Zone basse - Boutons d'action */
 .homepage-footer {
   width: 100%;
   max-width: 900px;
   z-index: 10;
+  margin-bottom: 15px;
 }
 
 .footer-buttons {
@@ -129,26 +143,26 @@ a:hover {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   flex-wrap: wrap;
 }
 
 .footer-buttons a {
-  padding: 12px 24px;
-  font-size: 0.95rem;
+  padding: 14px 28px;
+  font-size: 1rem;
   font-weight: 700;
   border-radius: var(--radius);
   letter-spacing: 0.5px;
   transition: var(--transition);
   text-align: center;
-  min-width: 240px;
+  min-width: 250px;
   box-sizing: border-box;
 }
 
 .cta-primary {
   background-color: var(--primary);
   color: #ffffff !important;
-  box-shadow: 0 4px 6px rgba(0, 119, 204, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.3);
 }
 
 .cta-primary:hover {
@@ -157,9 +171,10 @@ a:hover {
 }
 
 .cta-secondary {
-  background-color: transparent;
+  background-color: rgba(5, 13, 24, 0.7); /* Fond semi-transparent pour opacité pro */
   color: var(--gold) !important;
   border: 2px solid var(--gold);
+  backdrop-filter: blur(4px);
 }
 
 .cta-secondary:hover {
@@ -169,12 +184,13 @@ a:hover {
 }
 
 .footer-credits {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.85rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 .footer-credits a {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* ============================================================
@@ -203,17 +219,19 @@ a:hover {
 }
 
 /* ============================================================
-   NAVIGATION COMMUNE
+   NAVIGATION COMMUNE (ONGLETS)
    ============================================================ */
 
 .main-nav {
   display: flex;
   justify-content: center;
   gap: 35px;
-  padding: 10px 0;
-  background: transparent;
-  width: 100%;
-  max-width: 900px;
+  padding: 12px 25px;
+  background: rgba(5, 13, 24, 0.6); /* Fond design pour lisibilité sur image */
+  border-radius: var(--radius);
+  backdrop-filter: blur(5px);
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .main-nav a {
@@ -265,7 +283,7 @@ a:hover {
 }
 
 /* ============================================================
-   OFFRES : DISPOSITION STRICTE ET PROFESSIONNELLE 2 À 2
+   OFFRES : DISPOSITION PROFESSIONNELLE EN GRILLE STRICTE 2 À 2
    ============================================================ */
 
 .section-offers-block {
@@ -277,7 +295,7 @@ body.dark-mode .section-offers-block {
 
 .offers-grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 colonnes strictes */
+  grid-template-columns: repeat(2, 1fr); /* Alignement côte à côte 2 à 2 */
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
@@ -346,7 +364,7 @@ body.dark-mode .card-content p {
 }
 
 /* ============================================================
-   FOOTER STANDARD
+   FOOTER STANDARD DES PAGES SECONDAIRES
    ============================================================ */
 
 footer:not(.homepage-footer) {
@@ -368,7 +386,7 @@ footer:not(.homepage-footer) a {
 
 @media (max-width: 900px) {
   .offers-grid-container {
-    grid-template-columns: 1fr; /* Passage automatique à 1 colonne sur mobile */
+    grid-template-columns: 1fr; /* 1 colonne uniquement sur mobile */
     gap: 30px;
     padding: 40px 20px;
   }
@@ -381,6 +399,13 @@ footer:not(.homepage-footer) a {
     overflow: auto;
     background: var(--dark-bg);
     padding: 20px;
+    border-top-width: 1cm;
+    border-bottom-width: 1cm;
+  }
+
+  .main-nav {
+    background: transparent;
+    padding: 0;
   }
 
   .footer-buttons {
@@ -408,7 +433,7 @@ footer:not(.homepage-footer) a {
   .main-nav.open {
     display: flex;
     margin-top: 15px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(5, 13, 24, 0.9);
     border-radius: var(--radius);
   }
 
@@ -417,5 +442,6 @@ footer:not(.homepage-footer) a {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     width: 100%;
     box-sizing: border-box;
+    text-align: center;
   }
 }
