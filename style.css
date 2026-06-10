@@ -10,7 +10,7 @@
   --text: #333333;
   --light-bg: #ffffff;
   --grey-bg: #f8f9fa;
-  --footer-bg: #050d18; /* Couleur bleue de l'encadré de 2cm */
+  --footer-bg: #050d18;
   --border-color: rgba(0, 0, 0, 0.1);
   --radius: 8px;
   --transition: 0.25s ease;
@@ -46,9 +46,7 @@ a {
   color: var(--primary);
   text-decoration: none;
 }
-a:hover { 
-  text-decoration: underline; 
-}
+a:hover { text-decoration: underline; }
 
 /* ============================================================
    3. ACCUEIL : ALIGNEMENTS CORRIGÉS ET HARMONISÉS
@@ -57,48 +55,45 @@ a:hover {
 .homepage-fullscreen {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribue l'espace entre le haut et le bas */
+  justify-content: space-between;
   align-items: center;
   height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  
-  /* Logo en fond d'écran complet */
+
   background-image: url("assets/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  
+
   text-align: center;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
 
-  /* Encadré bleu de 2cm en haut et en bas */
   border-top: 2cm solid var(--footer-bg);
   border-bottom: 2cm solid var(--footer-bg);
 }
 
-/* Filtre d'assombrissement pour maximiser la lisibilité du texte */
 .homepage-fullscreen::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(10, 26, 47, 0.65); 
+  inset: 0;
+  background: rgba(10, 26, 47, 0.65);
   z-index: 1;
 }
 
-/* REQUIS 2 : Bloc Haut (Navigation remontée au maximum + Titre juste en dessous) */
+/* BLOC HAUT : MENU + TITRE */
 .homepage-fullscreen header {
   width: 100%;
   max-width: 900px;
   z-index: 10;
-  margin-top: 5px; /* Colle la navigation au plus près de la bande supérieure */
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Conteneur principal au centre */
+/* CONTENU CENTRAL */
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -107,42 +102,38 @@ a:hover {
   flex-grow: 1;
   width: 100%;
   max-width: 1000px;
-  box-sizing: border-box;
   z-index: 10;
   padding: 10px 0;
 }
 
-/* REQUIS 2 : Titre principal monté juste sous le menu */
 .hero-content .tagline {
   font-size: 2.6rem;
   font-weight: 700;
   color: #ffffff;
-  margin-top: 15px; /* Position idéale sous les onglets */
+  margin-top: 15px;
   margin-bottom: 0;
   text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
 
-/* Cache l'ancienne boîte conteneur car l'image occupe le fond d'écran complet */
 .hero-content .logo-container {
-  display: none; 
+  display: none;
 }
 
-/* REQUIS 1 : Sous-titre descendu juste au-dessus des boutons d'action */
 .hero-content .subtitle {
   font-size: 1.4rem;
   color: var(--gold);
   font-weight: 600;
-  margin-top: auto; /* Pousse le texte vers le bas */
-  margin-bottom: 20px; /* Espace équilibré avant les boutons */
+  margin-top: auto;
+  margin-bottom: 20px;
   text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
-/* REQUIS 1 : Bloc Bas (Boutons descendus au plus bas près de la bande inférieure) */
+/* BLOC BAS : BOUTONS */
 .homepage-footer {
   width: 100%;
   max-width: 900px;
   z-index: 10;
-  margin-bottom: 5px; /* Rapproche le bloc de la bande inférieure */
+  margin-bottom: 5px;
 }
 
 .footer-buttons {
@@ -161,9 +152,7 @@ a:hover {
   border-radius: var(--radius);
   letter-spacing: 0.5px;
   transition: var(--transition);
-  text-align: center;
   min-width: 255px;
-  box-sizing: border-box;
 }
 
 .cta-primary {
@@ -171,23 +160,17 @@ a:hover {
   color: #ffffff !important;
   box-shadow: 0 4px 12px rgba(0, 119, 204, 0.3);
 }
-
-.cta-primary:hover {
-  background-color: var(--primary-dark);
-  text-decoration: none;
-}
+.cta-primary:hover { background-color: var(--primary-dark); }
 
 .cta-secondary {
-  background-color: rgba(5, 13, 24, 0.7); 
+  background-color: rgba(5, 13, 24, 0.7);
   color: var(--gold) !important;
   border: 2px solid var(--gold);
   backdrop-filter: blur(4px);
 }
-
 .cta-secondary:hover {
   background-color: var(--gold);
   color: var(--footer-bg) !important;
-  text-decoration: none;
 }
 
 .footer-credits {
@@ -196,17 +179,13 @@ a:hover {
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
-.footer-credits a {
-  color: rgba(255, 255, 255, 0.7);
-}
-
 /* ============================================================
    4. EN-TÊTE DES PAGES SECONDAIRES
    ============================================================ */
 
 .header-secondary {
   background-color: var(--dark-bg);
-  border-top: 5px solid var(--primary); 
+  border-top: 5px solid var(--primary);
   padding: 20px;
   text-align: center;
   position: relative;
@@ -215,7 +194,7 @@ a:hover {
 
 .header-secondary .main-nav {
   margin: 0 auto 20px auto;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
   padding-bottom: 15px;
 }
 
@@ -234,7 +213,7 @@ a:hover {
   justify-content: center;
   gap: 35px;
   padding: 12px 25px;
-  background: rgba(5, 13, 24, 0.6); 
+  background: rgba(5, 13, 24, 0.6);
   border-radius: var(--radius);
   backdrop-filter: blur(5px);
   width: fit-content;
@@ -245,15 +224,14 @@ a:hover {
   font-weight: 600;
   color: #ffffff;
   font-size: 1rem;
-  transition: var(--transition);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: var(--transition);
 }
 
 .main-nav a:hover,
 .main-nav a.active {
   color: var(--gold);
-  text-decoration: none;
 }
 
 .lang-switch {
@@ -261,20 +239,11 @@ a:hover {
   top: 25px;
   right: 25px;
   z-index: 15;
-  color: #fff;
 }
 
 .lang-switch a {
   font-weight: 600;
   color: var(--gold);
-}
-
-.theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.3rem;
-  cursor: pointer;
-  margin-left: 5px;
 }
 
 .hamburger {
@@ -290,7 +259,7 @@ a:hover {
 }
 
 /* ============================================================
-   6. OFFRES : DISPOSITION EN GRILLE STRICTE 2 À 2
+   6. OFFRES : GRILLE 2x2
    ============================================================ */
 
 .section-offers-block {
@@ -302,12 +271,11 @@ body.dark-mode .section-offers-block {
 
 .offers-grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 60px 20px;
-  box-sizing: border-box;
 }
 
 .service-card {
@@ -317,18 +285,18 @@ body.dark-mode .section-offers-block {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  transition: 0.3s ease;
 }
 
 body.dark-mode .service-card {
   background-color: var(--grey-bg);
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255,255,255,0.08);
 }
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
 }
 
 .card-image-wrapper {
@@ -345,8 +313,6 @@ body.dark-mode .service-card {
 
 .card-content {
   padding: 30px;
-  display: flex;
-  flex-direction: column;
   flex-grow: 1;
 }
 
@@ -356,19 +322,14 @@ body.dark-mode .service-card {
   margin-bottom: 12px;
 }
 
-body.dark-mode .card-content h2 {
-  color: #ffffff;
-}
+body.dark-mode .card-content h2 { color: #ffffff; }
 
 .card-content p {
   font-size: 1rem;
   color: var(--text);
-  margin: 0;
 }
 
-body.dark-mode .card-content p {
-  color: #ccd6f6;
-}
+body.dark-mode .card-content p { color: #ccd6f6; }
 
 /* ============================================================
    7. FOOTER STANDARD
@@ -380,7 +341,7 @@ footer:not(.homepage-footer) {
   background: var(--footer-bg);
   color: #ffffff;
   font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 footer:not(.homepage-footer) a {
@@ -388,7 +349,7 @@ footer:not(.homepage-footer) a {
 }
 
 /* ============================================================
-   8. RESPONSIVE DESIGN (MOBILE & TABLETTE)
+   8. RESPONSIVE DESIGN
    ============================================================ */
 
 @media (max-width: 900px) {
@@ -396,59 +357,5 @@ footer:not(.homepage-footer) a {
     grid-template-columns: 1fr;
     gap: 30px;
     padding: 40px 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .homepage-fullscreen {
-    height: auto;
-    min-height: 100vh;
-    overflow: auto;
-    background: var(--dark-bg);
-    padding: 20px;
-    border-top-width: 1cm;
-    border-bottom-width: 1cm;
-  }
-
-  .main-nav {
-    background: transparent;
-    padding: 0;
-  }
-
-  .footer-buttons {
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-  }
-
-  .footer-buttons a {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .main-nav {
-    display: none;
-    flex-direction: column;
-    gap: 0;
-    width: 100%;
-  }
-
-  .main-nav.open {
-    display: flex;
-    margin-top: 15px;
-    background: rgba(5, 13, 24, 0.9);
-    border-radius: var(--radius);
-  }
-
-  .main-nav a {
-    padding: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
   }
 }
