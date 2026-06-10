@@ -2,75 +2,87 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Offline – RG DATA & FINANCE INC.</title>
+  <title>Our Offers – RG DATA & FINANCE INC.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO -->
-  <meta name="description" content="Offline page of RG DATA & FINANCE INC. Please check your internet connection.">
-  <meta name="author" content="RG DATA & FINANCE INC.">
-
-  <!-- PWA -->
+  <meta name="description" content="Data analysis and economic intelligence services for SMEs, Non-profits, Municipalities, and Government Ministries.">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0A1A2F">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/icon-192.png">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header class="header-secondary">
-  <!-- Permanent network state indicator instead of language switcher -->
+  <button class="hamburger" id="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  <nav class="main-nav" id="mobileMenu">
+    <a href="index-en.html">Home</a>
+    <a href="offers-en.html" class="active">Offers</a>
+    <a href="insights-en.html">Insights</a>
+    <a href="about-en.html">About</a>
+    <a href="contact-en.html">Contact</a>
+  </nav>
   <div class="lang-switch">
-    <span class="offline-badge" style="font-weight: 600; color: var(--gold, #D4AF37);">OFFLINE</span>
+    <a href="offers.html">FR</a> | 
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"><span id="theme-icon">🌙</span></button>
   </div>
-
-  <h1>You are offline</h1>
+  <h1>Our Service Offers</h1>
 </header>
 
-<main>
-  <section class="section-light">
-    <div style="max-width: 600px; margin: 0 auto; text-align: center;">
-      <div style="font-size: 60px; margin-bottom: 20px;">📡</div>
-
-      <p style="font-size: 1.2rem; margin-bottom: 25px; line-height: 1.6;">
-        It appears that your internet connection is currently interrupted.<br>
-        Don't worry — the RG DATA & FINANCE INC. web app remains operational offline.
-      </p>
-
-      <p style="font-size: 1.2rem; margin-bottom: 25px; line-height: 1.6;">
-        However, some pages that haven't been previously opened require an active network link to load.
-      </p>
-
-      <div style="margin-top: 30px;">
-        <a href="index-en.html" class="btn">Return to home page</a>
+<main class="section-offers-block">
+  <div class="offers-grid-container">
+    
+    <!-- SME -->
+    <div class="service-card">
+      <div class="card-image-wrapper">
+        <img src="assets/sme-services.jpg" alt="SME Services" class="offer-image">
+      </div>
+      <div class="card-content">
+        <h2>SME</h2>
+        <p>Business process optimization, performance dashboards, and commercial data valuation to accelerate your business and economic growth.</p>
       </div>
     </div>
-  </section>
 
-  <section class="section-grey">
-    <div style="max-width: 600px; margin: 0 auto;">
-      <h2 style="text-align: center;">Available Features</h2>
-      <ul style="max-width: 420px; margin: 20px auto; padding-left: 20px; line-height: 1.8;">
-        <li>Reviewing previously visited pages</li>
-        <li>Navigating within the core site frame</li>
-        <li>Accessing locally cached application data</li>
-      </ul>
+    <!-- Non-Profits (OBNL) -->
+    <div class="service-card">
+      <div class="card-image-wrapper">
+        <img src="assets/obnl-services.jpg" alt="Non-Profit Services" class="offer-image">
+      </div>
+      <div class="card-content">
+        <h2>Non-Profits (OBNL)</h2>
+        <p>Social impact measurement, donor predictive analysis, and budgetary resource optimization driven by a data architecture tailored to your mission.</p>
+      </div>
     </div>
-  </section>
+
+    <!-- Municipal -->
+    <div class="service-card">
+      <div class="card-image-wrapper">
+        <img src="assets/municipal-services.jpg" alt="Municipal Services" class="offer-image">
+      </div>
+      <div class="card-content">
+        <h2>Municipal</h2>
+        <p>Advanced territorial analysis, citizen management indicators, and data modeling for the strategic deployment of smart local infrastructure.</p>
+      </div>
+    </div>
+
+    <!-- Government Ministries -->
+    <div class="service-card">
+      <div class="card-image-wrapper">
+        <img src="assets/ministerial-services.jpg" alt="Government Ministries Services" class="offer-image">
+      </div>
+      <div class="card-content">
+        <h2>Government Ministries</h2>
+        <p>Public data governance, strategic decision support, and data-driven macroeconomic models meeting strict administrative and state standards.</p>
+      </div>
+    </div>
+
+  </div>
 </main>
 
 <footer>
   © 2026 RG DATA & FINANCE INC. – Economic Analysis & Data Intelligence<br>
-  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> |
-  <a href="legal-notice-en.html">Legal Notice</a>
+  <a href="mailto:contact@rgdatafinance.com">contact@rgdatafinance.com</a> | <a href="legal-notice-en.html">Legal Notice</a>
 </footer>
 
-<!-- Federated Global Script Attachment -->
 <script src="app.js"></script>
-
 </body>
 </html>
