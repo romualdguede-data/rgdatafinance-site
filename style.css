@@ -61,28 +61,29 @@ a:hover { text-decoration: underline; }
   width: 100%;
   box-sizing: border-box;
 
-  /* ARRIÈRE‑PLAN SUPPRIMÉ */
   background: var(--dark-bg);
 
   text-align: center;
   position: relative;
-  overflow: hidden;
+
+  /* IMPORTANT : overflow hidden supprimé pour éviter les overlays bloquants */
+  overflow: visible;
 
   border-top: 2cm solid var(--footer-bg);
   border-bottom: 2cm solid var(--footer-bg);
 }
 
-/* IMPORTANT : suppression du pseudo‑élément qui bloquait les clics */
-/* (il recouvrait toute la page et empêchait les boutons d'être cliqués) */
+/* SUPPRESSION TOTALE DU FILTRE BLOQUANT */
 .homepage-fullscreen::before {
   content: none !important;
+  display: none !important;
 }
 
 /* Bloc Haut */
 .homepage-fullscreen header {
   width: 100%;
   max-width: 900px;
-  z-index: 10;
+  z-index: 5;
   margin-top: 5px;
   display: flex;
   flex-direction: column;
@@ -98,7 +99,7 @@ a:hover { text-decoration: underline; }
   flex-grow: 1;
   width: 100%;
   max-width: 1000px;
-  z-index: 10;
+  z-index: 5;
   padding: 10px 0;
 }
 
@@ -128,8 +129,10 @@ a:hover { text-decoration: underline; }
 .homepage-footer {
   width: 100%;
   max-width: 900px;
-  z-index: 10;
+  z-index: 20; /* FORCE LES BOUTONS AU-DESSUS DE TOUT */
   margin-bottom: 5px;
+  position: relative;
+  pointer-events: auto;
 }
 
 .footer-buttons {
@@ -139,6 +142,8 @@ a:hover { text-decoration: underline; }
   gap: 25px;
   margin-bottom: 15px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 30; /* GARANTIT LES CLICS */
 }
 
 .footer-buttons a {
@@ -149,6 +154,8 @@ a:hover { text-decoration: underline; }
   letter-spacing: 0.5px;
   transition: var(--transition);
   min-width: 255px;
+  position: relative;
+  z-index: 40; /* CLICS PRIORITAIRES */
 }
 
 .cta-primary {
@@ -207,6 +214,7 @@ a:hover { text-decoration: underline; }
   backdrop-filter: blur(5px);
   width: fit-content;
   margin: 0 auto;
+  z-index: 10;
 }
 
 .main-nav a {
@@ -220,18 +228,6 @@ a:hover { text-decoration: underline; }
 
 .main-nav a:hover,
 .main-nav a.active {
-  color: var(--gold);
-}
-
-.lang-switch {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  z-index: 15;
-}
-
-.lang-switch a {
-  font-weight: 600;
   color: var(--gold);
 }
 
