@@ -49,7 +49,7 @@ a {
 a:hover { text-decoration: underline; }
 
 /* ============================================================
-   3. ACCUEIL : VERSION SANS ARRIÈRE‑PLAN (CLICS RÉTABLIS)
+   3. ACCUEIL : CLICS RÉTABLIS ET ÉQUILIBRE DES BLOCS
    ============================================================ */
 
 .homepage-fullscreen {
@@ -60,47 +60,38 @@ a:hover { text-decoration: underline; }
   height: 100vh;
   width: 100%;
   box-sizing: border-box;
-
   background: var(--dark-bg);
-
   text-align: center;
   position: relative;
+  overflow: hidden;
 
-  /* IMPORTANT : overflow hidden supprimé pour éviter les overlays bloquants */
-  overflow: visible;
-
+  /* Encadrés fixes de 2cm */
   border-top: 2cm solid var(--footer-bg);
   border-bottom: 2cm solid var(--footer-bg);
 }
 
-/* SUPPRESSION TOTALE DU FILTRE BLOQUANT */
-.homepage-fullscreen::before {
-  content: none !important;
-  display: none !important;
-}
-
-/* Bloc Haut */
+/* Bloc Haut (Menu + Titre principal) */
 .homepage-fullscreen header {
   width: 100%;
   max-width: 900px;
-  z-index: 5;
+  z-index: 10;
   margin-top: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Contenu central */
+/* CORRECTION CLICS : Nettoyage des comportements d'étirement conflictuels */
 .hero-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-grow: 1;
   width: 100%;
   max-width: 1000px;
-  z-index: 5;
-  padding: 10px 0;
+  z-index: 5; /* Légèrement inférieur pour ne jamais couvrir le footer-buttons */
+  padding: 20px 0;
 }
 
 .hero-content .tagline {
@@ -108,7 +99,7 @@ a:hover { text-decoration: underline; }
   font-weight: 700;
   color: #ffffff;
   margin-top: 15px;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
@@ -120,19 +111,18 @@ a:hover { text-decoration: underline; }
   font-size: 1.4rem;
   color: var(--gold);
   font-weight: 600;
-  margin-top: auto;
+  margin-top: 20px;
   margin-bottom: 20px;
   text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
-/* Bloc Bas */
+/* CORRECTION CLICS : Priorité maximale accordée au conteneur des boutons */
 .homepage-footer {
   width: 100%;
   max-width: 900px;
-  z-index: 20; /* FORCE LES BOUTONS AU-DESSUS DE TOUT */
+  z-index: 20; /* Passe au premier plan absolu */
   margin-bottom: 5px;
   position: relative;
-  pointer-events: auto;
 }
 
 .footer-buttons {
@@ -142,8 +132,6 @@ a:hover { text-decoration: underline; }
   gap: 25px;
   margin-bottom: 15px;
   flex-wrap: wrap;
-  position: relative;
-  z-index: 30; /* GARANTIT LES CLICS */
 }
 
 .footer-buttons a {
@@ -155,7 +143,7 @@ a:hover { text-decoration: underline; }
   transition: var(--transition);
   min-width: 255px;
   position: relative;
-  z-index: 40; /* CLICS PRIORITAIRES */
+  z-index: 25; /* Garantit l'interaction sur l'élément de lien hypertexte */
 }
 
 .cta-primary {
@@ -163,7 +151,10 @@ a:hover { text-decoration: underline; }
   color: #ffffff !important;
   box-shadow: 0 4px 12px rgba(0, 119, 204, 0.3);
 }
-.cta-primary:hover { background-color: var(--primary-dark); }
+.cta-primary:hover { 
+  background-color: var(--primary-dark); 
+  text-decoration: none;
+}
 
 .cta-secondary {
   background-color: rgba(5, 13, 24, 0.7);
@@ -174,6 +165,7 @@ a:hover { text-decoration: underline; }
 .cta-secondary:hover {
   background-color: var(--gold);
   color: var(--footer-bg) !important;
+  text-decoration: none;
 }
 
 /* ============================================================
@@ -214,7 +206,6 @@ a:hover { text-decoration: underline; }
   backdrop-filter: blur(5px);
   width: fit-content;
   margin: 0 auto;
-  z-index: 10;
 }
 
 .main-nav a {
@@ -228,6 +219,19 @@ a:hover { text-decoration: underline; }
 
 .main-nav a:hover,
 .main-nav a.active {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.lang-switch {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 15;
+}
+
+.lang-switch a {
+  font-weight: 600;
   color: var(--gold);
 }
 
