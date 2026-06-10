@@ -1,5 +1,5 @@
 /* ============================================================
-   VARIABLES GLOBALES ET THÈMES
+   1. VARIABLES GLOBALES ET THÈMES
    ============================================================ */
 
 :root {
@@ -24,7 +24,7 @@ body.dark-mode {
 }
 
 /* ============================================================
-   STYLES DE BASE
+   2. STYLES DE BASE
    ============================================================ */
 
 body {
@@ -51,98 +51,105 @@ a:hover {
 }
 
 /* ============================================================
-   ACCUEIL : LOGO EN PLEIN ÉCRAN / FOND D'ÉCRAN + ENCADRÉ BLEU 2CM
+   3. ACCUEIL : ALIGNEMENTS CORRIGÉS ET HARMONISÉS
    ============================================================ */
 
 .homepage-fullscreen {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; /* Distribue l'espace entre le haut et le bas */
   align-items: center;
   height: 100vh;
   width: 100%;
   box-sizing: border-box;
   
-  /* LOGO EN FOND D'ÉCRAN ET PLEIN ÉCRAN */
+  /* Logo en fond d'écran complet */
   background-image: url("assets/logo.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; /* Couvre tout l'écran */
+  background-size: cover;
   
   text-align: center;
   position: relative;
   overflow: hidden; 
 
-  /* ENCADRÉ BLEU DE 2CM EN HAUT ET EN BAS VIA DES BORDURES STRICTES */
+  /* Encadré bleu de 2cm en haut et en bas */
   border-top: 2cm solid var(--footer-bg);
   border-bottom: 2cm solid var(--footer-bg);
 }
 
-/* Filtre de lisibilité optionnel directement sur l'accueil */
+/* Filtre d'assombrissement pour maximiser la lisibilité du texte */
 .homepage-fullscreen::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(10, 26, 47, 0.65); /* Assombrit le fond pour faire ressortir les textes */
+  background: rgba(10, 26, 47, 0.65); 
   z-index: 1;
 }
 
-/* Menu haut - Accueil */
+/* REQUIS 2 : Bloc Haut (Navigation remontée au maximum + Titre juste en dessous) */
 .homepage-fullscreen header {
   width: 100%;
   max-width: 900px;
   z-index: 10;
-  margin-top: 15px;
+  margin-top: 5px; /* Colle la navigation au plus près de la bande supérieure */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Zone centrale (Titres épurés car le logo est en fond d'écran) */
+/* Conteneur principal au centre */
 .hero-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-grow: 1;
   width: 100%;
   max-width: 1000px;
   box-sizing: border-box;
   z-index: 10;
+  padding: 10px 0;
 }
 
+/* REQUIS 2 : Titre principal monté juste sous le menu */
 .hero-content .tagline {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-top: 15px; /* Position idéale sous les onglets */
+  margin-bottom: 0;
   text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
 
-/* Suppression de l'ancienne boîte conteneur d'image car elle est en background */
+/* Cache l'ancienne boîte conteneur car l'image occupe le fond d'écran complet */
 .hero-content .logo-container {
   display: none; 
 }
 
+/* REQUIS 1 : Sous-titre descendu juste au-dessus des boutons d'action */
 .hero-content .subtitle {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--gold);
   font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 20px;
+  margin-top: auto; /* Pousse le texte vers le bas */
+  margin-bottom: 20px; /* Espace équilibré avant les boutons */
   text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
-/* Zone basse - Boutons d'action */
+/* REQUIS 1 : Bloc Bas (Boutons descendus au plus bas près de la bande inférieure) */
 .homepage-footer {
   width: 100%;
   max-width: 900px;
   z-index: 10;
-  margin-bottom: 15px;
+  margin-bottom: 5px; /* Rapproche le bloc de la bande inférieure */
 }
 
 .footer-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
   margin-bottom: 15px;
   flex-wrap: wrap;
 }
@@ -155,7 +162,7 @@ a:hover {
   letter-spacing: 0.5px;
   transition: var(--transition);
   text-align: center;
-  min-width: 250px;
+  min-width: 255px;
   box-sizing: border-box;
 }
 
@@ -171,7 +178,7 @@ a:hover {
 }
 
 .cta-secondary {
-  background-color: rgba(5, 13, 24, 0.7); /* Fond semi-transparent pour opacité pro */
+  background-color: rgba(5, 13, 24, 0.7); 
   color: var(--gold) !important;
   border: 2px solid var(--gold);
   backdrop-filter: blur(4px);
@@ -184,17 +191,17 @@ a:hover {
 }
 
 .footer-credits {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.85rem;
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 .footer-credits a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* ============================================================
-   EN-TÊTE DES PAGES SECONDAIRES
+   4. EN-TÊTE DES PAGES SECONDAIRES
    ============================================================ */
 
 .header-secondary {
@@ -219,7 +226,7 @@ a:hover {
 }
 
 /* ============================================================
-   NAVIGATION COMMUNE (ONGLETS)
+   5. NAVIGATION COMMUNE
    ============================================================ */
 
 .main-nav {
@@ -227,7 +234,7 @@ a:hover {
   justify-content: center;
   gap: 35px;
   padding: 12px 25px;
-  background: rgba(5, 13, 24, 0.6); /* Fond design pour lisibilité sur image */
+  background: rgba(5, 13, 24, 0.6); 
   border-radius: var(--radius);
   backdrop-filter: blur(5px);
   width: fit-content;
@@ -283,7 +290,7 @@ a:hover {
 }
 
 /* ============================================================
-   OFFRES : DISPOSITION PROFESSIONNELLE EN GRILLE STRICTE 2 À 2
+   6. OFFRES : DISPOSITION EN GRILLE STRICTE 2 À 2
    ============================================================ */
 
 .section-offers-block {
@@ -295,7 +302,7 @@ body.dark-mode .section-offers-block {
 
 .offers-grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Alignement côte à côte 2 à 2 */
+  grid-template-columns: repeat(2, 1fr); 
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
@@ -364,7 +371,7 @@ body.dark-mode .card-content p {
 }
 
 /* ============================================================
-   FOOTER STANDARD DES PAGES SECONDAIRES
+   7. FOOTER STANDARD
    ============================================================ */
 
 footer:not(.homepage-footer) {
@@ -381,12 +388,12 @@ footer:not(.homepage-footer) a {
 }
 
 /* ============================================================
-   RESPONSIVE DESIGN (MOBILE & TABLETTE)
+   8. RESPONSIVE DESIGN (MOBILE & TABLETTE)
    ============================================================ */
 
 @media (max-width: 900px) {
   .offers-grid-container {
-    grid-template-columns: 1fr; /* 1 colonne uniquement sur mobile */
+    grid-template-columns: 1fr;
     gap: 30px;
     padding: 40px 20px;
   }
